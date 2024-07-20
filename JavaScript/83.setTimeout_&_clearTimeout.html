@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        // ! setTimeout me function sirf ek baar call hota hai 
+
+        /*
+        setTimeout ka use jab javascript ki help se koi Animation ya koi or functionality sirf 1 time run karni ho tab hota hai 
+        setTimeout(functionName, millisecond)
+        yaha pe ham jo time dege use time ke baad hamne jo function diya hoga vo 1 baar call hoga
+        1000 millisecond = 1 second  
+
+        or yadi hame timing se pehli Animation ko stop karna chahte hai to uske liye aata hai clearTimeout() method 
+        */
+        var id = setTimeout(anim ,5000)
+
+        // yaha pe hamen id name ke variable me apne Animation function ko store karva liya hai
+        // to  yaha pe 5 second ke baad anim name ka function 1 time call hoga
+
+        function anim()
+        {
+            var target = document.getElementById("test");
+            target.style.width = "500px";
+        }
+
+        function stopAnimation()
+        {
+            clearTimeout(id);
+            //yadi ham 5 second ke pehle stop animation button pe click kar te hai to hamara animation stop ho jaye ga
+        }
+        
+    </script>
+
+<style>
+    #test{
+        width: 150px;
+        height: 150px;
+        background-color: red;
+    }
+</style>
+
+</head>
+
+<body> 
+ 
+    <div id="test"></div>
+
+    <button onclick="stopAnimation()">Stop Animation</button>
+
+</body>
+
+</html>
+	 

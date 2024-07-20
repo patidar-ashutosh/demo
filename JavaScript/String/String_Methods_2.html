@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        // string ka index 0 se start hota hai 
+
+        var str = "JavaScript is a GREAT is Language";
+
+        // charAt method hamne jo position(index) ki value find ki hogi uska character hame return kare ga 
+        /* Syntax :
+        charAt(index) */
+        // var a = str.charAt(3);
+
+
+        // charCodeAt method hamne jo position(index) diya hoga use postion pe hamare string me jo word hoga use ka hame ASCII code return kare ga
+        /* Syntax :
+        charCodeAt(index) */
+        // var a = str.charCodeAt(1);
+
+
+        // fromCharCode method ka use karne ke liye hame koi string ki jarurt nahi hoti hai
+        // fromCharCode method me ham ASCII code likhte or vo hame use code pe vo word hoga vo return kare ga 
+        /* Syntax :
+        String.fromCharCode()
+        String.fromCharCode(num1)
+        String.fromCharCode(num1, num2)
+        String.fromCharCode(num1, num2, … numN) */
+        // var a = String.fromCharCode(65);
+        // var a = String.fromCharCode(69, 99, 65);
+
+
+        // concat method ka use 2 ya usse jyada string ko jodne ke liye yani ki merge karne ke liye hota hai
+        /* Syntax :
+        concat()
+        concat(str1)
+        concat(str1, str2)
+        concat(str1, str2, ... strN) */
+        // var str2 = "hello";
+        // var a = str.concat(str2);
+        // var str3 = "world";
+        // var a = str.concat(str2,str3);
+        // var a = str.concat(str2,str3,"new string added");
+
+
+        // split method string ko array me convert karke deta hai
+        // split method me ham parameter jo character dete hai wo uski jaga pe hai , deta hai 
+        /* Syntax :
+        split(separator)
+        split(separator, limit (means size of the array that we want)) */
+        // var a = str.split("i");
+        // var a = str.split(" ", 2);
+
+
+        // repeat method me ham uske parameter me jitne number dege wo string ko utne time repeat karde ga
+        /* Syntax :
+        repeat(count) */
+        // var a = str.repeat(3);
+
+
+        // slice method hame kisi ek index se lekar koi dusri index tak ki value ko nikhal ke ek new string create karke deta hai
+        /* Syntax :
+        slice(indexStart)
+        slice(indexStart, indexEnd) */
+        // var a = str.slice(1,4);
+        /* hame 1 index se lekar 3 index taki value ka ek string create karke dega
+        hamne yaha pe 4 likha hai yani ki hame 4 index tak ki value chahiye 4 nahi chahiye */
+        // var a = str.slice(2); // ye hame 2 index se lekar baki ki sabhi value ka string create karke dega
+        // NOTE : ham slice method me negative value bhi de sakte hai
+        // var str = "JavaScript is a GREAT is Language";
+        //                                       -3-2-1 
+        // var a = str.slice(-3,-1); // is me ham - mains index bhi de sakte hai
+
+
+        // same work like slice
+        // NOTE : substring method me ham negative value nahi de sakte hai
+        /* Syntax:
+        substring(indexStart)
+        substring(indexStart, indexEnd) */
+        // var a = str.substring(7);
+        // var a = str.substring(3,7);
+
+
+        // toString kisi bhi type ke variable ko string me convert kar deta hai 
+        /* Syntax :
+        toString() */
+        // var s = 50;
+        // var a = s.toString(); 
+        // document.write(typeof a);
+
+
+        // valueOf method ka use string ko print karne ke liye hota hai same like document.write
+        /* Syntax :
+        valueOf() */
+        // var a = str.valueOf(); 
+
+
+        /* padEnd method ka use hame string me end me kuch add karna ho to hota hai
+        lekin padEnd me ham parameter me length dete hai ki hamari string itni length ki ho gaye
+        tab tak wo di gai value ko add karta rahe fir stop ho jaaye */
+        /* Syntax:
+        padEnd(targetLength, padString) */
+        // var a = str.padEnd(40, "$");
+
+
+        /* padStart method ka use hame string me start me kuch add karna ho to hota hai
+        lekin padStart me ham parameter me length dete hai ki hamari string itni length ki ho gaye
+        tab tak wo di gai value ko add karta rahe fir stop ho jaaye */
+        /* Syntax :
+        padStart(targetLength, padString) */
+        // var a = str.padStart(40, "$");
+
+
+        // substr method hame kise index se le kare koi hamne jitne number diya hoga unte number ka ek new string create karke deta hai
+        // 1st paramenter me kahase start karna hai or 2nd parameter me kitne character lene hai wo 
+        // var a = str.substr(2,7); 
+
+        document.write(a);
+ 
+    </script> 
+
+</head>
+
+<body>
+    
+</body>
+
+</html>
+	 

@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        /*
+        jo hamara URL baar Hota hai uski kisi value ko ham GET ya SET karna chah te hai tab ham use karte hai Location Object
+
+        Location Object Properties
+        hash
+        host
+        hostname
+        origin
+        pathname
+        port
+        protocol
+        search
+        
+        */
+
+        document.write("location :- "+ location);
+        document.write("<br>");
+        document.write("host :- "+ location.host);
+        document.write("<br>");
+        document.write("hostname :- "+ location.hostname);
+        document.write("<br>");
+        document.write("origin :- "+ location.origin);
+        document.write("<br>");
+        document.write("pathname :- "+ location.pathname);
+        document.write("<br>");
+        document.write("port :- "+ location.port);
+        document.write("<br>");
+        document.write("href :- "+ location.href);
+        document.write("<br>");
+        document.write("protocol :- "+ location.protocol);
+        document.write("<br>");
+        document.write("search :- "+ location.search);
+        document.write("<br>");
+        document.write("hash :- "+ location.hash);
+        document.write("<br>");
+
+
+        /*
+
+        Location Object Methods
+
+        Assign() => jab ham url baar me koi new value assign karna chal te hai tab ham assign method ka use kare ge
+        Reload() => jab ham page ko refresh karke reload karna chah te hai tab ham reload method ka use kare ge
+        Replace() => replace same assign ke jesa work karta hai
+        replace history ke sabhi tab ko delete kar deta hai yanki ki ham back nahi ja sakte hai
+        */
+
+
+    </script> 
+
+</head>
+
+<body>
+
+    <button onclick="myfun()">click</button>
+    <button onclick="reload()">reload</button>
+    <button onclick="assign()">assign</button>
+    <button onclick="replace()">replace</button>
+    
+    <script>
+        function myfun()
+        {
+            location.href = "https://www.google.co.in/";
+            //is tarike se ham sabhi Properties ki value ko SET bhi kar sakte hai
+        }
+
+        function reload()
+        {
+            location.reload();
+        }
+        function assign()
+        {
+            location.assign("https://www.google.co.in/");
+        }
+        function replace()
+        {
+            location.replace("https://www.google.co.in/");
+        }
+
+    </script>
+</body>
+
+</html>
+	 

@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        /*
+        resizeBy Or resizeTo Method ka use open ki gai new window ki height or width ko change karne ke liye hota hai 
+        resizeBy or resizeTo me ek difference hai ki
+        
+        resizeTo hai wo ham jo new height or width dete hai wo unti page pe apply kar deta hai
+        ex:- pehle height or width the 200 , 200 
+        ab resizeTo method me hamne height or width diya 500,500 to page ka size 500,500 ho jaye ga 
+
+        lekin resizeBy hai wo uski jo current height or width hai wo or hamne ko new height or width di hai wo dono ko combin karne page pe apply hota hai 
+        ex:- pehle height or width the 200 , 200 
+        ab resizeBy method me hamne height or width diya 500,500 to pehle ka 200+500 hoke page ka size 700,700 ho jaye ga 
+        
+        */
+
+        // mywindow.resizeTo(width,height);
+        // mywindow.resizeBy(width,height);
+
+
+        // ! resizeBy Or resizeTo Method method tabhi work kare ge jab ham apni website ke page ko he move kar rahe hoje
+        // ! yadi ham kisi or ki website ko move kare ge to wo work nahi kare ge
+        
+        //yadi hamne window ko open karte time bhi height or width diya hai fir bhi resizeBy Or resizeTo method work kare gi
+
+    </script> 
+
+</head>
+
+<body>
+    
+    <button onclick="openWindow()">Open Window</button>
+    <button onclick="resizeToWindow()">resizeTo Window</button>
+    <button onclick="resizeByWindow()">resizeBy Window</button>
+
+    <script>
+        var mywindow;
+        function openWindow()
+        {
+            mywindow = window.open("" , "" ,"width=200px , height=200px , left=200px , top=200px");
+            mywindow.document.write("this is my new tab");
+        }
+        function resizeToWindow()
+        {
+            mywindow.resizeTo(500,500);
+            mywindow.focus();
+        }
+        function resizeByWindow()
+        {
+            mywindow.resizeBy(500,500);
+            mywindow.focus();
+        }
+    </script>
+
+</body>
+
+</html>
+	 

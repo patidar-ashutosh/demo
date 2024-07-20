@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript</title>
+
+    <script>
+
+        var arr = [
+            ["ashu",17,"male","mcom"],
+            ["pintu",20,"female","bcom"],
+            ["vinod",19,"male","ba"],
+            ["raju",18,"female","bca"]
+        ]
+
+        document.write(arr);
+        document.write("<br>");
+        for(var a=0; a<4; a++)
+        {
+            for(var b=0; b<4; b++)
+            {
+                document.write(arr[a][b]);
+            }
+                document.write("<br>");
+        }
+
+
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+
+        // --------------------------------------------
+
+
+        var arr2 = [
+            ["ashu",17,"male","mcom"],
+            ["pintu",20,"female","bcom"],
+            ["vinod",19,"male","ba"],
+            ["raju",18,"female","bca"],
+            ["raju",18,"female","bca"]
+        ]
+
+        document.write("<br>");
+
+        document.write(arr2.length); // lenght method che je array ni lenth bata ve che
+        document.write("<table border='1px'>");
+        for(var a=0; a < arr2.length; a++)
+        {
+            document.write("<tr>");
+            for(var b=0; b < arr2[a].length; b++)
+            {
+                document.write("<td>" +arr2[a][b] + "</td>");
+            }
+            document.write("</tr>");
+            
+        }
+        document.write("</table'>");
+
+
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

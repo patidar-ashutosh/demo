@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript</title>
+
+    <script>
+        
+        // yadi hame kisi array ko empty karna ho to hamare pass 4 ways hai
+
+        // 1. directly say arrayName = [];
+        // example
+        let number = [1,354,24,'a',"age"];
+        console.log(number);
+        number = [];
+        console.log(number);
+
+        // lekin is method me ek problem hai ki ye sirt array ko empty bana ta hai lekin uski values ko delete nahi karta hai
+        // example
+        /* jese ki ham is array a ko array b me copy karte hai or fir array a ko empty karte hai
+        to hamara a and b both array empty ho jana chahiye lekin sirf a array he empty hoga */
+        let a = [1,4,2,6,3];
+        let b = a;
+        a = [];
+        console.log(a);
+        console.log(b);
+
+        // NOTE : is liye ham is way ka use nahi karte hai
+
+        // 2. using length property (MOST USEFULL WAY)
+        let x = [2,'a',2,6,236,223];
+        x.length = 0;
+        console.log(x);
+
+        // 3. using splice method
+        let num = ['a',3,7,2,5];
+        num.splice(0,num.length);
+        console.log(num);
+
+        // 4. using pop with loop
+        let y = ['a',3,7,2,5];
+        let length = y.length;
+        for(let index=0; index<length; index++){
+            y.pop();
+        }
+        console.log(y);
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

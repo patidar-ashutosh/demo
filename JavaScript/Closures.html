@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript</title>
+
+    <script>
+
+        // What Is Closures ?
+        // Closures ek function hota hai joki uske lexical environment ke saath bind hoke hame milata hai jise Closures kehte hai
+        // A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment)
+        /* When a function is defined in another function, the inner function has access to the outer function’s variables.
+        This behavior is called lexical scoping. */
+        // Example
+        function init() {
+            var name = "Mozilla";
+            function displayName() {
+                // displayName() is the inner function, that forms the closure
+                console.log(name);
+            }
+            return displayName;
+        }
+
+        let ans = init();
+        ans();
+
+        // normal function me kya hota hai ki jab wo call ho jata hai to fir uske variables hai wo destory(delete) ho jate hai
+        /*
+        lekin yaha pe ham ne kya kiya ek ki ek name variable create kiya hai
+        fir ek displayName function create kiya hai jisme hamne name variable ko print karva diya hai
+        fir ham displayName function ko return kar rahe hai
+
+        last me hamne init function ko call kiya hai or use ans variable me store kar diya hai
+        to jo ans variable hai usme ke function store ho jaaye ga
+        fir hamne init function ko call karva diya hai
+
+        to yaha pe kya hoga ki jo displayName function hai wo as a closure ki tara work kare ga
+        yani ki wo usme hamne name variable ko print karvaya hai wo destory nahi hoga
+        yaha jab return hoga to function uske lexical environment ko bhi return kare ga
+        yani ki jo name variable hai wo bhi ek references ki tara return hoga
+        */
+
+        // Example 2
+        /*
+        function init() {
+            var name = "Mozilla";
+            function displayName() {
+                // displayName() is the inner function, that forms the closure
+                console.log(name);
+            }
+            name = "raja";
+            return displayName;
+        }
+
+        let ans = init();
+        ans();
+        */
+
+        // yaha pe raja print hoga kyo ki jo closure hote hai usme variable ki value pass nahi hoti hai
+        // usme variable ka references pass hota hai
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        // toString method ka use array ko string me convert karne ke liye hota hai
+        /* Syntax :
+        toString() */
+        var a = ["sanjay","aman", "rehman","rahul"];
+        document.write(a+"<br><br>");
+        var s = a.toString();
+        document.write(s+"<br><br>");
+
+        // valueOf method ka use array ko print karne ke liye hota hai same like document.write
+        /* Syntax :
+        valueOf() */
+        document.write(a.valueOf()+"<br><br>");
+
+        // fill method ka use array me kisi ek index se lekar kisi dusri index tak koi same value(static value) replace karne ke liye hota hai
+        /* Syntax :
+        fill(value)
+        fill(value, start)
+        fill(value, start, end) */
+        var b = ["sanjay","aman", "rehman","rahul"];
+        document.write(b+"<br><br>");
+        b.fill("Ram");
+        document.write(b+"<br><br>");
+        b.fill("vijay", 1);
+        document.write(b+"<br><br>");
+        b.fill("dinesh", 1,3);
+        document.write(b+"<br><br>");
+
+
+    </script>
+
+</head>
+
+<body>
+    
+</body>
+
+</html>
+	 

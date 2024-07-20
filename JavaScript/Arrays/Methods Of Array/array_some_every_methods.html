@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        // some method ka use karne ke liye hame ek function create karna padta hai
+        // some method array ki sabhi value ko funtion ki condition se check karne ke liye use hota hai
+        // some method return me true ya false hi deta hai
+        // some method array ki sabhi value ko hamne jo function me condition diya hoga uski koi ek value se bhi match hota hai to true retun dega
+        // some method array ki sabhi value ko hamne jo function me condition diya hoga use match nahi hota to false return kare ga
+        /* Syntax :
+        some(callbackFn)
+        some(callbackFn, thisArg) */
+
+        let ages = [10,20,15,9];
+        document.write(ages+"<br><br>");
+
+        let b = ages.some(checkAge);
+        document.write(b+"<br><br>");
+
+        function checkAge(age)
+        {
+            return age >= 18;
+        }
+
+        // every method bhi some jesa hee work karta hai 
+        // difference itna hai ki every method array ki sabhi value ko hamne jo function me condition diya hai
+        // usse yadi value match hogi to true return kare ga nahi to false return kare ga
+        /* Syntax :
+        every(callbackFn)
+        every(callbackFn, thisArg) */
+        let arr = [10,20,15,9];
+        document.write(arr+"<br><br>");
+
+        let c = arr.every(checkAge);
+        document.write(c+"<br><br>");
+
+        function checkAge(ages)
+        {
+            return ages >= 18;
+        }
+
+        // IN SHORT
+        // some me koi ek value match hona chahiye && every me sabhi value match honi chahiye
+
+    </script>
+
+</head>
+
+<body>
+    
+</body>
+
+</html>
+	 

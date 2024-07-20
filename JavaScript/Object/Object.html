@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        /* What is Object?
+        object yani ki jab koi multiple variables ek dusre ke saath linked ho tab ham ek us variables ka ek object create kar dete hai.
+        ek Object ke pass multiple property and behaviour(function) hote hai. */
+
+        /* object ko ham direct array ke jest print nahi kar sakte hai 
+        object ko print karne ki liye object ka name .(dot) uski property ka name ex:- a.firstName */
+
+        // difference between array object 
+        // var array = [10,20,30];
+
+        // var object = {
+        //     fname : 'ashutosh',
+        //     lname : 'patel'
+        // }
+
+        // object create karne ke liye ham {} ka use karte hai
+        // object me hame property(name) or value dono declare karte hai
+        // ex :- fname : 'ashu' fname ko property ya key and ashu ko value bola jaata hai 
+        // array me value index pe store hoti hai but object me value ham property(name) me store hoti hai
+        // object me ham array bhi create kar sakte hai
+        // ham object ke andar bhi ek object create kar sakte hai 
+        // object me ham multiple function bhi create kar sakte hai.
+        // object me jo functions create karte hai usse method bola jaata hai.
+        // Object me jo property and values hoti hai usse key & values pairs bhi kehte hai.
+
+        // ! object ke property name me space nahi hona chahiye 
+
+        var a = {
+            fname : 'pintu',
+            lname : 'patel',
+            age : 19,
+            // create array
+            favMovie : ["kfg","dj","sholay"],
+            // object me bhi object
+            living : {
+                // 'city' : 'hmt',
+                // 'country' : 'India'
+                city : 'hmt',
+                country : 'India'
+            } ,
+            // create method
+            salary : function()
+            {
+                return 25000;
+            },
+            fullname : function()
+            {
+                return this.fname + " "+ this.lname;
+                // this hai to refer karta hai hamre variable a ko
+                //this ka matlab hai ki ye to fname property hai vo jo hamra a variable hai uski hai
+                // yani ki a.fname
+            },
+
+            // another way to create method
+            getAddress(){
+                // return a.living['city'] + " " + a.living['country'];
+                return a.living.city + " " + a.living.country;
+            }
+
+        }
+
+        // object ko ham console me pura print kar sakte 
+        console.log(a);
+
+        /* Access The Object Property
+        Object ki property ko ham 2 way me access kar sakte hai
+        1. dot notation (.)
+        2. using square bracket [] */
+
+        // ! object ko direct document.write(a);  ese print nahi kar sakte hai
+        //uske liye objectname.propertyname
+        document.write(a.fname + "<br>");
+        //object ko ham [''] me bhi print kar sakte hai or .(dot) se bhi
+        document.write(a['fname'] + "<br>");
+        document.write(a.lname + "<br>");
+        document.write(a.age + "<br>");
+        document.write(a.living.city + "<br>");
+        document.write(a.living.country + "<br>");
+        document.write(a.favMovie + "<br>");
+        document.write(a.favMovie[0] + "<br>");
+        document.write(a.favMovie[1] + "<br>");
+        document.write(a.favMovie[2] + "<br>");
+        document.write(a.salary() + "<br>");
+        document.write(a.fullname() + "<br>");
+
+        document.write(a.getAddress() + "<br>");
+
+
+
+        // Dynamic Nature Of Object
+        /* JavaScript me jo Object hote hai wo dynamic nature ke hote hai
+        yani ki kisi existing object me ham koi new property add bhi kar sakte hai
+        or kisi old property ko update ya remove bhi kar sakte hai. */
+
+        // Add new Property in existing object
+        // add using dot notation
+        a.color = "Red";
+        // add using square bracket notation
+        a['hobby'] = "Cricket";
+        console.log(a);
+
+        // Remove Property for existing object
+        delete a.color;
+        console.log(a);
+
+
+
+        // Find the key is present in Object
+        // 1st way
+        if('lname' in a){
+            document.write("YES" + "<br>");
+        }
+        else{
+            document.write("NO" + "<br>");
+        }
+
+        if('information' in a){
+            document.write("YES" + "<br>");
+        }
+        else{
+            document.write("NO" + "<br>");
+        }
+
+        // 2nd way
+        if(a.hasOwnProperty('lname')){
+            document.write("YES" + "<br>");
+        }
+        else{
+            document.write("NO" + "<br>");
+        }
+        
+    </script> 
+
+</head>
+
+<body>
+    
+</body>
+
+</html>
+	 

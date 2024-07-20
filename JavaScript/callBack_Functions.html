@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        /*
+        what is callback-function (callback-function ko predicate function bhi kehte hai)
+        callback-function yani ki ek main function hota hai jisme hamare pass ek or function hota hai joki hame kuch task
+        karke deta hai or usi function ko callback-function kehte hai
+
+        A callback function is a function passed into another function as an argument, which is then invoked inside the
+        outer function to complete some kind of routine or action.
+        */
+
+        // Why we use callback-function
+        /* ham callback-function ka use object ya kahe ki reference type ki value ko search karne ke liye karte hai
+        kyo ki jab hame object me kuch bhi search karna ho to ham find() method ka use karte hai
+        or find() method ke parameter me ham callback-function likhte hai */
+
+        // How to write callback-function
+        /* callback-functionki likhne ke liye ham find() method ka use karte hai
+        jisme ham find() method ke parameter me callback-function ka logic likhte hai */
+
+        // Example
+        let courses = [
+            {no:1, name:'js'},
+            {no:2, name: 'c++'}
+        ];
+
+        let result = courses.find(function(courses){
+            return courses.name == 'js';
+        });
+
+        console.log(result);
+        
+        // NOTE : isi function ko ham Arrow function ka use karke bhi likh sakte hai
+
+        // Arrow Function likhe ne ki liye ham => is arrow ka use karte hai
+        // Example
+        
+        // let result = courses.find( courses => courses.name == 'js');
+        
+
+    
+    </script>
+
+</head>
+
+<body>
+    
+</body>
+
+</html>
+	

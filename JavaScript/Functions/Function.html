@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Functions</title>
+    <script>
+
+        // What is Function?
+        /* jab hame kisi task ko multiple time karna ho tab ham us block of code ko
+        ek block ke andar dal dete hai jise function kehte hai.
+
+        function is a block of code designed to perform a particular task */
+
+        // Syntax Of Function
+        /* function functionName(paramenter1, paramenter2){
+            code
+        } */
+
+        // hamare pass 2 ways hai function create karne ke
+        // 1st way - Normal Way
+
+        // Calling(Invoke) Function Before Declaration
+        hello();
+        
+        // IMPORTANT PART
+        /* ham is hello() function ko declare karne se pehle is liye call kar pa rahe hai
+        kyo ki JavaScript me hamara JS Engine hai wo jab hamare code ko excute karne ja raha hota hai
+        tab wo sab se pehle jitne bhi functions honge un sabko file ke top me le jata hai
+        ye sab kuch automatically hota hai. jo ki hamara JS Engine karta hai.
+        
+        yani ki ham code ko excute karne se pehle sabhi functions ko file ko top me bhej dete hai
+        jise Hosting bola jaata hai.
+
+        Hosting is the Process of moving functions declaration to the top of file. */
+
+        // Function Declaration
+        function hello(){
+            document.write("hello <br>");
+        }
+
+        // Calling(Invoke) Function After Declaration
+        hello();
+
+
+        // 2nd way - Using Function Assignment
+        /* Function Assignment 2 type se ham kar sakte hai
+        1. Named Function Assignment : yani ki jisme ham function ka name dete hai.
+        2. Anonymous Function Assignment : yani ki jisme ham function ka name nahi dete hai. */
+
+        // Calling(Invoke) Function Before Declaration
+        // funcRun();
+
+        /* Ham yaha pe funcRun() ko Before Declaration call nahi kar sakte hai
+        kyo ki jo Hosting hai wo sirf Function Declaration ka use karke ham jo function create kiye honge
+        un functions ko hee wo top me move kare ga. or jo ye funcRun function hai wo hamne
+        Function Assignment se create kiya hai is liye wo top me move nahi hoga. */
+        
+        // Named Function Assignment
+        let funcRun = function run(){
+            document.write("runing <br>");
+        }
+
+        // Anonymous Function Assignment
+        let funcWalk = function(){
+            document.write("waking <br>");
+        }
+
+        /* yani ki yaha pe hamne apne run function ko store kar diya hai funcRun variable me
+        yani ki ab jabhi hame run function ko call karna hoga to ham funcRun variable ko call karenge
+        kyo ki jo hamara run function hai wo store hai funcRun variable.
+
+        NOTE: ham directly run() ko call nahi kar sakte hai esa karne pe hame error mile ga. */
+
+        // Calling(Invoke) Function After Declaration
+        funcRun();
+        funcWalk();
+
+
+        // Different Between Function Declaration And Function Assignment
+        /* Function Declaration me ham function ko Before Declaration and After Declaration bhi call kar sakte hai.
+        Jab ki Function Assignment me ham function ko sirf After Declaration hee call kar sakte hai. */
+        
+
+
+        // What is Hosting?
+        /* It is Process to moving Function Declaration to the top of file.
+        it's done automatically by JS Engine.
+        
+        In JavaScript, hoisting refers to the built-in behavior of the language through which declarations of functions,
+        variables, and classes are moved to the top of their scope – all before code execution. In turn,
+        this allows us to use functions, variables, and classes before they are declared*/
+    </script>
+
+</head>
+
+<body>
+</body>
+
+</html>

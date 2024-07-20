@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript</title>
+
+    <script>
+
+        /* Syntax :
+        sort()
+        sort(compareFn) */
+        let a = ["sanjay","aman", "rehman","karan"];
+        document.write(a+"<br>");
+        a.sort(); // sort hame array ki value ko sort karke dega from a to z
+        document.write(a+"<br>");
+
+        // Example 2 of Sort Method
+        let b = [5,36,4,2,7,9,10,3,8,6,1];
+        b.sort( (a,b) => a-b);
+        /* yadi a - b se positive value mile gi to b ki value pehle aaye gi
+        yadi a - b se negative value mile gi to a ki value pehle aaye gi
+        yadi a - b se 0 mile ga to pehle a fir b aaye ga(means both value are same) */
+        document.write(b + "<br>");
+
+        // Example 3
+        let obj = [
+            {fname: 'raju', lname: 'rathod', age: 22},
+            {fname: 'gijnesh', lname: 'patil', age: 33},
+            {fname: 'manoj', lname: 'rao', age: 27},
+            {fname: 'divykant', lname: 'patel', age: 19},
+            {fname: 'aakhas', lname: 'varma', age: 31},
+        ];
+        obj.sort( (a,b) => a.age - b.age);
+        console.log(obj);
+
+        
+
+        // reverse hame array ki value ko reverse kare deta hai z to a
+        // NOTE : reverse method original array ko bhi reverse kar deta hai
+        /* Syntax :
+        reverse() */
+        let rev = a.reverse();
+        document.write("original array : " + a+"<br>");
+        document.write("reverse array : " + rev+"<br>");
+
+
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

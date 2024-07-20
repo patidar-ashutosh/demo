@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clone Object in JavaScript</title>
+
+    
+    <script>
+
+        // What is Object Cloning?
+        /* Object Cloning yani ki ham kisi ek object ka same to same clone create karna chahte ho.
+    
+        jese ki ham Primitive Type me copy karte hai to uska clone create hota hai
+        leking yadi ham object me copy karne jate hai to address copy hota hai
+        is liye clone create nahi ho pata hai.
+    
+        lekin ham Object Cloning ka use karke object ka bhi clone create kar sakte hai.
+    
+        JavaScript me Object ko ham 3 ways me clone kar sakte hai
+        1.Iteration 2.Assign Function 3. Spread Operator */
+    
+        // Object Cloning Using Iteration
+        let src = {
+            a: 10,
+            b: 20,
+            c: 30
+        };
+        let dest1 = {};
+
+        for(let key in src){
+            dest1[key] = src[key];
+        }
+
+        document.write("Object Cloning Using Iteration <br>");
+        for(let key in dest1){
+            document.write(key + " : " + dest1[key] + "<br>");
+        }
+
+        /*yaha pe jo dest1 object create huva hai wo clone huva hoga
+        naki src ke address ko point kar raha hoga. */
+        src.a++;
+        document.write(src.a + "<br>");
+        document.write(dest1.a + "<br>");
+
+
+
+        // Object Cloning Using Assign Function
+        let dest2 = Object.assign({}, src);
+
+        document.write("Object Cloning Using Assign Function <br>");
+        for(let key in dest2){
+            document.write(key + " : " + dest2[key] + "<br>");
+        }
+
+        src.a++;
+        document.write(src.a + "<br>");
+        document.write(dest2.a + "<br>");
+
+        // ham chahe to multiple object bhi ek saath clone kar sakte hai
+        let src2 = { value : 20};
+        let dest3 = Object.assign({}, src, src2);
+
+        /* Object.assign() hai wo ek function hai
+        jisme first paramter me ham ek empty object dete hai
+        second paramter me ham source dete hai ki hame kis object ka clone create karna hai.
+        ham chahe to multiple object bhi de sakte hai */
+        
+        
+
+        // Object Cloning Using Spread Operator
+        let dest4 = {... src};
+
+        document.write("Object Cloning Using Spread Operator <br>");
+        for(let key in dest4){
+            document.write(key + " : " + dest4[key] + "<br>");
+        }
+
+        src.a++;
+        document.write(src.a + "<br>");
+        document.write(dest4.a + "<br>");
+    </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

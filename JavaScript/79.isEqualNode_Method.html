@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        /* isEqualNode Method ka use 2 tag ki value ko compare karne ke liye hota hai 
+        isEqualNode hame true ya false he return karta hai 
+        true yani ki 2 value match ho rahe he 
+        false yani ki 2 value match nahi ho rahe he */
+        
+        /*
+        compare karne ke liye kuch rules hote hai 
+        dono ki tag type same honi chahiye 
+        dono ki value same honi chahiye 
+        dono ke attribute same honi chahiye 
+        dono ke attribute ki value same honi chahiye 
+        */
+
+        // isEqualNode Example 
+        var target1 = document.getElementById('list1').children[0];
+        // yaha pe hamne target1 variable me jis tag ki jis value ko compare karna hai use store kar diya hai 
+        var target2 = document.getElementById('list2').children[0];
+        // yaha pe hamne target2 variable me jis tag ki jis value ko compare karna hai use store kar diya hai 
+        var equal = target1.isEqualNode(target2);
+        // or last me hamne isEqualNode method ka use karne target1 or target2 ko compare karke use equal name ke variable me store kar diya hai 
+        console.log(equal);
+
+        
+    </script> 
+
+</head>
+
+<body> 
+    
+    <ul id="list1">
+        <li class="abc">Orange</li>
+        <li>Apple</li>
+        <li>Grapes</li>
+        <li>Banana</li>
+    </ul>
+
+    <ul id="list2">
+        <li>Apple</li>
+        <li class="abc">Orange</li>
+        <li>Grapes</li>
+        <li>Banana</li>
+    </ul>
+
+    
+
+
+</body>
+
+</html>
+	 

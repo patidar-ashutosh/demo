@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+/*
+!!! yadi ham document.getElementsByClassName ka use kare GET karte hai to vo hame array return karta hai
+yadi hame usme se kisi ek element ki value chahiye to ham uska index de sakte hai
+like:- document.getElementsByClassName("demo")[0].innerText
+yani ki ye hame demo class ki 0 index pe jo text hoga vo return kare ga */
+      
+    </script>
+
+</head>
+
+<body>
+<!--
+
+DOM ka use karke ham JavaScript me 3 item ko GET kar sakte hai
+1) HTMl
+2) Text
+3) Attribute
+
+updar ni 3 value ne GET karva mate ni Methods
+innerText
+innerText ka use text ko get karne ke liye use hota hai
+ex :- document.getElementById("target name (ex:- "demo")").innerText
+
+innerHTML
+innerHTML ka use HTML ko get karne ke liye use hota hai
+ex :- document.getElementById("target name (ex:- "demo")").innerHTML
+
+getAttribute
+getAttribute ka use attribute ki value ko get karne ke liye use hota hai
+ex :- document.getElementById("target name (ex:- "demo")").getAttribute(attribute name(ex:-class))
+
+getAttributeNode
+getAttributeNode ka use attribute ka name or uski value ko get karne ke liye use hota hai
+ex :- document.getElementById("target name (ex:- "demo")").getAttributeNode(attribute name(ex:-class))
+
+attributes 
+attributes ka use target name ke sabhi attributes ko get karne ke liye use hota hai ye hame ek array jesa create karke deta hau
+ex :- document.getElementById("target name (ex:- "demo")").attributes
+
+
+
+
+DOM ki value ko SET karne ke liye method
+innerText
+innerText ka use karke ham target name me koi bhi text ko set(add) kar sakte hai 
+ex :- document.getElementById("target name (ex:- "demo")").innerText = "new data"
+
+innerHTML
+innerHTML ka use karke ham target name me koi bhi HTML tag ke sath text ko set(add) kar sakte hai 
+ex :- document.getElementById("target name (ex:- "demo")").innerHTML = "<h1> new data </h1>"
+
+setAttribute
+setAttribute ka use attribute me value add karne ke use hota hai
+ex :- document.getElementById("target name (ex:- "demo")").setAttribute("new attribute name", "new value")
+
+
+attributes
+ex :- document.getElementById("target name (ex:- "demo")").attributes[1].value = "attribute name"
+
+removeAttribute
+removeAttribute ka use attribute ko remove karne ke hota hai
+ex :- document.getElementById("target name (ex:- "demo")").removeAttribute("attribute name")
+
+-->
+<script>
+    document.getElementById("d").removeAttribute = "<h1> new data </h1>"
+
+</script>
+
+</body>
+
+</html>
+	

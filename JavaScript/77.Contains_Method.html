@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        // contains method ka use check karne ke liye hota hai ki kisi parent (id,class ya tag) me koi id ya class exist karta hai ya nahi tab ham contains method ka use karte hai 
+
+        /* contains hame true ka false return karta hai 
+        true yaniki vo id,class ya tag exist hai 
+        false yaniki vo id,class ya tag exist nahi hai */
+ 
+        var parentEle = document.getElementById("outer");
+        // yaha pe hamen apne parent class ki id ko parentEle variable me store kar diya 
+        var target = document.getElementById("inner-2");
+        // yaha pe hame jis id,class ya tag ko check karna hai ki vo exist hai ya nahi use target variable me store kar diya 
+
+        var find = parentEle.contains(target);
+        //or last me hane find name ke variable me contains method ka use karke target variable ko pass kardi jisme hamne id ko store kiya tha jise hame check karna hai
+
+        console.log(find);
+        
+    </script> 
+
+<style>
+#outer{
+    background-color: aqua;
+    height: 300px;
+}
+</style>
+</head>
+
+<body>
+    
+    <!-- child or parent example -->
+    <div id="outer">
+        <h1></h1>
+        <div id="inner"></div>
+        <p></p>
+    </div>
+
+    <!-- ya hape jo outer hai to parent hai or jo inner-1, inner-2 or inner-3 hai to outer id ke child hai  -->
+
+</body>
+
+</html>
+	 

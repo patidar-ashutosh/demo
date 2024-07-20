@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+    // indexOf method hame array me se find ki gai value ka index number find/return karke deta hai
+    // indexOf method index ko starting se find karna start karta hai
+    // yadi value present nahi hogi to hame -1 return kare ga
+    /* Syntax :
+    indexOf(searchElement)
+    indexOf(searchElement, fromIndex) */
+
+    let a = ["sanjay","aman", "rehman","aman","rahul"];
+              // 0       1        2        3       4 
+    document.write(a + "<br><br>");
+    let b = a.indexOf("aman");
+    document.write(b + "<br><br>");
+
+    let c = a.indexOf("aman", 2); // ye patameter optional hai 
+    // jisme ham index value dete hai ki vo kisi index se value ko find karna start kare ga
+    document.write(c + "<br><br>");
+
+
+    // lastIndexOf method hame array me se find ki gai value ka index number find/return karke deta hai
+    // lastIndexOf method index ko last se find karna start karta hai
+    // yadi value present nahi hogi to hame -1 return kare ga
+    /* Syntax :
+    lastIndexOf(searchElement)
+    lastIndexOf(searchElement, fromIndex) */
+
+    let x = ["sanjay","aman", "rehman","aman","rahul"];
+              // 0       1        2        3       4 
+    document.write(x + "<br><br>");
+    let y = x.lastIndexOf("aman");
+    document.write(y + "<br><br>");
+
+    let z = x.lastIndexOf("aman", 2); // ye patameter optional hai 
+    // jisme ham index value dete hai ki vo kisi index se value ko find karna start kare ga
+    document.write(z + "<br><br>");
+
+     
+    </script>
+
+</head>
+
+<body>
+    
+</body>
+
+</html>
+	

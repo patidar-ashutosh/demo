@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        /*
+        DOM Append Methods ka use jo ham DOM create karte hai unko append karne ke liye hota hai
+        DOM Append Methods :- 
+        appendChild
+        insertBefore
+        insertAdjacentElement
+        insertAdjacentHTML
+        insertAdjacentText
+        */
+
+
+        // appendChild ka use jo ham DOM ka use karke createElement or createTextNode create karte hai un dono ko append karne ke liye hota hai 
+        // appendChild example 
+        var newElement = document.createElement("h2");
+        var newText = document.createTextNode("this is text");
+
+        // jese ki hame upar Element or text create kiya ab unko append karne ke liye 
+        // syntax :- append_name.appendChild(jo_variable_append_karna_ho_uska_name);
+        newElement.appendChild(newText);
+
+        /*ab hame jo newElement mai data append ho ke mile ga uske hame kis me save(append) karna hai
+        uske liye ham us tag,id ya class ke saath fir se newElement ko append kare ge (jese ki hame ne hara re div me karva ya hai)   */
+        document.getElementById("main").appendChild(newElement);
+        console.log(newElement);
+
+        //ham comment ko bhi append kar sakte hai
+        var newComment = document.createComment("this is comment");
+        document.getElementById("main").appendChild(newComment);
+        console.log(newComment);
+
+
+
+        // insertBefore ka use ham konsi postion pe append karna chah te hai uske liye hota hai 
+        // insertBefore example 
+ 
+        var newElement = document.createElement("h2");
+        var newText = document.createTextNode("this is text");
+
+        // jese ki hame upar Element or text create kiya ab unko append karne ke liye 
+        // syntax :- append_name.appendChild(jo_variable_append_karna_ho_uska_name);
+        newElement.appendChild(newText);
+        
+        // ab hamen ek variable create kiya or usme hamne jis id,tag ua class me append karna hai usko store karva diya 
+        var target = document.getElementById("main");
+        // target.insertBefore("konse variable pe" , variable name.position);
+        target.insertBefore(newElement,target.childNodes[0]);
+        /* yaha pe hame first parameter me konse data ko append karna hai uska variable
+        dusre parameter mehame jis id,tag ya class me append karna hai use jis variable me store kiya tha uska name 
+        or last me kis position me append karna hai wo */
+
+
+        /*
+        appendChild and insertBefore difference itna hai ki
+        appendChild ham ji bhi append karte hai wo sab se last me append karta hai 
+        lekin insertBefore me ham jo position dete hai vo vahape append karte hai 
+        */
+
+
+    </script> 
+ <style>
+    #main{
+        background-color:rgb(149, 223, 198);
+        height: 250px;
+        margin: 50px;
+        padding: 20px;
+    }
+ </style>
+</head>
+
+<body>
+   
+    <div id="main">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio odit ullam illo praesentium porro sit.</p>
+        <h3>this is h3</h3>
+    </div>
+</body>
+
+</html>
+	 

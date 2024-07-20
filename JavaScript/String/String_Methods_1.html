@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        // string ka index 0 se start hota hai 
+
+        let str = "JavaScript is a GREAT is Language";
+
+        // length property ka use string ki length find karne ke liye hota hai 
+        /* Syntax :
+        stringName.length; */
+        // let a = str.length;
+
+
+        // toLowerCase metohd ka use string ko lowercase me convert karne ke liye hota hai
+        /* Syntax :
+        toLowerCase() */
+        // let a = str.toLowerCase();
+
+
+        // toUpperCase metohd ka use string ko UpperCase me convert karne ke liye hota hai
+        /* Syntax :
+        toUpperCase() */
+        // let a = str.toUpperCase();
+        
+
+        // includes method string me kuch find karne ke liye use hota hai
+        // find kiya huva work hoga to vo true return karega nahi to false
+        /* Syntax :
+        includes(searchString)
+        includes(searchString, position (index from where the searching start)) */
+        // let a = str.includes('iss');
+        // let a = str.includes('Script', 3);
+        // let a = str.includes('Script', 6);
+
+
+        // startsWith method ka use string me starting se work find karne ke liye hota hai
+        // find kiya huva work hoga to vo true return karega nahi to false
+        /* Syntax :
+        startsWith(searchString)
+        startsWith(searchString, position (index of the word) ) */
+        // let a = str.startsWith('JavaScript');
+        // let a = str.startsWith('avaScript', 2);
+
+
+        // endsWith method ka use string me ending se word find karne ke liye hota hai
+        // find kiya huva word hoga to vo true return karega nahi to false
+        /* Syntax :
+        endsWith(searchString)
+        endsWith(searchString, endPosition (index of the word + 1) ) */
+        // let a = str.endsWith('Language');
+        // let a = str.endsWith(' ',25);
+
+
+        // search method string me se koi word ya character find karne ke liye use hota hai
+        // find kiya huva work hoga to vo hame us word ki position(index) return karega or yadi nahi hoga to -1 return kare ga
+        /* Syntax :
+        search(regular expression & word) */
+        // let a = str.search('Language');
+
+
+        // match method string me kuch find karne ke liye hota hai
+        // find kiya huva work hoga to vo jitne bhi same word hoge un sab ka array create karke dega
+        /* Syntax :
+        match(regular expression & word) */
+        // let a = str.match(/is/g);
+
+ 
+        // indexOf method hame string me se value ka index number find/return karke deta hai 
+        // indexOf method index ko starting se find karna start karta hai
+        // yadi value present nahi hogi to wo -1 return kare ga
+        /* Syntax :
+        indexOf(searchString)
+        indexOf(searchString, position (From where the searching start) ) */
+        // let a = str.indexOf("is");
+        // let a = str.indexOf('Lan',24);
+        
+
+        // lastIndexOf method hame string me se value ka index number find/return karke deta hai 
+        // lastIndexOf method index ko last se find karna start karta hai
+        // yadi value present nahi hogi to wo -1 return kare ga
+        /* Syntax :
+        lastIndexOf(searchString)
+        lastIndexOf(searchString, position (From where the searching start) ) */
+        // let a = str.lastIndexOf("is");
+        // let a = str.lastIndexOf('Lan',10);
+        
+
+        /* replace method ka use kisi ek word ki jagape dusre word ko replace karne ke liye hota hai
+        jisme first parameter me konse work ko replace karna hai
+        NOTE : ham first paramater me regular expressions bhi use kar sakte hai
+        or second parameter me hame kya replace karna hai wo denge */
+        /* Syntax :
+        replace(pattern & regular expression, replacement) */
+        // let a = str.replace("is","are");
+        // let a = str.replace(/is/g, "are");
+
+
+        // trim method kisi bhi word ki right or left se extra space ko remove karne ke liye use hota hai
+        /* Syntax :
+        trim() */
+        let str1 = "         JavaScript is                       ";
+        // alert("Before trim" + str1);
+        // let x = str1.trim();
+        // alert("After trim" + x);
+
+        // same ese hai hamare pass trimStart() and trimEnd() method bhi hai
+        // trimStart() method start se whitespace ko remove karta hai
+        // NOTE : ham trimStart() ki jaga pe trimLeft() bhi use kar sakte hai
+        /* Syntax :
+        trimStart()
+        trimLeft() */
+        // alert(str1.trimStart());
+        // alert(str1.trimLeft());
+
+        // trimEnd() method end se whitespace ko remove karta hai
+        // NOTE : ham trimEnd() ki jaga pe trimRight() bhi use kar sakte hai
+        /* Syntax :
+        trimEnd()
+        trimRight() */
+        // alert(str1.trimEnd());
+        // alert(str1.trimRight());
+
+ 
+
+        document.write(a);
+ 
+    </script> 
+
+</head>
+
+<body>
+    
+</body>
+
+</html>
+	 

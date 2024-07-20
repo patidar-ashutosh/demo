@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript</title>
+
+    <script>
+
+        // slice hame kisi ek index se lekar koi dusri index tak ki value ko nikhal ke ek new array create karke deta hai
+        /* Syntax :
+        slice()
+        slice(start)
+        slice(start, end) */
+
+	    let a = ["sanjay","aman", "rehman","rahul","karan"];
+        document.write(a+ "<br>");
+
+        let b = a.slice(1,4);
+        // hame 1 index se lekar 3 index takki value ka ek array create karke dega
+        // hamne yaha pe 4 likha hai yani ki hame 4 index tak ki value chahiye 4 nahi chahiye
+
+	    // let a = ["sanjay","aman", "rehman","rahul","karan"];
+        //            -5     -4       -3      -2       -1 
+        let c = a.slice(-3,-1); // is me ham - mains index bhi de sakte hai
+        document.write(c+ "<br>");
+
+        let d = a.slice(2); // ye hame 2 index se lekar baki ki sabhi value ka array create karke dega
+        document.write(d+ "<br> <br><br>");
+
+
+        
+        // splice hame array me koi ek index value se lekar dusre index tak value add karke deta hai
+        // or yadi ham chahe to kisi existing values ko delete bhi kar sakte hai
+        /* Syntax :
+        splice(start)
+        splice(start, deleteCount)
+        splice(start, deleteCount, item1)
+        splice(start, deleteCount, item1, item2)
+        splice(start, deleteCount, item1, item2, … itemN) */
+
+        document.write("array splice <br>")
+        let x = ["sanjay","aman", "rehman","rahul"];
+        document.write(x+ "<br>");
+
+        x.splice(2,0,"neha","karan");
+        document.write(x+ "<br>");
+        // first parameter me ham dete hai ki hame kahase insert karna start karna hai
+        // second parameter me ham dete hai ki hame koi exist value ko delete karna hai ya nai (ye option hota hai)
+        // third parameter me ham value dete hai ki hame kitni value add karni hai
+
+        x.splice(2,1,"radhe","madhe");
+        // second parameter ham likha hai ki 1 to vo hame jo hame first parameter me 2 likha hai vo index ki value ko delete ka ke deta hai
+        // yadi ham 2 likh te hai to vo 2 index se lekar 2 value ko delete karke deta or badh me new value add karke deta
+        document.write(x+ "<br>");
+        x.splice(-2,3,"vinu","bhai");
+        document.write(x+ "<br><br><br><br>");
+
+
+        x.splice(-2,1); // yaha pe hame koi value add nahi karni hoto sirf ham koi index se lekar kitni bhi value ko delete kar sakte hai
+        document.write(x+ "<br>");
+
+
+
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

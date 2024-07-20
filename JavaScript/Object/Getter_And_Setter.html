@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getter And Setter</title>
+    <script>
+
+        /* Getter : yani ki jiska use karke ham values ko get kar sakte hai.
+        Setter : yani ki jiska use karke ham values ko set kar sakte hai. */
+
+        let person = {
+            fname : "raju",
+            lname : "ready",
+            // getter
+            get fullName(){
+                return `${person.fname} ${person.lname}`;
+            },
+            // setter
+            set fullName(newName){
+                let parts = newName.split(" ");
+                this.fname = parts[0];
+                this.lname = parts[1];
+            }
+        };
+
+        // call getter
+        document.write(person.fullName + "<br>");
+
+        // call setter
+        person.fullName = "vikram shah";
+
+        // call getter
+        document.write(person.fullName + "<br>");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

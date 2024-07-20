@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript</title>
+
+    <script>
+
+        /* What is Operator?
+        Operator yani ki jiska use karke ham mathematics operations perform kar sakte hai.
+        Operators are special symbols that perform mathematics operations. */
+
+        // JavaScript me 6 Types ke operators hote hai.
+        // Arithmetic, Assignment, Comparison, Ternary, Logical, Bitwise
+
+        /* 1. Arithmetic Operator
+        + additon , - subtraction , * multiplication , ** exponentiation , / division
+        % modulus ( remainder) , ++ increment , -- decrement */
+
+        let a = 2;
+        let b = 3;
+        document.write(a+b +"<br>");
+        document.write(a-b +"<br>");
+        document.write(a*b +"<br>");
+        document.write(a**b +"<br>");
+        // a*b yani ki jo bhi b ki value hogi utne time a*a*a hoga yani ki yaga pe 2*2*2 hoga
+        document.write(a/b +"<br>");
+        document.write(a%b +"<br>");
+
+        document.write("post increment " , a++ +"<br>");
+        document.write("pre increment " , ++a +"<br>");
+        document.write("post decrement " , a-- +"<br>");
+        document.write("pre decrement " , --a +"<br>");
+
+    
+        // 2. Assignment Operator
+        // = , += , -= , *= , /= , %= , **=  
+        
+        let c = 20;
+        let d = 10;
+
+        document.write(c+=d); // c = c + d
+        document.write("<br>");
+        document.write(c-=d); // c = c - d
+        document.write("<br>");
+        document.write(c*=d); // c = c * d
+        document.write("<br>");
+        document.write(c/=d); // c = c / d
+        document.write("<br>");
+        document.write(c%=d); // c = c % d
+        document.write("<br>");
+        document.write(c**=d); // c = c ** d
+        document.write("<br>");
+
+
+        /* 3. Comparison Operator
+        > greater than
+        < less than
+        >= greater than equal to
+        <=  less than equal to
+        == (Loose equality) yani ki dono value same honi chahiye
+        === (Strict equality) yani ki dono value same honi chahiye and unke datatypes bhi same hone chahiye
+        != yadi left variable ki value right variable ki value ke equal(same) nahi hogi to ye true dega nahi to false
+        !== yadi left variable ki value right variable ki value ke equal(same) nahi hogi to ye true dega nahi to false
+        or ussi ke saath un variable ke datatype bhi same na ho */
+
+        let e = 10;
+        let f = 10;
+
+        document.write(e > f);
+        document.write("<br>");
+        document.write(e < f);
+        document.write("<br>");
+        document.write(e >= f);
+        document.write("<br>");
+        document.write(e <= f);
+        document.write("<br>");
+        document.write(e == f);
+        document.write("<br>");
+        document.write(e === f);
+        document.write("<br>");
+        document.write(e != f);
+        document.write("<br>");
+        document.write(e !== f);
+        document.write("<br>");
+
+
+        /* 4. Ternary Operator (Conditional Operator)
+        Ternary Operator ka use bhi same if-else ke jese condition check karne ke liye hota hai.
+        Syntax :->
+        (condition) ? true : false */
+
+        let g = 100;
+        let h;
+        h = "value is " +(g == 100 ? "true" : "false"); 
+        document.write(h);
+
+
+        /* 5. Logical Operator
+        && logical AND => jab sabhi condition true hogi tabhi true dega nahi to false dega.
+        || logical OR => jab sabhi condition me se koi ek condition bhi true hogi to true dega nahi to false dega.
+        ! logical NOT => not operator true ko false me convert kar deta hai or false ko true me convert ka deta hai. */
+
+        let age =20;
+
+        if(age >= 18 && age<=21)
+        {
+            document.write("yes <br>");
+        }
+
+        let i = 1;
+        let j = 10;
+        if(i >= 18 || j <= 20)
+        {
+            document.write("yes <br>");
+        }
+
+        if(!age>=18)
+        {
+            document.write("yes");
+        }
+
+
+        /* 6. Bitwise Operator
+        Bitwise Operators bits pe work karte hai
+        hamare pass 2 bits hoti hai 0 and 1. jise computer read kar pata hai
+
+        Bitwise AND (&) :- sabhi condition true hogi tabhi true dega nahi to false dega
+        Bitwise OR (|) :- koi ek bhi condition true hoti to true dega nahi to false */
+
+        let x = 2; //Bit of 2 is : 00000010
+        let y = 3; //Bit of 3 is : 00000011
+
+        document.write("Bitwise AND ",x&y , "<br>");
+        document.write("Bitwise OR ",x|y , "<br>");
+
+
+        // just for knowledge
+        /* Operator Precedence
+        jese ki hamara pass kuch esa expression hai
+        let z = (2 + 5 * 6 / 2);
+        To isko slove karne ke liye ham BODMAS ka use karte hai
+        yani ki sabhi operator ka ek precedence(priority) hota hai ki kon pehle slove hoga */
+
+        // Is ko slove karne ke liye ham sabhi jaga pe bracket ka use karke isse simple kar sakte hai
+        // like : (2 + ((5*6)/2))
+        let z = (20 + ((5*6)/2));
+        document.write(z);
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

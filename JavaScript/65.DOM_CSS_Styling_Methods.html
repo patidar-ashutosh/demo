@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript</title>
+
+    <script>
+ 
+        
+    </script>
+
+</head>
+<body>
+ 
+DOM CSS Styling Methods
+1) Style
+2) className
+3) classList
+
+is 3 methods ka use karke ham GET OR SET dono kar sakte hai
+
+
+css ki jitni property hai jisme - aata hai usme ham JavaScript se css SET karte time - nahi likhe ge
+- ki jaga pe ham - ke baad jo char hoga use capital kar dega
+ex:- background-color to is ham backgroundColor ese likhe ge
+ 
+
+
+//style 
+style GET example
+document.querySelector('#header').style.attributes_name
+ex:- document.querySelector('#header').style.color
+
+style SET example
+document.querySelector('#header').style.backgroundColor = "red"
+
+
+//className
+className SET example (className se ham new class create kar sakte hai)
+document.querySelector('#header').className = "demo"
+//create multiple class
+document.querySelector('#header').className = "demo2 demo3"
+
+className GET example
+document.querySelector('#header').style.attributes_name
+ex:- document.querySelector('#header').className
+
+
+
+
+classList or className me ye difference hai ki
+className hame jab get karta hai to string return karta hai 
+jb ki classList hame jab get karta hai to array return karta hai 
+
+//classList SET example
+document.querySelector('#header').classList = "demo"
+//create multiple class
+document.querySelector('#header').classList = "demo2 demo3"
+
+classList GET example
+document.querySelector('#header').classList
+
+classList ke bhi kuch methods hoti hai 
+jese ki :- add , remove
+add ka use 1 ya use jyada class add karne ke liye hota
+ex:- document.querySelector('#header').classList.add("demo2","demo3")
+
+remove ka use 1 ya use jyada class ko remove karne ke liye hota hai
+ex:- document.querySelector('#header').classList.remove("demo2","demo3")
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    document.get
+</script>
+</body>
+</html>

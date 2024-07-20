@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript</title>
+
+    <script>
+
+        /* What is Conditional Statement?
+        jab hame kisi condition ke saath me work karna ho yaani ki esa ho to ye karo nahi to wo karo
+        tab ham Conditional Statement ka use karte hai.
+
+        Conditional statements yani ki jab hame kisi condition ke true hone pe kuch code print karvana ho
+        or yadi condition false ho to kuch or code print karvana ho tab ham Conditional statements ka use karte hai.
+
+        Conditional statements control behavior in JavaScript and determine whether or not pieces of code can run. */
+        
+        /* JavaScript me 5 Types ke Conditional Statements hote hai
+        if, if-else, if-else-if, nested if-else, switch */
+
+        // Syntax of if
+        if(condition){
+            // code when condition become true
+        }
+        else{
+            // code when condition become false
+        }
+
+        // 1. if statement
+        let a = 100;
+        let b = 20;
+
+        if(a>b)
+        {
+            document.write("a is big");
+        }
+
+
+        // 2. if-else statement
+        let x = 18;
+
+        if(x > 18)
+        {
+            document.write("x is greater");
+        }
+        else
+        {
+            document.write("x is smaller");
+        }
+
+        // 3. if-else-if statement
+        let per = 80;
+
+        if(per >=80 && per <= 100)
+        {
+            document.write("a");
+        }
+        else if(per >=60 && per <= 80)
+        {
+            document.write("b");
+        }
+        else if(per >=45 && per <= 60)
+        {
+            document.write("c");
+        }
+        else if(per >=33 && per <= 45)
+        {
+            document.write("d");
+        }
+        else if(per < 33)
+        {
+            document.write("fail");
+        }
+        else
+        {
+            document.write("enter valid number");
+        }
+
+
+        // 4. Nested if-else
+        let numberIsFive = 5;
+        
+        if(numberIsFive>=1 && numberIsFive <= 10){
+            if(numberIsFive == 5){
+                document.write(true);
+            }
+        }
+        else{
+            document.write(false);
+        }
+
+        // 5. switch statement
+        let day = 3;
+
+        switch(day)
+        {
+            case 1:
+            document.write("monday");
+            break;
+
+            case 2:
+            document.write("tuesday");
+            break;
+
+            case 3:
+            document.write("wednesday");
+            break;
+
+            case 4:
+            document.write("thursday");
+            break;
+
+            case 5:
+            document.write("friday");
+            break;
+
+            default:
+            document.write("enter valid day");
+        }
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

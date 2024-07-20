@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        //const yaniki jiski value ko change nahi kar sakte hai
+        
+        /* const variable ke array ki value ko index ka use karke to change kar sakte hai 
+        lekin again pure variable ke array ki value ko change nahi kar sakte hai */
+     
+        const a = [10,20,30];
+        document.write(a + "<br>");
+
+        //right way 
+        a[0] = 15;
+        a[1] = 25;
+        a[2] = 35;
+        document.write(a + "<br>");
+
+        //wrong way
+        // a = [15,25,35];
+ 
+
+        /* const variable ke object ki value ko property ka use karke to change kar sakte hai 
+        lekin again pure variable ke object ki property ko change nahi kar sakte hai */
+
+        const b = {
+            name : "ashutosh",
+            age : 25
+        };
+        document.write(b.name + "<br>");
+        document.write(b.age + "<br>");
+
+        //right way 
+        b.name = "pintu";
+        b.age = 19;
+        document.write(b.name + "<br>");
+        document.write(b.age + "<br>");
+
+        //wrong way
+        /* b = {
+            name : "ram",
+            age : 25
+        }; */
+     
+    </script> 
+
+</head>
+
+<body>
+    
+</body>
+
+</html>
+	 

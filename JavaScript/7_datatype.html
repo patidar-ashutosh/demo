@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript</title>
+
+    <!-- 
+    What is Data Type?
+    Data Type yani ki hamare variable me kis type ka data store hoga.
+    Data Type is represents the values types that can be stored in a variable. 
+    
+    JavaScript me 2 Types ke Data Type hote hai
+    1. Primitive Types
+        String : 'raj kishor'
+        Number : 12,3,4(Integer), 33.2 (Float)
+        Boolean : true & false
+        Undefined : let a;
+        Null : let a = null;
+    
+    2. Reference Types
+        Object : data with key and values pairs
+        Arrays : have a multiple data type values
+        Functions : a block of code designed to perform a particular task
+    -->
+
+    <script>
+
+        let s = "hello"; // string
+        document.write(s+ "  ");
+        document.write(typeof s+ "<br>");
+
+        let n = 25; // number
+        document.write(n+ "  ");
+        document.write(typeof n+ "<br>");
+
+        let bool = true; // boolean
+        document.write(bool+ "  ");
+        document.write(typeof bool+ "<br>");
+
+        let bb = false; // boolean
+        document.write(bb+ "  ");
+        document.write(typeof bb+ "<br>");
+
+        let u; // Undefined  
+        document.write(u+ "  ");
+        document.write(typeof u+ "<br>");
+        
+        let nu = null; // Null
+        document.write(nu+ "  ");
+        document.write(typeof nu+ "<br>");
+
+
+        let arr = ["html","css","js"]; // Array
+        document.write(arr+ "  ");
+        document.write(typeof arr+ "<br>");
+
+        let o = {first:"ashu" , last: "patel"}; // Object
+        document.write(o+ "  ");
+        document.write(typeof o+ "<br>");
+        // object ko print karne ka different way hota hai isliye abhi [object object] print ho raha hai
+
+        /* JavaScript me array and object ko object kee bola jaata hai isliye jab ham
+        array ya object ka typeof find karte hai to object milta hai. */ 
+
+
+        // Different between Primitive and Reference Type
+        // Primitive Type Example
+        let a = 10;
+        let b = a;
+        a++;
+        document.write(a + "<br>");
+        document.write(b + "<br>");
+        /* Primitive Type me Value se copy create hoti hai.
+        yani ki jab ham b = a kar rahe hai to jo a ki value hai 10 vo b me store ho rahee hai
+        yani ki a ka address different hai or b ka address different hai
+        is liye jab ham a++ karte hai to a ki value 10 se increment hoke 11 hoti hai
+        or jo b ki value hai wo to 10 hee rahe gee
+        is liye 11 and 10 print ho raha hai.
+
+        NOTE : ise ham Pass By Value kehte hai yani ki jisme Values copy hoti hai. */
+
+        
+        // Reference Type Exanple
+        let obj1 = {value:10};
+        let obj2 = obj1;
+        obj1.value++;
+        document.write(obj1.value + "<br>");
+        document.write(obj2.value + "<br>");
+        /* Reference Type me address(reference) se copy create hoti hai.
+        yani ki jab ham obj2 = obj1 kar rahe hai to jo obj1 ka address hai uski jo
+        hamara obj2 hai wo point kar raha hoga.
+        yani ki obj1 and obj2 same memory location ko point kar rahe honge.
+        to jab ham obj1.value++; kare ge to obj1 and obj2 done ke liye value property ki 
+        value 1 se increment hogi kyo ki obj1 and obj2 same memory location ko point kar rahe hai.
+        to jab ham print kare ge to 11 and 11 print hoga.
+        
+        NOTE : ise ham Pass By Reference kehte hai yani ki jisme address(Reference) copy hota hai. */
+
+        // IN SHORT
+        /* Primitive are copied by their Value and
+        Reference are copied by their address/Reference */
+
+        // ONE MORE EXAMPLE WITH FUNCTIONS
+        let x = 10;
+        function demo1(x){
+            x++;
+        }
+        demo1(x);
+        document.write(x + "<br>");
+        /* yaha pe 10 hee print hoga kyo ki jo Primitive type hote hai usme value copy hoti hai
+        to jo function ke parameter me x hai usme 10 value aayi hogi
+        yani ki us x ka jo address hoga wo different hoga */
+
+        let y = {value : 10};
+        function demo2(a){
+            a.value++;
+        }
+        demo2(y);
+        document.write(y.value + "<br>");
+        /* yaha pe 11 print hoga kyo ki jo Reference type hote hai usme address copy hota hai
+        to jo function ke parameter me a hai uske y object ka address pass huva hoga
+        to jab ham a.value++; kare to jo y object ka address hoga usme ki value++ hogi
+        is liye jab ham print kar rahe hai to 11 print ho raha hai. */
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

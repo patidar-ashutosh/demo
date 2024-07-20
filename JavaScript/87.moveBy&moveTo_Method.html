@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>JavaScript</title>
+
+    <script>
+
+        /*
+        moveBy Or moveTo Method ka use open ki gai new window ko left or top move karne ke liye hota hai 
+        moveBy or moveTo me ek difference hai ki
+        
+        moveTo hai wo screen se left or top move hota hai 
+        lekin moveBy hai wo uski current position se left or top move hota hai 
+        */
+
+        // mywindow.moveTo(left,top);
+        // mywindow.moveBy(left,top);
+
+
+        // ! moveBy Or moveTo Method method tabhi work kare ge jab ham apni website ke page ko he move kar rahe hoje
+        // ! yadi ham kisi or ki website ko move kare ge to wo work nahi kare ge
+        
+        //yadi hamne window ko open karte time bhi left or top diya hai fir bhi moveBy Or MoveTo method work kare gi
+
+    </script> 
+
+</head>
+
+<body>
+    
+    <button onclick="openWindow()">Open Window</button>
+    <button onclick="moveToWindow()">MoveTo Window</button>
+    <button onclick="moveByWindow()">MoveBy Window</button>
+
+    <script>
+        var mywindow;
+        function openWindow()
+        {
+            mywindow = window.open("" , "" ,"width=500px , height=200px , left=500px , top=200px");
+            mywindow.document.write("this is my new tab");
+        }
+        function moveToWindow()
+        {
+            mywindow.moveTo(500,100);
+            mywindow.focus();
+        }
+        function moveByWindow()
+        {
+            mywindow.moveBy(100,100);
+            mywindow.focus();
+        }
+    </script>
+
+</body>
+
+</html>
+	 

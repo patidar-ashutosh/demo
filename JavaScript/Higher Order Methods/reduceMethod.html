@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JavaScript</title>
+
+    <script>
+        
+        // reduce method ka use ham tab karte hai jab hame koi single value me result chahiye hota hai
+        // jese ki hamare pass koi array hai uska hame sum ya max value find karna hai tab ham reduce method ka use karenge
+
+        /*
+        Syntax
+        reduce(callbackFn)
+        reduce(callbackFn, initialValue)
+
+        let result = arr.reduce(function (accumulator, current){
+            // code
+        } , FirstParameterValue)
+
+        reduce function me ham two parameter pass karte hai 1.function 2.defaultValue
+        1.function me ham two parameter pass karte hai
+        jisme jo first parameter hota hai wo value ko store karke rakhta hai
+        jese ki ham sum find karte hai to vo abhi tak kitna sum huva hai wo store karke rakhega
+        and jo second parameter hai wo array ki current value ko point kare ga
+        2.second me hame accumulator ki default value deni hoti hai
+        */
+
+        // Example
+        let arr = [5,2,8,3,7];
+        let result = arr.reduce(function(acc, current){
+            acc = acc + current;
+            return acc;
+        }, 0)
+        console.log(result);
+
+        // Another Example
+        let arrObj = [
+            {fname : 'rajesh' , lname:'patel', age:26},
+            {fname : 'vikram' , lname:'jain', age:75},
+            {fname : 'elon' , lname:'musk', age:50},
+            {fname : 'donald' , lname:'trump', age:26},
+        ];
+
+        // ab hame output me konsi age kitne time hai wesa data chahiye
+        // like : {26 : 2, 50 : 1, 75 : 1}
+
+        let output = arrObj.reduce(function(acc, curr){
+            if(acc[curr.age]){
+                acc[curr.age] = acc[curr.age] + 1;
+            }
+            else{
+                acc[curr.age] = 1;
+            }
+
+            return acc;
+        }, {});
+        
+        console.log(output);
+        
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

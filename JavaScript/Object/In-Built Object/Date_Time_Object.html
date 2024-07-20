@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript</title>
+
+    <script>
+
+        // Date bhi ek in-built object hai jiske pass multiple property and method hai
+
+        // date method ka use karne ke liye hame ek variable ko date ka object create karna padta hai fir ham date ke metohd ko use kar sakte hai
+        var now = new Date(); //ab ham now variable ka use karke date ke sabhi function ka use kar sakte hai 
+        
+        // var now = new Date('January 5 2010'); //ab ye is date ke hisaab se method work kare ge
+
+        // toDateString hame  date ko readable format me deta hai 
+        // document.write(now.toDateString());
+
+        // getDate hame sirf current date return karta hai 
+        // document.write(now.getDate());
+
+        // getFullYear hame sirf current year return karta hai 
+        // document.write(now.getFullYear());
+
+        // getMonth hame sirf current Month return karta hai 
+        // javascript me january ke liye 0 february ke liye 1 esa hota hai
+        // document.write(now.getMonth());
+
+        // getDay hame sirf current week Day return karta hai 
+        // javascript me sunday ke liye 0 monday ke liye 1 esa hota hai
+        // document.write(now.getDay());
+
+
+
+        // Time releted methods 
+
+        // getHours hame sirf current Hours return karta hai 
+        // document.write(now.getHours());
+
+        // getMinutes hame sirf current Minutes return karta hai 
+        // document.write(now.getMinutes());
+
+        // getSeconds hame sirf current Seconds return karta hai 
+        // document.write(now.getSeconds());
+
+        // getMilliseconds hame sirf current Milliseconds return karta hai 
+        // document.write(now.getMilliseconds());
+
+        
+        // set date methods 
+
+        // set method ka use hame is liye karte hai ke hame history ya past ke date,time,month check karna hoto 
+
+        // setDate method hame parameter me diye gaye date ki sabhi information deta hai
+        // now.setDate(20);
+        // document.write(now);
+
+
+        // setFullYear method hame parameter me diye gaye year ki sabhi information deta hai
+        // now.setFullYear(2023);
+        // document.write(now);
+
+
+        // setMonth method hame parameter me diye gaye Month ki sabhi information deta hai
+        // now.setMonth(4);
+        // document.write(now);
+
+
+        // setHours method hame parameter me diye gaye Hours ki sabhi information deta hai
+        // now.setHours(14);
+        // document.write(now);
+
+
+        // setMinutes method hame parameter me diye gaye Minutes ki sabhi information deta hai
+        // now.setMinutes(55);
+        // document.write(now);
+
+        // setSeconds method hame parameter me diye gaye Seconds ki sabhi information deta hai
+        // now.setSeconds(20);
+        // document.write(now);
+
+        // setMilliseconds method hame parameter me diye gaye Milliseconds ki sabhi information deta hai
+        // now.setMilliseconds(20);
+        // document.write(now);
+
+
+        // print current date 
+        document.write(now.getDate() + "/" + (now.getMonth()+1) + "/" + now.getFullYear());
+
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

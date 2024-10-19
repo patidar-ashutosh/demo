@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Different Between Function Declaration And Expressions In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        // Different Between Function Declaration And Function Expressions
+
+        /* Function Declaration : 
+        Function Declaration me ham function ko Before Declaration and After Declaration bhi call kar sakte hai.
+        yani ki Function Declaration se ham jo function create karenge wo hoisting ke thorough top of the file move ho jaayenge. */
+
+        // Example
+        // Calling(Invoke) Function Before Declaration
+        hello();
+        
+        // IMPORTANT PART
+        /* ham is hello() function ko declare karne se pehle is liye call kar pa rahe hai
+        kyo ki JavaScript me hamara JS Engine hai wo jab hamare code ko excute karne ja raha hota hai
+        tab wo sab se pehle jitne bhi Function Declaration honge un sabko file ke top me le jata hai
+        ye sab kuch automatically hota hai. jo ki hamara JS Engine karta hai.
+        
+        yani ki ham code ko excute karne se pehle sabhi Function Declaration ko file ko top me bhej dete hai
+        jise Hosting bola jaata hai.
+
+        Hosting is the Process of moving functions declaration to the top of file. */
+
+        // Function Declaration
+        function hello(){
+            document.write("hello <br>");
+        }
+
+        // Calling(Invoke) Function After Declaration
+        hello();
+
+
+
+        /* Function Expressions : 
+        Function Expressions me ham function ko sirf After Declaration hee call kar sakte hai.
+        yani ki Function Expressions hai wo hoisting ko support nahi karta hai. */
+
+        // Calling(Invoke) Function Expressions Before Declaration
+        // funcWalk();
+
+        /* Ham yaha pe funcWalk() ko Before Declaration call nahi kar sakte hai
+        kyo ki jo Hosting hai wo sirf Function Declaration ka use karke ham jo function create kiye honge
+        un functions ko hee wo top me move kare ga. or jo ye funcWalk function hai wo hamne
+        Function Expressions se create kiya hai is liye wo top me move nahi hoga. */
+
+        // Declare Function Expressions
+        let funcWalk = function(){
+            document.write("waking <br>");
+        };
+
+        // Calling(Invoke) Function Expressions After Declaration
+        funcWalk();
+
+
+
+        // Another Different
+        // Another special feature of Function Declarations is their block scope.
+        // In strict mode, when a Function Declaration is within a code block, it’s visible everywhere inside that block. But not outside of it.
+
+        // Example
+        var age = 16; // take 16 as an example
+
+        if (age < 18) {
+            welcome();              // \   (runs)
+                                    //  |
+            function welcome() {    //  |
+                alert("Hello!");    //  |  Function Declaration is available
+            }                       //  |  everywhere in the block where it's declared
+                                    //  |
+            welcome();              // /   (runs)
+        }
+        else {
+            function welcome() {
+                alert("Greetings!");
+            }
+        }
+
+        // Here we're out of curly braces,
+        // so we can not see Function Declarations made inside of them.
+
+        welcome(); // Error: welcome is not defined
+
+
+        // What can we do to make welcome visible outside of if?
+        // The correct approach would be to use a Function Expression and assign welcome to the variable that is declared outside of if and has the proper visibility.
+
+        // Like :
+        let age = prompt("What is your age?", 18);
+
+        let welcome;
+        if (age < 18) {
+            welcome = function() {
+                alert("Hello!");
+            };
+        } else {
+            welcome = function() {
+                alert("Greetings!");
+            };
+        }
+
+        welcome(); // ok now
+    </script>
+    
+</body>
+</html>

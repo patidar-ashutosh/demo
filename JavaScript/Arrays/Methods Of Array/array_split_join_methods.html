@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>split And join In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        document.write("<b>split method</b> <br>");
+        // split method string ko array me convert karke deta hai.
+        // syntax :
+        // split("letter");
+        // split("letter", length);
+
+        // Example 1
+        let names = 'Bilbo, Gandalf, Nazgul';
+        document.write("-> The string of names is : " + names + "<br>");
+        document.write("-> typeof names variables : " + typeof names + "<br><br>");
+
+        let arr = names.split(', ');
+        document.write("-> converted string into array : " + arr + "<br>");
+        document.write("-> typesof arr : " + typeof arr + "<br>");
+
+        
+        // Another Example Using second parameter
+        let arr2 = names.split(', ', 2);
+        document.write("-> answer of names string using split with 2 length : " + arr2 + "<br><br>");
+
+
+        // Not give any letter
+        // The call to split(s) with an empty s would split the string into an array of letters:
+        let str = "test";
+        document.write("-> String is : " + str + "<br>");
+        document.write("-> Do not give any letter in split method : " + str.split('') + "<br>"); // t,e,s,t
+
+
+
+        document.write("<br> <b>join method</b> <br>");
+        // join hame array ki sabhi value ko ek string me convert karke deta hai
+        // or uss value ke bhich ne ham koi bhi character(letter) print kar sakte hai
+        /* Syntax :
+        join()
+        join(separator) */
+
+        // Example
+	    let namesArray = ["sanjay","aman", "rehman"];
+        document.write("namesArray : " + namesArray + "<br>");
+
+        var joinAnswer = namesArray.join(" - "); // - li jagape koi bhi sin use kar sakte hai
+
+        document.write("-> After Applying join method in namesArray : " + joinAnswer + "<br>");
+        document.write("-> typeof joinAnswer variable : " + typeof joinAnswer);
+    </script>
+    
+</body>
+</html>

@@ -3,27 +3,24 @@
 <html lang="en">
 
 <head>
-
-    <title>JavaScript</title>
+    <title>isArray In JavaScript</title>
 
     <script>
+        document.write("<b>isArray method</b> <br>");
+        /* isArray method ka use check karne ke liye hota hai ki variable array hai ya nai 
+        isArray method ko use karne ke liye ham Array.isArray() likhte hai.
+        yadi variable array hota to true deta nahi to false. */
 
-        // isArray method ka use check karne ke liye hota hai ki variable array hai ya nai 
-        // isArray method ko use karne ke liye ham Array.isArray()
         /* Syntax :
         Array.isArray(value) */
 
-        var a = ["sanjay","aman", "rehman","rahul"];
-        // var a = 1;
-        // var a = "test";
 
-        if(Array.isArray(a))
-        {
-            document.write('this is an array');
-        }
-        else{
-            document.write('this is not an array');
-        }
+        document.write("-> Check emtpy object using isArray method : " + Array.isArray({}) + "<br>");
+        document.write("-> Check emtpy array using isArray method : " + Array.isArray([]) + "<br><br>");
+
+        // yadi ham typeof se karte hai to wo hame object deta hai kyo ki JavaScript me array hai wo based on object hai is liye
+        document.write("-> Check emtpy object using isArray method : " + typeof {} + "<br>");
+        document.write("-> Check emtpy array using isArray method : " + typeof [] + "<br>");
     </script>
 
 </head>

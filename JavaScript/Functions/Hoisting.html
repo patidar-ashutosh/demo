@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoisting In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        // What is Hosting?
+        /* It is Process to moving Function Declaration to the top of file.
+        it's done automatically by JS Engine.
+        
+        In JavaScript, hoisting refers to the built-in behavior of the language through which declarations of functions,
+        variables, and classes are moved to the top of their scope – all before code execution. In turn,
+        this allows us to use functions, variables, and classes before they are declared */
+
+        // Hosting me kya hota hai ki koi ek function hai usme kuch variables hai to wo function ke first line pe move ho jaayenge.
+
+        // Hosting hai wo only var type ke variables ko hee host karta hai.
+        // Example
+        varTypeVariable = "abc";
+        alert(varTypeVariable);
+        var varTypeVariable;
+
+        // yaha pe ham varTypeVariable variable ko declaration ke pehle is liye access kar pa rahe hai,
+        // kyo ki var type ke jo variable hote hai wo host ho jaate hai
+        // yani ki ye code back side me kuch esa hoga
+        /* var varTypeVariable;
+        varTypeVariable = "abc";
+        alert(varTypeVariable); */
+
+
+        // Example of let variable
+        letTypeVariable = "test";
+        alert(letTypeVariable); // give an error
+        let letTypeVariable;
+        // yaha pe hame error mile ga kyo ki let type ke variable hai wo hoisted nahi hote hai
+        // is liye ham variable ko declaration ke pehle access nahi kar sakte hai.
+
+
+
+        // NOTE : Declarations are hoisted, but assignments are not.
+        // Example
+        function sayHi() {
+            alert(phrase);
+
+            var phrase = "Hello";
+        }
+        sayHi(); // undefined
+
+        /* So the code works essentially like this:
+        function sayHi() {
+            var phrase; // declaration works at the start...
+            alert(phrase); // undefined
+            phrase = "Hello"; // ...assignment - when the execution reaches it.
+        }
+        sayHi(); */
+
+
+
+
+        // IN SHORT
+        /* In JavaScript, variables, functions, classes, and imports are all hoisted, which means that their declarations
+        are moved to the top of their scope before the code is executed: 
+
+        Variables: When you declare a variable using the var keyword, the variable declaration is hoisted to the top of its scope.
+        This means that you can use a variable before it has been declared, but its value will be undefined until it is assigned a value. 
+
+        Functions: Hoisting makes function declarations possible. For example, if you declare a function and execute
+        it before the line it was declared,everything works without errors. 
+
+        Classes: Hoisting also applies to classes. 
+
+        Imports: Hoisting also applies to imports. 
+
+        Hoisting is a special behavior of the JavaScript interpreter. It's not a term defined in the ECMAScript specification,
+        but the spec does define a group of declarations as HoistableDeclaration. */
+    </script>
+    
+</body>
+</html>

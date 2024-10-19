@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript</title>
+
+    <script>
+        // Sibling yani ki bhai-ben.
+
+        // in 4 method me bhi ham kuch SET karna chahe to kar sakte hai
+
+        // previousElementSibling hame parent ya chiild (tag,id ya class) ka previous tag return karta hai 
+        // previousElementSibling example
+        var a = document.getElementById("inner-1").previousElementSibling;
+        console.log(a);
+
+        // nextElementSibling hame parent ya chiild (tag,id ya class) ka next tag return karta hai  
+        // nextElementSibling example
+        var a = document.getElementById("outer").nextElementSibling;
+        console.log(a);
+
+        
+        // previousSibling hame parent ya chiild (tag,id ya class) ka previous tag , comment , text , space return karta hai  
+        // previousSibling example
+        var a = document.getElementById("outer").previousSibling;
+        console.log(a);
+
+
+        // nextSibling hame parent ya chiild (tag,id ya class) ka next  tag , comment , text , space return karta hai  
+        // nextSibling example
+        var a = document.getElementById("outer").nextSibling;
+        console.log(a);
+
+        /* previousElementSibling or previousSibling me difference itna hai ki
+        previousElementSibling hame sirf previous tag return kare ga 
+        or jo previousSibling hai vo previous tag , comment , text , space jo bhi ho vo return kare ga.
+
+
+        nextElementSibling or nextSibling me difference itna hai ki
+        nextElementSibling hame sirf next tag return kare ga 
+        or jo nextSibling hai vo next tag , comment , text , space jo bhi ho vo return kare ga. */
+    </script> 
+
+    <style>
+        #outer{
+            background-color: aqua;
+            height: 300px;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <!-- child or parent example -->
+    <div id="outer">
+        <div id="inner-1"></div>
+        <div id="inner-2"></div>
+        <div id="inner-3"></div>
+    </div>
+    <!-- ya hape jo outer hai to parent hai or jo inner-1, inner-2 or inner-3 hai to outer id ke child hai  -->
+
+</body>
+
+</html>

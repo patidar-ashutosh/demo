@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>JavaScript</title>
+    <title>shift And unshift In JavaScript</title>
 
-    <script>
-        
-	    let a = ["sanjay","aman", "rehman","karan"];
-        document.write(a+ "<br>");
+    <script>    
+	    let arr = ["sanjay","aman", "rehman","karan"];
+        document.write("arr array is : " + arr + "<br>");
 
+        document.write("<br> <b>shift method</b> <br>");
         // shift array ki first value ko delete karke deta hai
         // or return me delete huai value deta hai
         /* Syntax :
         shift() */
-        a.shift();
-        document.write(a+ "<br>");
+
+        document.write("-> remove first value <br>");
+        arr.shift();
+        document.write("modifie arr is : " + arr + "<br>");
 
 
+        document.write("<br> <b>unshift method</b> <br>");
         // unshift array me first me value ko add karke deta hai
         // or return me add huai value deta hai
         /* Syntax :
@@ -23,11 +26,14 @@
         unshift(element1)
         unshift(element1, element2)
         unshift(element1, element2, … elementN) */
-        a.unshift("rahul");
-        document.write(a+ "<br>");
-        a.unshift("vinod", "ajay", "abishek");
-        document.write(a+ "<br>");
 
+        document.write("-> add rahul as a first value <br>");
+        arr.unshift("rahul");
+        document.write("modifie arr is : " + arr + "<br>");
+
+        document.write("<br> -> add multiple values as a first value(vinod, ajay, abishek) <br>");
+        arr.unshift("vinod", "ajay", "abishek");
+        document.write("modifie arr is : " + arr + "<br>");
     </script>
     
 </head>

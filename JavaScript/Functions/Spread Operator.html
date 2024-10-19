@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spread Operator In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        // Why we need Spread Operator ?
+        /* there’s a built-in function Math.max that returns the greatest number from a list:
+        alert( Math.max(3, 5, 1) ); // 5
+        Now let’s say we have an array [3, 5, 1]. How do we call Math.max with it?
+        Passing it “as is” won’t work, because Math.max expects a list of numeric arguments, not a single array */
+
+        // Spread syntax to the rescue! It looks similar to rest parameters, also using ..., but does quite the opposite.
+        // When ...arr is used in the function call, it “expands” an iterable object arr into the list of arguments.
+
+        // For Math.max:
+        let arr = [3, 5, 1];
+        alert( Math.max(...arr) ); // 5 (spread turns array into a list of arguments)
+
+
+        // We also can pass multiple iterables this way:
+        let arr1 = [1, -2, 3, 4];
+        let arr2 = [8, 3, -8, 1];
+        alert( Math.max(...arr1, ...arr2) ); // 8
+
+
+        // We can even combine the spread syntax with normal values:
+        let array1 = [1, -2, 3, 4];
+        let array2 = [8, 3, -8, 1];
+        alert( Math.max(1, ...array1, 2, ...array2, 25) ); // 25
+
+
+        // the spread syntax can be used to merge arrays
+        // arrays ko combine karne ka ek or bhi way hai jo ki hai : spread operator
+        // EXample
+        let first = [1,2,5,3,6];
+        let second = [4,7,2];
+        // let result = [... first , ... second];
+        console.log(result);
+        // ham chahe to bich me kuch letter bhi add kar sakte hai
+        let result = [... first , true , 'new', ... second, 'x', 'y' , 9];
+        console.log(result);
+
+
+        // For instance, here we use the spread syntax to turn the string into array of characters
+        let str = "Hello";
+        alert( [...str] ); // H,e,l,l,o
+        // The spread syntax internally uses iterators to gather elements, the same way as for..of does.
+        // So, for a string, for..of returns characters and ...str becomes "H","e","l","l","o". The list of characters is passed to array initializer [...str].
+    </script>
+
+
+    <!-- Difference Between Spread And Rest Operator
+
+    When we see "..." in the code, it is either rest parameters or the spread syntax.
+
+    There’s an easy way to distinguish between them:
+    -> When ... is at the end of function parameters, it’s “rest parameters” and gathers the rest of the list of arguments into an array.
+    -> When ... occurs in a function call or alike, it’s called a “spread syntax” and expands an array into a list.
+
+    Use patterns:
+    -> Rest parameters are used to create functions that accept any number of arguments.
+    -> The spread syntax is used to pass an array to functions that normally require a list of many arguments.
+    
+    Together they help to travel between a list and an array of parameters with ease. -->
+</body>
+</html>

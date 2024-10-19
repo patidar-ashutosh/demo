@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>find, findIndex And findLastIndex In JavaScript</title>
+
+    <script>
+        let ages = [10,20,15,12, 28, 9];
+        document.write("ages array : " + ages +"<br><br>");
+        
+        document.write("<b>find method</b> <br>");
+        /* find method ka use karne ke liye hame ek function create karna padta hai
+        find method array ki value ko function ki condition se check karne ke liye use hota hai
+        yadi condition true hogi to find hame array ki use value ko return kar deta hai
+        find method array ki sabhi value ko check nahi kare ga 
+        vo sirf array ki value ko tab tak check kare ga jab tak function ki condition true nahi ho jathi hai
+        jab condition true ho jaye gi tab vo array ki aage ki value ko check nahi kare ga vo stop ho jaye ga
+        or yadi koi ek bhi condition true nahi hoti hai to undefined return kare ga. */
+        // best use of find method is : find an object with a specific condition
+        
+        /* Syntax :
+        find(callbackFn)
+        inside callbackFn we can pass three arguments (item, index, array)
+        1) item is the element. 2) index is its index. 3) array is the array itself.
+        find(callbackFn, thisArg) */
+
+        // Example
+        let answerUsingFind = ages.find(age => age >= 18);
+        document.write("-> find age greater than 18 using find method : " + answerUsingFind + "<br>");
+
+        // yadi ham chahte to callback function ko outside create karke bhi call kar sakte hai. like 
+        // let answer = ages.find(checkAge);
+        function checkAge(age){
+            return age >= 18;
+        }
+
+        // Another Example with objects
+        // Let’s find the one with id == 1:
+        let users = [
+            {id: 1, name: "John"},
+            {id: 2, name: "Pete"},
+            {id: 3, name: "Mary"},
+            {id: 4, name: "John"}
+        ];
+
+        let user = users.find(item => item.id == 1);
+        document.write("-> find item id equal to 1 using find method : " + user.name + "<br>");
+        
+        // IN SHORT : If it returns true, the search is stopped, the item is returned. If nothing is found, undefined is returned.
+
+
+
+        document.write("<br> <b>findIndex method</b> <br>");
+        // findIndex method bhi find jesa hee work karta hai 
+        // difference itna hai ki findIndex method array ki index return karta hai
+        // yadi function ki condition true nahi hoti hai to findIndex method -1 return kare ga
+        /* Syntax :
+        findIndex(callbackFn)
+        findIndex(callbackFn, thisArg) */
+        
+        // Example
+        let answerUsingFindIndex = ages.findIndex(checkAge);
+        document.write("-> find age greater than 18 using findIndex : " + answerUsingFindIndex + "<br>");
+
+        // Another Example
+        // Find the index of the John
+        document.write("-> index of John using findIndex : " + users.findIndex(user => user.name == 'John') + "<br>"); // 0
+
+        // IN SHORT
+        // find hame value return karta hai && findIndex hame index return karta hai
+
+
+
+        document.write("<br> <b>findLastIndex method</b> <br>");
+        // The arr.findLastIndex method is like findIndex, but searches from right to left, similar to lastIndexOf.
+        // Example
+        let answerUsingFindLastIndex = ages.findLastIndex(checkAge);
+        document.write("-> find age greater than 18 using findLastIndex : " + answerUsingFindLastIndex + "<br>");
+
+        // Another Example
+        // Find the index of the last John
+        document.write("-> index of John from the last index : " + users.findLastIndex(user => user.name == 'John')); // 3
+    </script>
+
+</head>
+
+<body>
+    
+</body>
+
+</html>
+	 

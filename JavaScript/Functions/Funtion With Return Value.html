@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Funtion With Return Value In JavaScript</title>
+
+    <script>
+        function demo(a,b) {
+            return a+b;
+        }
+
+        var a = demo(10,20);
+        document.write(a);
+
+        // yadi koi function me ham kuch bhi return nahi karte hai to by default wo undefined return karta hai
+        // If a function does not return a value, it is the same as if it returns undefined
+
+        function doNothing() {
+            /* empty */
+        }
+        alert( doNothing() === undefined ); // true
+
+        // yadi kisi function me ham empty return karte hai to wo bhi undefined return karta hai
+        // An empty return is also the same as return undefined
+        function doNothing() {
+            return;
+        }
+        alert( doNothing() === undefined ); // true
+
+
+        // yadi hame function se kuch return karna hai or ham data ko newline me likhte hai to wo undefined hee return kare ga
+        // like: 
+        return
+        (some + long + expression + or + whatever * f(a) + f(b))
+        // That doesn’t work, because JavaScript assumes a semicolon after return.
+
+        /* yadi hame return ke baad kuch bhi new line me likhna hai wo ham bracket ka use kar sakte hai.
+        jisme hame starting bracket ko return ke baad hee likha pade ga. */
+        // like:
+        return (
+            some + long + expression
+            + or +
+            whatever * f(a) + f(b)
+        )
+        // it will work just as we expect it to.
+    </script>
+
+</head>
+
+<body>
+</body>
+
+</html>

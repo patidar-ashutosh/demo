@@ -3,17 +3,15 @@
 <html lang="en">
 
 <head>
-
-    <title>JavaScript</title>
+    <title>Object In JavaScript</title>
 
     <script>
-
         /* What is Object?
         object yani ki jab koi multiple variables ek dusre ke saath linked ho tab ham ek us variables ka ek object create kar dete hai.
         ek Object ke pass multiple property and behaviour(function) hote hai. */
 
         /* object ko ham direct array ke jest print nahi kar sakte hai 
-        object ko print karne ki liye object ka name .(dot) uski property ka name ex:- a.firstName */
+        object ko print karne ki liye object ka name .(dot) uski property ka name ex:- objName.firstName */
 
         // difference between array object 
         // var array = [10,20,30];
@@ -35,7 +33,10 @@
 
         // ! object ke property name me space nahi hona chahiye 
 
-        var a = {
+        // 2 Way to Create an Object
+        // 1st way
+        // "object literal" notation syntax
+        let user1 = {
             fname : 'pintu',
             lname : 'patel',
             age : 19,
@@ -48,6 +49,9 @@
                 city : 'hmt',
                 country : 'India'
             } ,
+            // add multiword property names
+            "likes birds": true, // multiword property name must be quoted
+
             // create method
             salary : function()
             {
@@ -56,44 +60,86 @@
             fullname : function()
             {
                 return this.fname + " "+ this.lname;
-                // this hai to refer karta hai hamre variable a ko
-                //this ka matlab hai ki ye to fname property hai vo jo hamra a variable hai uski hai
-                // yani ki a.fname
+                // this hai to refer karta hai hamre variable user1 ko
+                // this ka matlab hai ki ye jo fname property hai vo jo hamra user1 variable hai uski hai
+                // yani ki user1.fname to ham chahe to this.fname ki jaga pe user1.fname bhi likh sakte hai.
             },
 
             // another way to create method
-            getAddress(){
-                // return a.living['city'] + " " + a.living['country'];
-                return a.living.city + " " + a.living.country;
+            getAddress(){ // same as "getAddress : function(){...}"
+                // return user1.living['city'] + " " + user1.living['country'];
+                return user1.living.city + " " + user1.living.country;
             }
-
         }
 
         // object ko ham console me pura print kar sakte 
-        console.log(a);
+        console.log("printing user1 object");
+        console.log(user1);
 
         /* Access The Object Property
         Object ki property ko ham 2 way me access kar sakte hai
         1. dot notation (.)
         2. using square bracket [] */
 
-        // ! object ko direct document.write(a);  ese print nahi kar sakte hai
-        //uske liye objectname.propertyname
-        document.write(a.fname + "<br>");
-        //object ko ham [''] me bhi print kar sakte hai or .(dot) se bhi
-        document.write(a['fname'] + "<br>");
-        document.write(a.lname + "<br>");
-        document.write(a.age + "<br>");
-        document.write(a.living.city + "<br>");
-        document.write(a.living.country + "<br>");
-        document.write(a.favMovie + "<br>");
-        document.write(a.favMovie[0] + "<br>");
-        document.write(a.favMovie[1] + "<br>");
-        document.write(a.favMovie[2] + "<br>");
-        document.write(a.salary() + "<br>");
-        document.write(a.fullname() + "<br>");
+        // ! object ko direct document.write(user1);  ese print nahi kar sakte hai
+        // uske liye objectname.propertyname karna padta hai.
+        document.write(user1.fname + "<br>");
+        // object ko ham [''] me bhi print kar sakte hai or .(dot) se bhi
+        document.write(user1['fname'] + "<br>");
+        document.write(user1.lname + "<br>");
+        document.write(user1.age + "<br>");
+        document.write(user1.living.city + "<br>");
+        document.write(user1.living.country + "<br>");
+        document.write(user1['likes birds'] + "<br>"); // For multiword properties, the dot access doesn’t work
+        document.write(user1.favMovie + "<br>");
+        document.write(user1.favMovie[0] + "<br>");
+        document.write(user1.favMovie[1] + "<br>");
+        document.write(user1.favMovie[2] + "<br>");
+        document.write(user1.salary() + "<br>");
+        document.write(user1.fullname() + "<br>");
+        document.write(user1.getAddress() + "<br>");
 
-        document.write(a.getAddress() + "<br>");
+
+
+        // 2nd Way
+        let user2 = new Object(); // "object constructor" syntax
+        // jab hame koi esa object create karna ho jiski value ham baad me dege tab ha iska use kar sakte hai
+
+        // add new keys in object user2
+        // ham 2 ways se new key object me add kar sakte hai
+        // 1. dot Notation
+        user2.fname = 'ashu',
+        user2.lname = 'patel',
+        user2.age = 19
+
+        // 2. Square Bracket Notation
+        user2["id"] = 3;
+        user2["phonenumber"] = 1234567890;
+
+        // 1st way to print
+        document.write(user2.fname + "<br>");
+        document.write(user2.lname + "<br>");
+        document.write(user2.age + "<br>");
+        document.write(user2.id + "<br>");
+        document.write(user2.phonenumber + "<br>");
+
+        // 2nd way to print
+        document.write(user2['fname'] + "<br>");
+        document.write(user2['lname'] + "<br>");
+        document.write(user2['age'] + "<br>");
+        document.write(user2['id'] + "<br>");
+        document.write(user2['phonenumber'] + "<br>");
+
+        // Add nested object
+        user2.address = {
+            street: "123 Main St",
+            city: "Exampleville",
+            zipCode: "12345"
+        }
+        console.log("printing user2 object");
+        console.log(user2);
+
+
 
 
 
@@ -104,27 +150,36 @@
 
         // Add new Property in existing object
         // add using dot notation
-        a.color = "Red";
+        user1.color = "Red";
         // add using square bracket notation
-        a['hobby'] = "Cricket";
-        console.log(a);
+        user1['hobby'] = "Cricket";
+        console.log(user1);
 
-        // Remove Property for existing object
-        delete a.color;
-        console.log(a);
+        let extraInfo = "height";
+        user1[extraInfo] = "5.5F";
+        console.log(user1);
 
+        // Remove Property for existing object, we can use the delete operator
+        // object ki keys ko delete karne ke liye delete operator ka use hota hai
+        delete user1.color;
+        console.log(user1);
+
+        // IN SHORT
+        // jab hame kisi object ki property ko access karna ho joki pehle se hee define hai tab ham dot notation(.) ka use karenge.
+        // jab hame object me koi property dynamically add ya access karna ho tab ham square bracket[] ka use karenge.
 
 
         // Find the key is present in Object
+        // non-existing property just returns undefined
         // 1st way
-        if('lname' in a){
+        if('lname' in user1){
             document.write("YES" + "<br>");
         }
         else{
             document.write("NO" + "<br>");
         }
 
-        if('information' in a){
+        if('information' in user1){
             document.write("YES" + "<br>");
         }
         else{
@@ -132,13 +187,61 @@
         }
 
         // 2nd way
-        if(a.hasOwnProperty('lname')){
+        if(user1.hasOwnProperty('lname')){
             document.write("YES" + "<br>");
         }
         else{
             document.write("NO" + "<br>");
         }
         
+
+        // IMPORTANT
+        // As we already know, a variable cannot have a name equal to one of the language-reserved words like “for”, “let”, “return” etc.
+        // But for an object property, there’s no such restriction. we can use the reserved keyword as a key also.
+
+        // A number 0 becomes a string "0" when used as a property key
+        let obj = {
+            0: "test" // same as "0": "test"
+        };
+        // both alerts access the same property (the number 0 is converted to string "0")
+        alert( obj["0"] ); // test
+        alert( obj[0] ); // test (same property)
+
+        // Access Order Of Object Property
+        // integer properties are sorted
+        // Example
+        let codes = {
+            "49": "Germany",
+            "41": "Switzerland",
+            "44": "Great Britain",
+            // ..,
+            "1": "USA"
+        };
+        for (let code in codes) {
+            alert(code); // 1, 41, 44, 49
+        }
+
+        // if the keys are non-integer, then they are listed in the creation order, for instance
+        // Example
+        var user = {
+            name: "John",
+            surname: "Smith"
+        };
+        user.age = 25; // add one more
+        // non-integer properties are listed in the creation order
+        for (let prop in user) {
+            alert( prop ); // name, surname, age
+        }
+
+
+        // An important side effect of storing objects as references is that an object declared as const can be modified.
+        // Example
+        var user = {
+            name: "John"
+        };
+        user.name = "Pete"; // (*)
+        alert(user.name); // Pete
+        // NOTE : the const user gives an error only if we try to set user=... as a whole.
     </script> 
 
 </head>

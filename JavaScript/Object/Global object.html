@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global object In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        // What is Global object?
+        // Global object yani ki jisme hamari sari global property and function(method) hai wo store hongi
+
+        // JavaScript me browser ke lliye window hai wo global object hai.
+        // Or node.js ke liye global hai wo global object hai.
+        // yani ki different environments ke liye global object hai wo different name ke ho sakte hai.
+
+        // Lekin JavaScript me Recently, globalThis add huva hai joki ek standardized name hai global object ke liye,
+        // joki across all environments supported hai or all major browsers me bhi supported hai.
+        
+        // NOTE : global object me sirf globally define ki gai property and function hee store hai hai.
+        // yani ki jo property ham var keyword hai declare karenge wahi global object me store hogi.
+        // (let and const type ki property global object me store nahi hogi)
+
+        // Example
+        alert("Hello");
+        // is the same as
+        window.alert("Hello");
+
+        // Example of property
+        var gVar = 5;
+        alert(window.gVar); // 5 (became a property of the global object)
+
+        // Example of property using let keyword
+        let gLet = 5;
+        alert(window.gLet); // undefined (doesn't become a property of the global object)
+
+
+        // yadi hame kis property ko globally declare karna hai wo ham wo bhi kar sakte hai
+        // Example
+        // make current user information global, to let all scripts access it
+        window.currentUser = {
+            name: "John"
+        };
+        // somewhere else in code
+        alert(currentUser.name);  // John
+        // or, if we have a local variable with the name "currentUser"
+        // get it from window explicitly (safe!)
+        alert(window.currentUser.name); // John
+
+
+
+        // Summary
+        // The global object holds variables that should be available everywhere.
+
+        // That includes JavaScript built-ins, such as Array and environment-specific values, such as window.innerHeight – the window height in the browser.
+
+        // The global object has a universal name globalThis.
+
+        // …But more often is referred by “old-school” environment-specific names, such as window (browser) and global (Node.js).
+
+        // We should store values in the global object only if they’re truly global for our project. And keep their number at minimum.
+
+        // In-browser, unless we’re using modules, global functions and variables declared with var become a property of the global object.
+
+        // To make our code future-proof and easier to understand, we should access properties of the global object directly, as window.x.
+    </script>
+    
+</body>
+</html>

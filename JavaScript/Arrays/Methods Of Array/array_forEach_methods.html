@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>forEach In JavaScript</title>
+
+    <script>
+        // ye forEach Loop bhi hai or array ka method bhi hai
+        // forEach loop ya kahe ki function hai wo array ke every Element ke liye diye gye function ko run kare ga
+        /* Syntax :
+        forEach(callbackFn)
+        forEach(callbackFn, thisArg) */
+
+        // use external function
+        var a = ["sanjay","aman", "rehman","rahul"];
+        a.forEach(loop1);
+        // get only Element
+        function loop1(element){
+            document.write(element +"<br>");
+        }
+
+        // get index and Element both
+        a.forEach(loop2);
+        function loop2(element,index){
+            document.write(index + " : "+element+"<br>");
+        }
+
+        // use callback-function
+        var b = ["raj","manish","rahul"];
+        b.forEach(function(element,index){
+            document.write(index + " : "+element+"<br>");
+        })
+
+        /* NOTE : forEach ko as a higher order function bhi bola jaata hai,
+        kyo ki wo as a paramater callback function leta hai. */
+    </script>
+
+</head>
+
+<body>
+    
+</body>
+
+</html>
+	 

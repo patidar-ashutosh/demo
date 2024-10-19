@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript</title>
+
+    <script>
+        // ye jo insertAdjacent Methods hai to tag OR text ko create bhi karte hai or unko append bhi karte hai 
+
+        /* insertAdjacentElement
+        insertAdjacentHTML
+        insertAdjacentText */ 
+
+        // insertAdjacentElement ka use tag ko create karne or use append karne ke liye hota hai
+        // insertAdjacentElement Example 
+        var newElement = document.createElement("h2");
+        var newText = document.createTextNode("this is text");
+        newElement.appendChild(newText);
+        var target = document.getElementById("main");
+        // yaha pe hame ne diya ki hame konsi id pe append karna hai 
+        // syntax:- target.insertAdjacentElement("position", konsa text dalna hai uska variable);
+        target.insertAdjacentElement("afterbegin", newElement);
+
+
+        // insertAdjacentHTML ka use tag or text dono ko ek saath create karne or une append karne ke liye hota hai 
+        // insertAdjacentHTML example 
+        var target = document.getElementById("main");
+        // yaha pe hame ne diya ki hame konsi id pe append karna hai 
+        var newtagtext = "<h1>this is h1</h1>";
+        // syntax:- target.insertAdjacentHTML("position", konsa text dalna hai uska variable);
+        target.insertAdjacentHTML("afterbegin", newtagtext);
+
+
+
+        // insertAdjacentText ka use text ko create karne or une append karne ke liye hota hai 
+        // insertAdjacentText Example 
+        var target = document.getElementById("main");
+        // yaha pe hame ne diya ki hame konsi id pe append karna hai 
+        var newtext = "this is h1";
+        // syntax:- target.insertAdjacentText("position", konsa text dalna hai uska variable);
+        target.insertAdjacentText("afterbegin", newtext);
+
+
+
+
+        /*  position 4 type ki hai 
+        afterbegin => ye use id,class ya tag jese hi strat ho uske baad first me append kar deta
+        afterend => ye use id,class ya tag ke end hone ke baad append kar deta
+        beforebegin => ye use id,class ya tag ke pehle append kar deta
+        beforeend => ye use id,class ya tag ke end hone se pehle append kar deta. */
+
+
+        /* insertAdjacentElement , insertAdjacentHTML and insertAdjacentText difference itna hai ki 
+        insertAdjacentElement tag ko create karta hai or usko append karta hai
+        insertAdjacentHTML tag or text dono ko saath me create karta hai or usko append karta hai
+        insertAdjacentText text ko create karta hai or usko append karta hai. */
+    </script>
+
+    <style>
+        #main{
+            background-color:rgb(149, 223, 198);
+            height: 250px;
+            margin: 50px;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+   
+    <div id="main">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio odit ullam illo praesentium porro sit.</p>
+    </div>
+
+</body>
+
+</html>

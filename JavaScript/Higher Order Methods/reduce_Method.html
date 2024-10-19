@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>reduce In JavaScript</title>
+
+    <script>
+        document.write("<b>reduce method</b> <br>");
+        /* reduce method ka use ham tab karte hai jab hame koi single value me result chahiye hota hai
+        jese ki hamare pass koi array hai uska hame sum ya max value find karna hai tab ham reduce method ka use karenge
+
+        reduce is used to calculate a single value based on the array. */
+
+        /* Syntax
+        reduce(callbackFn)
+        reduce(callbackFn, initialValue)
+
+        how to write callbackFn
+        let result = arr.reduce(function (accumulator, current){
+            // code
+        } , FirstParameterValue)
+
+        reduce function me ham two parameter pass karte hai 1.function 2.defaultValue
+        1. function me ham two parameter pass karte hai
+        jisme jo first parameter hota hai wo value ko store karke rakhta hai
+        jese ki ham sum find karte hai to vo abhi tak kitna sum huva hai wo store karke rakhega
+        and jo second parameter hai wo array ki current value ko point kare ga
+
+        2. second me hame accumulator ki default value deni hoti hai joki reduce method ki first iteration pe accumulator ko assign hogi
+        MOST IMPORTANT NOTE : jo initialValue hai wo first iteration ke liye hee accumulator me assign hogi
+        yani ki jo second iteration hogi ussme accumulator ki value hai wo ham jo first iteration me se return karenge wo hogi
+        or yadi ham first iteration me se koi value ko return nahi karte hai to second iteration me accumulator ki value hai undefined ho jaaye gi. */
+
+        // Example
+        let arr = [5,2,8,3,7];
+        document.write("arr array is : " + arr + "<br>");
+
+        let result = arr.reduce(function(acc, current){
+            acc = acc + current;
+            return acc;
+        }, 0)
+
+        document.write("-> sum the arr array using reduce : " + result + "<br>");
+
+
+        /* How reduce Method work ?
+        reduce hai wo one by one Array ke Element pe callback function me jo task diya hoga wo perform karta hai
+        or uske baad jo answer aata hai us answer ko next call(iteration) me sned kar deta hai
+
+        The function is applied to all array elements one after another and “carries on” its result to the next call. */
+
+
+
+        // Example without initial value
+        // How it's work
+        /* jab ham reduce method me koi initial value nahi dete hai to wo array ke first element ko ,
+        as a initial value assign kar deta hai accumulator ko and jo reduce method ki iteration hai wo,
+        ab second element (yani ki 1st index) se start hogi.
+
+        if we not initial initialValue, then reduce takes the first element of the array as the initial value, 
+        and starts the iteration from the 2nd element.
+        */
+
+        // removed initial value from reduce (no 0)
+        document.write("<br> Use reduce method without initial value <br>");
+        let result2 = arr.reduce((sum, current) => sum + current);
+        document.write("-> sum of arr array using without initial value : " + result2 + "<br>");
+
+
+
+        // Another Example With Array of Object
+        let arrObj = [
+            {fname : 'rajesh' , lname:'patel', age:26},
+            {fname : 'vikram' , lname:'jain', age:75},
+            {fname : 'elon' , lname:'musk', age:50},
+            {fname : 'donald' , lname:'trump', age:26},
+        ];
+        document.write("<br> -> array of object that store user information <br>");
+        document.write("Open console to see that one !!! <br>");
+
+        console.log("-> array of object that store user information");
+        console.log(arrObj);
+
+        // ab hame output me konsi age kitne time hai wesa data chahiye
+        // like : {26 : 2, 50 : 1, 75 : 1}
+
+        let countAges = arrObj.reduce(function(acc, curr){
+            if(acc[curr.age]){
+                acc[curr.age] = acc[curr.age] + 1;
+            }
+            else{
+                acc[curr.age] = 1;
+            }
+
+            return acc;
+        }, {});
+        
+        document.write("-> Age repeation count using reduce : <br>");
+        document.write("Open console to see answer <br>");
+
+        console.log("-> Age repeation count using reduce : ");
+        console.log(countAges);
+
+
+
+        // Example of not return accumulator to next iteration
+        document.write("<br> -> Not return accumulator value to next iteration <br>");
+
+        let result3 = arr.reduce(function(acc, current){
+            acc = acc + current;
+        }, 0)
+
+        document.write("-> answer is : " + result3 + "<br>");
+
+        
+        
+
+        document.write("<br> <b>reduceRight method</b> <br>");
+        document.write("-> Go in code editor to read it !!!<br>");
+        /* reduceRight method same reduce jese hee work karta hai lekin jo reduce hai to left to right work karta hai.
+        jab ki reduceRight hai wo right to left work karta hai.
+
+        The method arr.reduceRight does the same but goes from right to left. */
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

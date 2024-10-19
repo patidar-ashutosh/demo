@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>Functions</title>
+    <title>Functions In JavaScript</title>
+    
     <script>
-
         // What is Function?
         /* jab hame kisi task ko multiple time karna ho tab ham us block of code ko
         ek block ke andar dal dete hai jise function kehte hai.
@@ -16,70 +16,98 @@
             code
         } */
 
+
+
         // hamare pass 2 ways hai function create karne ke
-        // 1st way - Normal Way
+        // 1st way - Function Declaration
+        // 2nd way - Function Expressions
 
-        // Calling(Invoke) Function Before Declaration
-        hello();
-        
-        // IMPORTANT PART
-        /* ham is hello() function ko declare karne se pehle is liye call kar pa rahe hai
-        kyo ki JavaScript me hamara JS Engine hai wo jab hamare code ko excute karne ja raha hota hai
-        tab wo sab se pehle jitne bhi functions honge un sabko file ke top me le jata hai
-        ye sab kuch automatically hota hai. jo ki hamara JS Engine karta hai.
-        
-        yani ki ham code ko excute karne se pehle sabhi functions ko file ko top me bhej dete hai
-        jise Hosting bola jaata hai.
+        // 1st way - Function Declaration
+        // Function Declaration yani ki jisme ham apne function ko as a normally create karke usse call kar sakte hai.
+        // If the function is declared as a separate statement in the main code flow, that’s called a “Function Declaration”.
 
-        Hosting is the Process of moving functions declaration to the top of file. */
-
+        // Example
         // Function Declaration
-        function hello(){
-            document.write("hello <br>");
+        function showMessage() {
+           alert( 'Hello everyone!' );
         }
 
-        // Calling(Invoke) Function After Declaration
-        hello();
+        // call the function
+        showMessage();
 
 
-        // 2nd way - Using Function Assignment
-        /* Function Assignment 2 type se ham kar sakte hai
-        1. Named Function Assignment : yani ki jisme ham function ka name dete hai.
-        2. Anonymous Function Assignment : yani ki jisme ham function ka name nahi dete hai. */
 
-        // Calling(Invoke) Function Before Declaration
-        // funcRun();
-
-        /* Ham yaha pe funcRun() ko Before Declaration call nahi kar sakte hai
-        kyo ki jo Hosting hai wo sirf Function Declaration ka use karke ham jo function create kiye honge
-        un functions ko hee wo top me move kare ga. or jo ye funcRun function hai wo hamne
-        Function Assignment se create kiya hai is liye wo top me move nahi hoga. */
+        // 2nd way - Function Expressions
+        // Function Expressions yani ki jisme ham apne function ko kisi variable me assign karte hai or jab hame function ko call karna ho tab ham use variable ka use karenge.
+        // If the function is created as a part of an expression, it’s called a “Function Expression”.
         
-        // Named Function Assignment
+        /* Function Expressions me 2 type ke functions hote hai
+        1. Named Function Expressions : yani ki jisme ham function ka name dete hai.
+        2. Anonymous Function Expressions : yani ki jisme ham function ka name nahi dete hai. */
+        
+
+        // 1. Named Function Expressions
         let funcRun = function run(){
             document.write("runing <br>");
-        }
+        };
 
-        // Anonymous Function Assignment
-        let funcWalk = function(){
-            document.write("waking <br>");
-        }
+        // call the function
+        funcRun();
 
         /* yani ki yaha pe hamne apne run function ko store kar diya hai funcRun variable me
         yani ki ab jabhi hame run function ko call karna hoga to ham funcRun variable ko call karenge
-        kyo ki jo hamara run function hai wo store hai funcRun variable.
+        kyo ki jo hamara run function hai wo store(Assign) hai funcRun variable me.
 
-        NOTE: ham directly run() ko call nahi kar sakte hai esa karne pe hame error mile ga. */
+        NOTE: ham directly run() ko call nahi kar sakte hai esa karne pe hame error mile ga.
+        kyo ki run hai wo function to hai lekin wo assign hai funcRun variable me is liye function ko call karne ke liye,
+        hame funcRun variable ka use karna padega. */
 
-        // Calling(Invoke) Function After Declaration
-        funcRun();
+
+        // 2. Anonymous Function Expressions
+        let funcWalk = function(){
+            document.write("waking <br>");
+        };
+
+        // call the function
         funcWalk();
 
+        /* Why is there a semicolon at the end?
+        You might wonder, why do Function Expressions have a semicolon ; at the end, but Function Declarations do not: */
 
-        // Different Between Function Declaration And Function Assignment
-        /* Function Declaration me ham function ko Before Declaration and After Declaration bhi call kar sakte hai.
-        Jab ki Function Assignment me ham function ko sirf After Declaration hee call kar sakte hai. */
+        function sayHi() {
+            // ...
+        }
+
+        let sayHi = function() {
+            // ...
+        };
+
+        /* The answer is simple: a Function Expression is created here as function(…) {…} inside the assignment statement:
+        let sayHi = …;. The semicolon ; is recommended at the end of the statement, it’s not a part of the function syntax.
+
+        The semicolon would be there for a simpler assignment, such as let sayHi = 5;, and it’s also there for a function assignment. */
+
+
+
+        // Different Between Function Declaration And Function Expressions
+        /*
+        Function Declaration :
+        Function Declaration me ham function ko Before Declaration and After Declaration bhi call kar sakte hai.
+        yani ki Function Declaration se ham jo function create karenge wo hoisting ke thorough top of the file move ho jaayenge.
+
+        Function Expressions : 
+        Function Expressions me ham function ko sirf After Declaration hee call kar sakte hai.
+        yani ki Function Expressions hai wo hoisting ko support nahi karta hai. 
+
+        Another special feature of Function Declarations is their block scope.
+        In strict mode, when a Function Declaration is within a code block, it’s visible everywhere inside that block. But not outside of it.
+
+        Function Declarations are processed before the code block is executed. They are visible everywhere in the block.
+        Function Expressions are created when the execution flow reaches them.
         
+        Example of Different -> Functions/Different Between Function Declaration And Function Expressions.html
+        */
+
 
 
         // What is Hosting?
@@ -88,7 +116,54 @@
         
         In JavaScript, hoisting refers to the built-in behavior of the language through which declarations of functions,
         variables, and classes are moved to the top of their scope – all before code execution. In turn,
-        this allows us to use functions, variables, and classes before they are declared*/
+        this allows us to use functions, variables, and classes before they are declared */
+        
+
+
+        // Function Is Value 
+        /* In JavaScript, a function is a value, so we can deal with it as a value.
+        The code above shows its string representation, which is the source code.
+        Surely, a function is a special value, in the sense that we can call it like sayHi().
+        But it’s still a value. So we can work with it like with other kinds of values.
+        We can copy a function to another variable */
+
+        function sayHi() {   // (1) create
+            alert( "Hello" );
+        }
+        let func = sayHi;    // (2) copy
+        func(); // Hello     // (3) run the copy (it works)!
+        sayHi(); // Hello    //     this still works too (why wouldn't it)
+        /* Here’s what happens above in detail:
+        1. The Function Declaration (1) creates the function and puts it into the variable named sayHi.
+        2. Line (2) copies it into the variable func. Please note again: there are no parentheses after sayHi.
+        If there were, then func = sayHi() would write the result of the call sayHi() into func, not the function sayHi itself.
+        3. Now the function can be called as both sayHi() and func(). */
+
+
+
+        /* Naming a function
+        Functions are actions. So their name is usually a verb. It should be brief, as accurate as possible and describe what the function does,
+        so that someone reading the code gets an indication of what the function does.
+
+        It is a widespread practice to start a function with a verbal prefix which vaguely describes the action.
+        There must be an agreement within the team on the meaning of the prefixes.
+        For instance, functions that start with "show" usually show something.
+
+        Function starting with…
+
+        "get…" – return a value,
+        "calc…" – calculate something,
+        "create…" – create something,
+        "show…" – show something, 
+        "check…" – check something and return a boolean, etc. */
+
+        // Examples of such names:
+        showMessage()     // shows a message
+        getAge()          // returns the age (gets it somehow)
+        calcSum()         // calculates a sum and returns the result
+        createForm()      // creates a form (and usually returns it)
+        checkPermission() // checks a permission, returns true/false
+        // With prefixes in place, a glance at a function name gives an understanding what kind of work it does and what kind of value it returns.
     </script>
 
 </head>

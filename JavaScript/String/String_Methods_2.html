@@ -3,11 +3,12 @@
 <html lang="en">
 
 <head>
+    <title>String Methods In JavaScript</title>
+</head>
 
-    <title>JavaScript</title>
+<body>
 
     <script>
-
         // string ka index 0 se start hota hai 
 
         var str = "JavaScript is a GREAT is Language";
@@ -77,13 +78,14 @@
         // var a = str.slice(-3,-1); // is me ham - mains index bhi de sakte hai
 
 
-        // same work like slice
+        // same work like slice, but it allows start to be greater than end (in this case it simply swaps start and end values).
         // NOTE : substring method me ham negative value nahi de sakte hai
         /* Syntax:
         substring(indexStart)
         substring(indexStart, indexEnd) */
         // var a = str.substring(7);
         // var a = str.substring(3,7);
+        // var a = str.substring(7,3); same output like above
 
 
         // toString kisi bhi type ke variable ko string me convert kar deta hai 
@@ -119,14 +121,10 @@
         // substr method hame kise index se le kare koi hamne jitne number diya hoga unte number ka ek new string create karke deta hai
         // 1st paramenter me kahase start karna hai or 2nd parameter me kitne character lene hai wo 
         // var a = str.substr(2,7); 
+        // var a = str.substr(-7,3); 
 
         document.write(a);
- 
     </script> 
-
-</head>
-
-<body>
     
 </body>
 

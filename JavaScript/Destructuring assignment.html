@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring assignment In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        // what is Destructuring assignment ?
+        /* The two most used data structures in JavaScript are Object and Array.
+
+        Objects allow us to create a single entity that stores data items by key.
+        Arrays allow us to gather data items into an ordered list.
+        However, when we pass these to a function, we may not need all of it.
+        The function might only require certain elements or properties.
+
+        Destructuring assignment is a special syntax that allows us to “unpack” arrays or objects,
+        into a bunch of variables, as sometimes that’s more convenient.
+
+        Destructuring also works well with complex functions that have a lot of parameters, default values, and so on. */
+
+        
+        // Array destructuring
+        // Here’s an example of how an array is destructured into variables:
+
+        // we have an array with a name and surname
+        let arr = ["John", "Smith"];
+
+        // destructuring assignment
+        // sets firstName1 = arr[0]
+        // and surname1 = arr[1]
+        let [firstName1, surname1] = arr;
+
+        alert(firstName1); // John
+        alert(surname1);  // Smith
+        // Now we can work with variables instead of array members.
+
+        // It looks great when combined with split or other array-returning methods:
+        let [firstName2, surname2] = "John Smith".split(' ');
+        alert(firstName2); // John
+        alert(surname2);  // Smith
+
+
+
+        // Ignore elements using commas
+        // Unwanted elements of the array can also be thrown away via an extra comma:
+
+        // second element is not needed
+        let [firstName3, , title1] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+        alert( title1 ); // Consul
+        // In the code above, the second element of the array is skipped, the third one is assigned to title,
+        // and the rest of the array items are also skipped (as there are no variables for them).
+
+
+
+        // Works with any iterable on the right-side
+        // …Actually, we can use it with any iterable, not only arrays:
+        let [a, b, c] = "abc"; // ["a", "b", "c"]
+        let [one, two, three] = new Set([1, 2, 3]);
+        // That works, because internally a destructuring assignment works by iterating over the right value.
+        // It’s a kind of syntax sugar for calling for..of over the value to the right of = and assigning the values.
+
+
+
+        // Assign to anything at the left-side
+        // We can use any “assignables” on the left side.
+        // For instance, an object property:
+        let user = {};
+        [user.name, user.surname] = "John Smith".split(' ');
+        alert(user.name); // John
+        alert(user.surname); // Smith
+
+
+
+
+
+        // The rest ‘…’
+        // Usually, if the array is longer than the list at the left, the “extra” items are omitted.
+
+        // For example, here only two items are taken, and the rest is just ignored:
+        let [name1, name2] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+        alert(name1); // Julius
+        alert(name2); // Caesar
+        // Further items aren't assigned anywhere
+        // If we’d like also to gather all that follows – we can add one more parameter that gets “the rest” using three dots "...":
+
+        let [names1, names2, ...rest] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+
+        // rest is an array of items, starting from the 3rd one
+        alert(rest[0]); // Consul
+        alert(rest[1]); // of the Roman Republic
+        alert(rest.length); // 2
+
+        // The value of rest is the array of the remaining array elements.
+        // We can use any other variable name in place of rest,
+        // just make sure it has three dots before it and goes last in the destructuring assignment.
+        let [namee1, namee2, ...titles] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+        // now titles = ["Consul", "of the Roman Republic"]
+
+
+
+
+        // Default values
+        let [firstName, sname] = [];
+        alert(firstName); // undefined
+        alert(sname); // undefined
+
+
+        // If we want a “default” value to replace the missing one, we can provide it using =:
+        // default values
+        let [name = "Guest", surnamee = "Anonymous"] = ["Julius"];
+        alert(name);    // Julius (from array)
+        alert(surnamee); // Anonymous (default used)
+
+        // For instance, here we use the prompt function for two defaults:
+        // runs only prompt for surname
+        let [nameValue = prompt('name?'), surname = prompt('surname?')] = ["Julius"];
+        alert(nameValue);    // Julius (from array)
+        alert(surname); // whatever prompt gets
+        // Please note: the prompt will run only for the missing value (surname).
+
+
+
+
+
+        // Object destructuring
+        // The basic syntax is:
+        // let {var1, var2} = {var1:…, var2:…}
+
+        // Example
+        let options = {
+            title: "Menu",
+            width: 100,
+            height: 200
+        };
+
+        let {title, width, height} = options;
+
+        alert(title);  // Menu
+        alert(width);  // 100
+        alert(height); // 200
+        // Properties options.title, options.width and options.height are assigned to the corresponding variables.
+
+        // The order does not matter. This works too:
+        // changed the order in let {...}
+        // let {height, width, title} = { title: "Menu", height: 200, width: 100 }
+
+
+
+
+        // If we want to assign a property to a variable with another name, for instance,
+        // make options.width go into the variable named w, then we can set the variable name using a colon:
+        
+        // { sourceProperty: targetVariable }
+        // let {width: w, height: h, title} = options;
+
+        // width -> w
+        // height -> h
+        // title -> title
+
+        // alert(title);  // Menu
+        // alert(w);      // 100
+        // alert(h);      // 200
+
+
+
+        // If we have a complex object with many properties, we can extract only what we need:      
+        // only extract title as a variable
+        let { title : titleValue } = options;
+        alert(titleValue); // Menu
+        
+
+
+        // Use rest ‘…’ operator
+        // title = property named title
+        // rest = object with the rest of properties
+        let {title : t, ...restValue} = options;
+
+        // now title="Menu", restValue={height: 200, width: 100}
+        alert(restValue.height);  // 200
+        alert(restValue.width);   // 100
+
+
+
+
+
+        // Nested destructuring
+        let optionsObj = {
+            size: {
+                width: 100,
+                height: 200
+            },
+            items: ["Cake", "Donut"],
+            extra: true
+        };
+
+        // destructuring assignment split in multiple lines for clarity
+        let {
+            size: { // put size here
+                width : w,
+                height : h
+            },
+            items: [item1, item2], // assign items here
+            titleVar = "Menu" // not present in the object (default value is used)
+        } = optionsObj;
+
+        alert(title);  // Menu
+        alert(w);  // 100
+        alert(h); // 200
+        alert(item1);  // Cake
+        alert(item2);  // Donut
+
+
+
+
+        // Smart function parameters (Pass object in function and destructured it)
+        // Example
+
+        // we pass object to function
+        let option = {
+            title: "My menu",
+            items: ["Item1", "Item2"]
+        };
+
+        // ...and it immediately expands it to variables
+        function showMenu({title = "Untitled", width = 200, height = 100, items = []}) {
+            // title, items – taken from option,
+            // width, height – defaults used
+            alert( `${title} ${width} ${height}` ); // My Menu 200 100
+            alert( items ); // Item1, Item2
+        }
+
+        showMenu(option);
+
+
+        // Please note that such destructuring assumes that showMenu() does have an argument. If we want all values by default, then we should specify an empty object:
+
+        showMenu({}); // ok, all values are default
+
+        // showMenu(); // this would give an error
+
+
+        // NOTE : It’s possible to extract data from nested arrays/objects,
+        // for that the left side must have the same structure as the right one.
+    </script>
+    
+</body>
+</html>

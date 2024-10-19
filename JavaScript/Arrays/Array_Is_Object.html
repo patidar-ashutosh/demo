@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Is Object In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        /* An array is a special kind of object. The square brackets used to access a property arr[0] actually come from the object syntax.
+        That’s essentially the same as obj[key], where arr is the object, while numbers are used as keys.
+
+        They extend objects providing special methods to work with ordered collections of data and also the length property.
+        But at the core it’s still an object.
+
+        Remember, there are only eight basic data types in JavaScript (see the Data types chapter for more info).
+        Array is an object and thus behaves like an object. */
+
+        // For instance, it is copied by reference:
+        let fruits = ["Banana"];
+        let copyArr = fruits; // copy by reference (two variables reference the same array)
+        alert( copyArr === fruits ); // true
+        copyArr.push("Pear"); // modify the array by reference
+        alert( fruits ); // Banana, Pear - 2 items now
+
+        /* …But what makes arrays really special is their internal representation. The engine tries to store its elements in the contiguous memory area,
+        one after another, just as depicted on the illustrations in this chapter, and there are other optimizations as well, to make arrays work really fast.
+
+        But they all break if we quit working with an array as with an “ordered collection” and start working with it as if it were a regular object. */
+
+        // Another Way to copy an array (Using Spread Operator)
+        let arr = [1, 2, 3];
+        let arrCopy = [...arr]; // spread the array into a list of parameters
+                                // then put the result into a new array
+
+        // do the arrays have the same contents?
+        alert(JSON.stringify(arr) === JSON.stringify(arrCopy)); // true
+
+        // are the arrays equal?
+        alert(arr === arrCopy); // false (not same reference)
+
+        // modifying our initial array does not modify the copy:
+        arr.push(4);
+        alert(arr); // 1, 2, 3, 4
+        alert(arrCopy); // 1, 2, 3
+
+        
+
+
+        /* The ways to misuse an array :
+        Add a non-numeric property like arr.test = 5.
+        Make holes, like: add arr[0] and then arr[1000] (and nothing between them).
+        Fill the array in the reverse order, like arr[1000], arr[999] and so on. */
+
+        /* Please think of arrays as special structures to work with the ordered data.
+        They provide special methods for that. Arrays are carefully tuned inside JavaScript engines to work with contiguous ordered data,
+        please use them this way. And if you need arbitrary keys, chances are high that you actually require a regular object {}. */
+
+        // FOR MORE INFO READ THIS -> https://javascript.info/array#internals
+    </script>
+    
+</body>
+</html>

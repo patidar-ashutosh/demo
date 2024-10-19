@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>Function With Parameter</title>
-    <script>
+    <title>Function With Parameter In JavaScript</title>
 
+    <script>
         /* Parameter : ham function ko create karte time bracket me variables dete hai usse Parameter kehte hai.
         Arguments : jab ham function ko call karte hai or jo values dete hai use arguments kehte hai. */ 
 
@@ -24,61 +24,6 @@
         nahi denge to bhi hame error nahi mile ga */
 
 
-        // Special Object Arguments
-
-        /* Ab jab ham function ko call karte time jab arguments dete hai or yadi wo arguments extra hoti hai
-        yani ki function ke paramenter hai 2 or ham arguments de rahe hai 5
-        to jo ye extra arguments hai wo bhi function me jaati to hogi lekin uska use nahi ho raha hoga.
-
-        lekin hamare pass JavaScript me ek Special Object hota hai arguments
-        jiska use kar ke ham uss extra arguments ko bhi usme le sakte hai.
-
-        NOTE : ham function call karte time jitne bhi arguments dete hai wo sabhi is special arguments object me store hote hai */
-
-        function specialObj(a,b){
-            console.log(arguments);
-            // arguments hame object deta hai
-
-            let total = 0;
-            for(let key in arguments){
-                total = total + arguments[key];
-            }
-
-            return total;
-        }
-
-        document.write(specialObj(1,2,3,4,5) + "<br>");
-        document.write(specialObj(1,2,5) + "<br>");
-        document.write(specialObj(1,5) + "<br>");
-        document.write(specialObj(5) + "<br>");
-
-
-
-        // Rest Operator -> ...
-        /* jab ham ek function create karte hai to usme multiple parameters hote hai
-        to ham us parameters ko ham Rest Operator ka use karke handle kar sakte hai. */
-
-        function restOperator(...para){
-            document.write(para + "<br>");
-        }
-
-        restOperator(1,2,3,4,5);
-
-        /* yani ki hamari jitni bhi arguments hai to sab para variable me store ho jaaye gi
-        joki ek array variable me store hogi.*/
-
-        // Another Example
-        function restOperator2(a, b, ...para){
-            document.write(para + "<br>");
-        }
-
-        restOperator2(1,2,3,4,5);
-        /* yaha pe jo first two arguments hai to a and b parameter me store hogi.
-        baki ki rest hai wo para variable me store hogi. */
-
-        // NOTE : jab ham Rest Operator ka use karte hai to Rest Operator ke baad ham koi bhi parameter nahi de sakte hai.
-        // yani ki Rest vala jo Paramter hoga wo hamara last paramter hona chahiye. 
-
 
 
         // Default Parameters
@@ -97,9 +42,8 @@
 
         /* default parameter me yadi ham us parameter ke liye argument dete hai to wo argument vali value lega
         nahi to fir uski jo default value di hogi vo value lega.*/
-
-
     </script>
+    
 </head>
 
 <body>

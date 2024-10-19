@@ -3,50 +3,55 @@
 <html lang="en">
 
 <head>
-
-    <title>JavaScript</title>
+    <title>map In JavaScript</title>
 
     <script>
+        document.write("<b>map method</b> <br>");
+        /* map method ka use karke ham kisi existing array ke sath koi operation perform karke koi new array create kar sakte hai
+        yani ki ham keh sakte hai ki map() method ka use transfrom karne ke liye hota hai
+        map method hai wo array ki every Element ke function ko call karke operations perform karta hai
 
-
-        // map method ka use karke ham kisi existing array ke sath koi operation perform karke koi new array create kar sakte hai
-        // yani ki ham keh sakte hai ki map() method ka use transfrom karne ke liye hota hai
-
-        // map method ka use karne ke liye hame ek function create karna padta hai
-        // ham chahe to alg se bhi function create kar sakte hai or chahe to callback-function bhi likh sakte hai
+        map method ka use karne ke liye hame ek function create karna padta hai
+        ham chahe to alg se bhi function create kar sakte hai or chahe to callback-function bhi likh sakte hai. */
 
         /* NOTE : map hamesa array hee return karta hai
         or map me ham jis condition ka use karte hai or array ki kisi value ke liye wo condition false hogi
         to map hai wo usse index pe new array me undefined store kar dege */
+
         /* Syntax :
         map(callbackFn)
         map(callbackFn, thisArg) */
 
-        var arr = [10,20,30];
+        let arr = [10,20,30];
+        document.write("arr array is : " + arr + "<br><br>");
 
         // create function outside
-        var a = arr.map(multiply);
+        let a = arr.map(multiply);
         function multiply(value){
             return value * 10;
         }
-        document.write(a + "<br>");
+        document.write("-> perform multiplication value * 10 : " + a + "<br>");
 
-        // create function in map method
-        var b = arr.map(function(x){
-            return "answer : " + x*10;
+        
+        // create function in map method (it's called callback function)
+        let b = arr.map(function(x){
+            return "answer : " + x * 10;
         });
-        document.write(b + "<br>");
+        document.write("-> doing same thing with callback function (just append answer string) -> " + b + "<br>");
+
 
         // convert this callback function into arrow function
-        var result = arr.map( (val) => {
+        let result = arr.map( (val) => {
             return "answer : " + val*10;
         });
-        document.write(result + "<br>");
+        document.write("-> same thing with arrow function -> " + result + "<br><br>");
 
 
+
+        // Example with object
         // ham object ke saath bhi mapping kar sakte hai
-        var numbers = [1,8,-6,-4];
-        var filtered = numbers.filter(value => value >= 0);
+        let numbers = [1,8,-6,-4];
+        let filtered = numbers.filter(value => value >= 0);
         let answer = filtered.map(function(num){
             return {value : num};
         });
@@ -56,20 +61,28 @@
         // });
         console.log(answer);
 
+
+
         // map method ka use karke ham array of object ki value ka bhi ek new array create kar sakte hai
-        var obj = [
+        document.write("-> create new array using object values <br>");
+        let obj = [
             {fname : 'yahoo' , lname : 'baba'},
             {fname : 'rahul' , lname : 'kumar'},
             {fname : 'karan' , lname : 'sharma'}
         ];
-        var z = obj.map(test);
+
+        let arrayOfObjectValues = obj.map(test);
+
         function test(x){
             return x.fname + " " + x.lname;
         }
-        document.write(z + "<br>");
+
+        document.write(arrayOfObjectValues + "<br><br>");
+
 
 
         // Example (Chaining of Method)
+        document.write("<b>Chaining of Method</b> <br>");
         let arrObj = [
             {fname : 'rajesh' , lname:'patel', age:26},
             {fname : 'vikram' , lname:'jain', age:75},
@@ -77,7 +90,7 @@
             {fname : 'donald' , lname:'trump', age:26},
         ];
 
-        // yadi hame ese user ka first name find karna ho jinki age 30 se kam ho
+        // jese ki hame ese user ka first name find karna ho jinki age 30 se kam ho
         const resultData = arrObj.filter( (x) => {
             return x.age < 30;
         })
@@ -85,8 +98,7 @@
             return x.fname;
         });
 
-        document.write(resultData);
-        
+        document.write("-> all user which age is smaller than 30 : " + resultData);
     </script> 
 
 </head>

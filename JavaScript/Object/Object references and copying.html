@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object references and copying In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        // objects are stored and copied “by reference”
+
+        // Example
+        let obj1 = {value:10};
+        let obj2 = obj1;
+
+        obj1.value++;
+        
+        document.write(obj1.value + "<br>");
+        document.write(obj2.value + "<br>");
+        /* Reference Type me address(reference) se copy create hoti hai.
+        yani ki jab ham obj2 = obj1 kar rahe hai to jo obj1 ka address hai uski jo
+        hamara obj2 hai wo point kar raha hoga.
+        yani ki obj1 and obj2 same memory location ko point kar rahe honge.
+        to jab ham obj1.value++; kare ge to obj1 and obj2 done ke liye value property ki 
+        value 1 se increment hogi kyo ki obj1 and obj2 same memory location ko point kar rahe hai.
+        to jab ham print kare ge to 11 and 11 print hoga.
+        
+        NOTE : ise ham Pass By Reference kehte hai yani ki jisme address(Reference) copy hota hai. */
+
+
+        // pass object in function
+        let obj = {
+            name: "rahul",
+            age: 24,
+            address: {
+                street: "123 Main St",
+                city: "Exampleville",
+                zipCode: "12345"
+            },
+            hobbies: ["reading", "coding", "traveling"]
+        };
+
+        function demo(a){
+            console.log(a);
+        }
+        demo(obj);
+
+        /* yadi ham object ko function me as a parameter pass karte hai to object ka reference pass hota hai
+        yani ki yadi ham function me object ki kisi key ki value change karenge
+        to wo hamare main object me bhi changes ho jaaye ge. */
+
+        function demo1(a){
+            a.name = "vinod";
+            a.age = 28;
+        }
+        demo1(obj);
+        console.log(obj);
+
+
+        // return only select information from an object
+        function demo3(a){
+            return {name : a.name , age: a.age};
+        }
+        const result = demo3(obj);
+        console.log(result);
+    </script>
+    
+</body>
+</html>

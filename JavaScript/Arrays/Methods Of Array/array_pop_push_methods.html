@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>JavaScript</title>
+    <title>push And pop In JavaScript</title>
 
     <script>
+        let arr = ["sanjay","aman", "rehman","karan"];
+        document.write("arr array is : " + arr + "<br>");
+        
 
-        var a = ["sanjay","aman", "rehman","karan"];
-        document.write(a+"<br>");
-        
-        
+        document.write("<br> <b>push method</b> <br>");
         // push array me last me value ko add karke deta hai or return me array ka new length deta hai
         /* Syntax :
         push()
         push(element1)
         push(element1, element2)
         push(element1, element2, … elementN) */
-        a.push("rahul");
-        document.write(a+"<br>");
-        a.push("salman", 25, 'raja', false, 88);
-        document.write(a+"<br>");
+
+        document.write("-> add rahul <br>");
+        arr.push("rahul");
+        document.write("modifie arr is : " + arr + "<br>");
+
+        document.write("<br> -> add multiple values (salman, 25, raja, false, 88) <br>");
+        arr.push("salman", 25, 'raja', false, 88);
+        document.write("modifie arr is : " + arr + "<br>");
         
         
+        document.write("<br> <b>pop method</b> <br>");
         // pop array ki last value ko delete karke deta hai or return me delete huai value deta hai
         /* Syntax :
         pop() */
-        a.pop();
-        document.write(a+"<br>");
 
-
+        document.write("-> pop the values <br>");
+        arr.pop();
+        document.write("modifie arr is : " + arr + "<br>");
     </script>
     
 </head>

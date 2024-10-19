@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript</title>
+
+    <script>
+        /* event name
+        keydown
+        keypress
+        keyup
+        focus() yani jab vo file pe click kare tab call hoga 
+        blur() yani jab wo kisi filed pe click karne ke baad dursi filed pe click kare to pehli filed pe kuch karna ho tab hum blur ka use kar sate hai
+        input yani ki jab user value input kar raha ho tab kuch task karna ho
+        input sirf input or textarea pe he work karta hai
+        change jab use koi valuie change karta hai or jab wo use filed se foucs ko lose karta hai tab kuch task karna ho tab use hota hai
+        select ka use jab user koi hamne default value di he or use select karta hai tab call hota hai
+        select text or textarea pe work karta hai
+        submit jab user form ko submit karta hai tab call hota hai
+        invalid jab user koi wrong information dalta hai tab use koi message show karna ho tab ham invalid ka use karte hai. */
+
+        function focusFunction(a) {
+            a.style.background = "red";
+        }
+
+        function blurFunction(a) {
+            a.style.background = "";
+        }
+
+        function inputFunction(a) {
+            var x = a.value //value yaniki jise hame value mil jaye gi
+            document.getElementById("test").innerHTML = x;
+        }
+
+        function changeFunction(a) {
+            var x = a.value //value yaniki jise hame value mil jaye gi
+            document.getElementById("test").innerHTML = x;
+        }
+
+        function selectFunction(a) {
+            document.write("you select");
+        }
+
+        function submitFunction(a) {
+            var x = document.getElementById("name").value;
+            alert("Form Submited SuccessFully :- "+x);
+        }
+
+        function validFunction(a) {
+            alert("Enter Name");
+        }
+    </script> 
+
+</head>
+
+<body> 
+
+    <form action="" onsubmit="submitFunction()">
+        <label>name</label>
+        <input type="text" id="name" value="demo" onfocus="focusFunction(this)" onblur="blurFunction(this)" 
+        onchange="changeFunction(this)" onselect="selectFunction(this)" oninvalid="validFunction(this)"> <br> <br>
+
+        <!-- this yani ki jis pe click ho uski ka hi background change ho
+        this me hame jo mile ga vo function ke parameter a me store ho jaye ga 
+        jab hame multiple filed pe same event me same function apply karna ho tab ham this ka use kar sakte hai. -->
+
+        <label>class</label>
+        <input type="text" id="" onfocus="focusFunction(this)" onblur="blurFunction(this)" oninput="inputFunction(this)"> <br> <br>
+
+        <label>name</label>
+        <select id="" onfocus="focusFunction(this)" onblur="blurFunction(this)" onchange="changeFunction(this)">
+            <option value="India">India</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="US">US</option>
+        </select> <br> <br>
+
+        <input type="submit">
+    </form>
+
+    <div id="test" style="border:1px red solid"></div>
+
+</body>
+
+</html>

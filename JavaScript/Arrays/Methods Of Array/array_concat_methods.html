@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>concat In JavaScript</title>
+
+    <script>
+        document.write("<b>concat method</b> <br>");
+        // concat() ka use exitsting array ke saath me new values ya ek ya usse jya array ko merge karne ke liye hota hai.
+        // concat hame new array return karta hai
+        /* Syntax :
+        concat()
+        concat(value1)
+        concat(value1, value2)
+        concat(value1, value2, … valueN) */
+
+        // 1 way to concat
+	    let namesArray1 = ["sanjay","aman", "rehman"];
+        document.write("names array1 : " + namesArray1 + "<br>");
+        let answerArray1 = namesArray1.concat("karan","rahul");
+        document.write("-> Concate namesArray1 with 2 values : " + answerArray1 + "<br> <br>");
+
+        // 2nd way to concat
+	    let additionNames1 = ["karan","rahul"];
+        document.write("additionNames1 array : " + additionNames1 + "<br>");
+        let answerArray2 = namesArray1.concat(additionNames1);
+        document.write("-> Concate namesArray1 with additionNames1 : " + answerArray2 + "<br> <br>");
+
+        document.write("concat more then 2 array <br>");
+        let additionNames2 = ["neha","mahima"];
+        document.write("additionNames2 array : " + additionNames2 + "<br>");
+        let answerArray3 = namesArray1.concat(additionNames1,additionNames2);
+        document.write("-> Concate namesArray1 with additionNames1 and additionNames2 : " + answerArray3 + "<br> <br>");
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

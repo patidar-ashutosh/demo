@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Object Arguments In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        // Special Object Arguments
+
+        /* Ab jab ham function ko call karte time arguments dete hai or yadi wo arguments extra hoti hai
+        yani ki function ke paramenter hai 2 or ham arguments de rahe hai 5
+        to jo ye extra arguments hai wo bhi function me jaati to hai lekin uska use nahi ho raha hota hai.
+
+        lekin hamare pass JavaScript me ek Special Object hota hai arguments
+        jiska use kar ke ham uss extra arguments ko bhi usme le sakte hai.
+
+        NOTE : function call karte time jitne bhi arguments dete hai wo sabhi is special arguments object me store hote hai */
+
+        // There is also a special array-like object named arguments that contains all arguments by their index.
+
+        function specialObj(a,b){
+            console.log(arguments);
+            // arguments ek object hai to data hai wo object me store hoga
+
+            let total = 0;
+            for(let key in arguments){
+                total = total + arguments[key];
+            }
+
+            return total;
+        }
+
+        document.write(specialObj(1,2,3,4,5) + "<br>");
+        document.write(specialObj(1,2,5) + "<br>");
+        document.write(specialObj(1,5) + "<br>");
+        document.write(specialObj(5) + "<br>");
+
+
+        // Arrow functions do not have "arguments"
+        // If we access the arguments object from an arrow function, it takes them from the outer “normal” function.
+
+        // Here’s an example:
+        function f() {
+            let showArg = () => alert(arguments[0]);
+            showArg();
+        }
+
+        f(1); // 1
+        // As we remember, arrow functions don’t have their own this. Now we know they don’t have the special arguments object either.
+    </script>
+    
+</body>
+</html>

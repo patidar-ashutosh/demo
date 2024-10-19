@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow functions In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        // What is Arrow functions?
+        // Arrow functions hai wo sirf function ko likhne ka ek tarika hai.
+        // Arrow functions is just a way to write a function
+
+        // Jese ki hamare pass ek sum function hai
+        let sum1 = function(a, b) {
+            return a + b;
+        };
+
+        // ab yadi ham is sum1 function ko Arrow function me convert karenge to kuch esa hoga
+        let sum2 = (a, b) => a + b;
+
+        alert( sum2(1, 2) );
+
+        /* Sometimes we need a more complex function, with multiple expressions and statements.
+        In that case, we can enclose them in curly braces.
+        The major difference is that curly braces require a return within them to return a value (just like a regular function does). */
+
+        // Like this:
+        let sum3 = (a, b) => {  // the curly brace opens a multiline function
+            let result = a + b;
+            return result; // if we use curly braces, then we need an explicit "return"
+        };
+
+        alert( sum3(1, 2) );
+
+
+        // IN SHORTS
+        /* Arrow functions are handy for simple actions, especially for one-liners. They come in two flavors:
+        1. Without curly braces: (...args) => expression – the right side is an expression:
+        the function evaluates it and returns the result. Parentheses can be omitted, if there’s only a single argument, e.g. n => n*2.
+
+        2. With curly braces: (...args) => { body } – brackets allow us to write multiple statements inside the function,
+        but we need an explicit return to return something. */
+
+
+
+        // Arrow functions have no “this”
+        // As we remember from the chapter Object methods, "this", arrow functions do not have this. If this is accessed, it is taken from the outside.
+
+        // For instance, we can use it to iterate inside an object method:
+        let group = {
+            title: "Our Group",
+            students: ["John", "Pete", "Alice"],
+
+            showList() {
+                this.students.forEach(
+                student => alert(this.title + ': ' + student)
+                );
+            }
+        };
+
+        group.showList();
+        // Here in forEach, the arrow function is used, so this.title in it is exactly the same as in the outer method showList. That is: group.title.
+
+
+
+        /* Summary
+        Arrow functions:
+        Do not have this
+        Do not have arguments
+        Can’t be called with new */
+    </script>
+    
+</body>
+</html>

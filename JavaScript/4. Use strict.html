@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use strict In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        // What is use strict ?
+        /* Jo old javascript ka code hota hai wo kuch errors ko ignore karta hai or hamare code ko correctly work karke deta hai.
+        lekin jo new javascript hai ES5 version se wo hame errors hee deta hai wo error ko ignore nahi karta hai.
+        to ab jo old javascript hai usko hame modern way me execute karna hai jise hame old javascript me kuch errors
+        ho to wo bhi error hame show ho tab ham "use strict" ka use karte hai. */
+
+        // Like Old JavaScript Code
+
+        /* function oldFunction() {
+            undeclaredVar = 10; // Assigning a value to an undeclared variable
+            console.log(undeclaredVar);
+        }
+
+        oldFunction(); */
+
+        // This Old JavaScript Code Work Correctly
+
+        // ab yadi ham "use strict" ka use karenge to hame ye same code error denga.
+        "use strict";
+        function oldFunction() {
+            undeclaredVar = 10; // Assigning a value to an undeclared variable
+            console.log(undeclaredVar);
+        }
+
+        oldFunction();
+
+
+        /* 
+        The directive looks like a string: "use strict" or 'use strict'.
+        When it is located at the top of a script, the whole script works the “modern” way.
+
+        To keep the old code working, most such modifications are off by default.
+        You need to explicitly enable them with a special directive: "use strict".
+
+        Please make sure that "use strict" is at the top of your scripts, otherwise strict mode may not be enabled.
+
+        There is no directive like "no use strict" that reverts the engine to old behavior.
+        Once we enter strict mode, there’s no going back.        
+
+        Modern JavaScript supports “classes” and “modules” – advanced language structures (we’ll surely get to them),
+        that enable use strict automatically. So we don’t need to add the "use strict" directive, if we use them.
+        */
+
+        "use strict";
+        // this code works the modern way
+    </script>
+    
+</body>
+</html>

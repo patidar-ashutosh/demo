@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise In Short In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        /* what is Promise ?
+        jab hame kisi task ko asynchronously perform karna ho tab ham Promise ka use karte hai.
+        Promise hai wo ek special JavaScript object hai joki kisi asynchronous operation ko perform karne me help karta hai. */
+
+
+
+        /* what is asynchronously task ?
+        asynchronously task yani ki koi ek task complete hone ke baad hee koi another task run hoga.
+        like ham koi user ka data fetch kar rahe ho or jab wo data fetch ho jaaye ga tab ham usse display karenge. */
+
+
+
+        /* Why we need Promise ?
+        ab kisi asynchronously task ko ham callback function se bhi achive kar sakte hai. to ab hame Promise ke need kyo hai ?
+        answer hai jab hame multiple asynchronously task perform karne ho,
+        like task1 complete hone ke baad task2, task2 complete hone ke baad task3
+        to jab ham is task ko callback function se karenge to jo code hoga wo callback hell ya Pyramid of Doom jesa ho jaaye ga.
+        Example -> /home/ashutosh/Tutorial-master/JavaScript/Promise/callback-based-asynch.html
+
+        ab isi problem ko solve karne ke liye Promise ko ES6 Version me introduce kiya gya tha. */
+
+
+        
+        // How Promise Work -> MOST IMPORTANT THING
+        /* promise hai wo ek asynchronous object hai. lekin jab hamara code execute hota hai to line by line tab,
+        promise bhi compiled hoti hai or ussme jo synchronous code hota hai wo to execute ho jaata hai.
+        lekin jo asynchronous code hoga like : setTimeout, resolve , reject wo sab jab hamara all synchronous code
+        execute ho jaaye ga uske baad asynchronous code execute hoga. */
+
+        // Example
+        const promise7 = new Promise((resolve) => {
+            console.log('Promise started');
+            setTimeout(() => {
+                resolve('Promise resolved');
+            }, 100);
+        });
+
+        promise7.then((result) => {
+            console.log(result);
+        });
+
+        console.log('End of script');
+
+
+
+        /* How to New Create Promise ?
+        -> Promise hai wo ek Object hai to is ka use karne ke liye ham new Keyword ka use karte hai.
+
+        -> Promise hai wo ek callback function ko as a argument leta hai. jise promise executor bhi bola jaata hai.
+        jis callback function me two argument hote hai. joki function hote hai. 
+        1 > resolve() => joki ye represent karta hai ki Promise successfully solve ho gai hai.
+        or ham resolve ka use karke jo value return karta chahte hai wo kar sakte hai. like : resolve(value);
+        2 > reject() => joki ye represent karta hai ki Promise ko solve karne me kuch error hai.
+        or ham reject se uss error ko return kar sakte hai. like : reject(error);
+
+        IMPORTANT POINT !!!!
+        jo resolve or reject function hote hai uska name ham kuch bhi de sakte hai,
+        lekin usska order change nahi hoga, jo first wala function hoga wo promise ko resolve hee kare ga,
+        or jo second wala function hoga wo promise ko reject hee kare ga.
+
+        NOTE : jabhi promise ko ham reject karte hai to error ko new Error object ka use karke hee throw karna achi practise mani jaati hai.
+        
+        NOTE : jabh koi promise resolve ya reject ho jaati hai to usse bola jaate hai ki promise hai wo “settled” ho gai hai.
+        
+        NOTE : A promise that is either resolved or rejected is called “settled”, as opposed to an initially “pending” promise. */
+
+
+
+        /* state and result
+        -> ab jabhi ham kisi Promise ko call karte hai to uske kuch state hote hai.
+        initially promise hoti hai wo pending state me hoti hai.
+        or jab promise run ho jaati hai to,
+        yadi promise resolve hogi to state hai wo fulfilled ho jaaye ga,
+        or promise reject hogi to state hai wo rejected ho jaaye ga.
+
+        -> promise ka result hota hai wo bhi 2 type ka hota hai.
+        initially to jo result hoga wo undefined hoga. lekin jab promise run ho jaaye gi tab,
+        1. yadi promise resolve hogi to value me resolve(value) hogi,
+        2. or promise reject hogi to value me reject(error) hogi. */
+
+
+
+        /* Executor And Handler
+        -> promise me 2 thing hoti hai.
+        1 > A promise executor is a function in JavaScript that is passed to the constructor of a Promise,
+        and is used to control the resolution or rejection of that promise. The executor function takes two arguments: resolve and reject.
+
+        2 > promise handler jiska use karke ham promise ke output ko handle kar sakte hai.
+        A promise handler refers to the functions used to manage the outcome of a promise once it has either been resolved (fulfilled) or rejected.
+
+        promise ke output ko handle karne ke liye 3 metohd hoti hai.
+        .then(), .catch(), and .finally().
+
+        yadi promise resolve hogi to then() run hoga,
+        yadi promise reject hogi to catch() run hoga,
+        or finally() hai wo both resolve and reject case me run hoga. */
+
+
+        
+        /* jab ham new Promise create karte hai wo ussme hame resolve or reject ka hee use karna padega,
+        ham directly kisi data ko return keyword se return nahi kar sakte hai.
+
+        jab ham promise me settimeout ka use karte hai tabhi hame resolve ya reject ka hee use karna padega,
+        ussme ham throw new Error ya return ka use nahi kar sakte hai. */
+    </script>
+    
+</body>
+</html>

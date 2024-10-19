@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript</title>
+
+    <script>
+        // replaceChild ka use html mese javascript ka use kar ke kisi tag ya text to replace karne ke liye hota hai 
+        // replaceChild Example
+        var newTag = document.createElement("h2");
+        // yaha pe hamne ek new tag create kiya joki hame replace karna hai 
+
+        var newText = document.createTextNode("new text");
+        // yaha pe hamne new text likha joki hame replace karna hai 
+
+        newTag.appendChild(newText);
+        // yaha pe hamne tag or text ko append karva hai 
+
+        var target = document.getElementById("list");
+        // ab hame kis id me append karna hai vo hamne tareget name ke variable me store kar diya hai 
+
+        var oldTag = target.children[0];
+        // hamne yaha pe jo old tag or text hai jise replace karna hai use oldtag name ke variable me store kardiya hai
+
+        // syntax:- target.replaceChild(new tag ya text ka variable, old tag ya text ka variable);
+        target.replaceChild(newTag, oldTag);
+
+
+
+        // removeChild ka use html mese javascript ka use kar ke kisi tag ya text to remove karne ke liye hota hai 
+        // removeChild Example 
+        var target = document.getElementById("list");
+        // ab hame kis id me append karna hai vo hamne tareget name ke variable me store kar diya hai 
+
+        var deletetag = target.children[0];
+        // hamne yaha pe jis tag ko delete karna hai use deletetag variable me store kar diya hai
+
+        // syntax:- target.removeChild(jisko delete karna hai uska variable);
+        target.removeChild(deletetag);
+    </script> 
+ 
+</head>
+
+<body>
+   
+    <ul id="list">
+        <li>Orange</li>
+        <li>Apple</li>
+        <li>Grapes</li>
+        <li>Banana</li>
+    </ul>
+
+</body>
+
+</html>

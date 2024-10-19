@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Break & Continue Statement In JavaScript</title>
+</head>
+
+<body>
+
+    <script>
+        //continue ane break loop sathej work karshe 
+
+        //continue koi ek conditon ne check kari pacgi loop na start point ma jatu rehshe
+        //break thathi loop ne break kari deshe
+
+        for(var a=1; a<=10 ;a++)
+        {
+            if(a ==4)
+            {
+                document.write("this is : "+a+"<br>");
+                continue;
+            }
+            document.write(a+"<br>");
+        }
+
+        document.write("<br> <br>")
+        for(var a=1; a<=10 ;a++)
+        {
+            if(a ==7)
+            {
+                document.write("this is : "+a+"<br>");
+                break;
+            }
+            document.write(a+"<br>");
+        }
+
+        /* Note : ham break and continue statement ka use ternary operator (?) ke saath me use nahi kar sakte hai.
+        yadi ham use karenge to hame systax error mile ga.
+        syntax constructs that are not expressions cannot be used with the ternary operator ?.
+        In particular, directives such as break/continue aren’t allowed there. */
+
+        // !!! How to use break and continue statement in nested loop
+        // Sometimes we need to break out from multiple nested loops at once.
+        // For example, in the code below we loop over i and j, prompting for the coordinates (i, j) from (0,0) to (2,2)
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                let input = prompt(`Value at coords (${i},${j})`, '');
+                // what if we want to exit from here to Done (below)?
+            }
+        }
+        alert('Done!');
+
+        // We need a way to stop the process if the user cancels the input.
+        // The ordinary break after input would only break the inner loop. That’s not sufficient – labels, come to the rescue!
+
+        /* A label is an identifier with a colon before a loop
+        syntax : 
+        labelName: for (...) {
+        ...
+        } */
+        // The break <labelName> statement in the loop below breaks out to the label:
+        outer: for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                let input = prompt(`Value at coords (${i},${j})`, '');
+                // if an empty string or canceled, then break out of both loops
+                if (!input) break outer; // (*)
+                // do something with the value...
+            }
+        }
+        alert('Done!');
+
+        /* In the code above, break outer looks upwards for the label named outer and breaks out of that loop.
+        So the control goes straight from (*) to alert('Done!'). */
+
+        // We can also move the label onto a separate line:
+        outer:
+        for (let i = 0; i < 3; i++){
+            // code
+        }
+        // The continue directive can also be used with a label. In this case, code execution jumps to the next iteration of the labeled loop.
+    </script>
+
+</body>
+
+</html>

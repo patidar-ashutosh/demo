@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String comparison In JavaScript</title>
+</head>
+<body>
+    
+    <script>
+        // Strings are compared letter-by-letter in the “dictionary” order.
+
+        /* To see whether a string is greater than another, JavaScript uses the so-called “dictionary” or “lexicographical” order.
+        In other words, strings are compared letter-by-letter. */
+
+        // For example:
+        alert( 'Z' > 'A' ); // true
+        alert( 'Glow' > 'Glee' ); // true
+        alert( 'Bee' > 'Be' ); // true
+
+        /* The algorithm to compare two strings is simple :
+        1. Compare the first character of both strings.
+        2. If the first character from the first string is greater (or less) than the other string’s,
+        then the first string is greater (or less) than the second. We’re done.
+        3. Otherwise, if both strings’ first characters are the same, compare the second characters the same way.
+        4. Repeat until the end of either string.
+        5. If both strings end at the same length, then they are equal. Otherwise, the longer string is greater. */
+        
+        // In the first example above, the comparison 'Z' > 'A' gets to a result at the first step.
+
+        /* The second comparison 'Glow' and 'Glee' needs more steps as strings are compared character-by-character:
+        G is the same as G.
+        l is the same as l.
+        o is greater than e. Stop here. The first string is greater. */
+
+
+        // Correct comparisons
+
+        /* The call str.localeCompare(str2) returns an integer indicating whether str is less,
+        equal or greater than str2 according to the language rules:
+
+        Returns a negative number if str is less than str2.
+        Returns a positive number if str is greater than str2.
+        Returns 0 if they are equivalent. */
+
+        alert("A".localeCompare("Z")); // -1
+        alert("z".localeCompare("a")); // 1
+        alert("A".localeCompare("A")); // 0
+    </script>
+
+</body>
+</html>

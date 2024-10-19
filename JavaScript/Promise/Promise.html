@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        // What is Promise ?
+        // A promise is a special JavaScript object OR In JavaScript, a promise is an object that represents,
+        // the eventual completion or failure of an asynchronous operation.
+
+        // syntax for a promise object is:
+        let promise = new Promise(function(resolve, reject) {
+            // executor (the producing code, "singer")
+        });
+
+        /* When the executor obtains the result, be it soon or late, doesn’t matter, it should call one of these callbacks:
+        -> resolve(value) — if the job is finished successfully, with result value.
+        -> reject(error) — if an error has occurred, error is the error object. */
+
+
+        /* The promise object returned by the new Promise constructor has these internal properties:
+        -> state — initially "pending", then changes to either "fulfilled" when resolve is called or "rejected" when reject is called.
+
+        -> result — initially undefined, then changes to value when resolve(value) is called or error when reject(error) is called. */
+    </script>
+
+
+    <img src="Promise.png" alt="Promise result">
+
+
+    <script>
+        // Example
+        let promise2 = new Promise(function(resolve, reject) {
+            // the function is executed automatically when the promise is constructed
+
+            // after 1 second signal that the job is done with the result "success"
+            // setTimeout(() => resolve("success"), 1000);
+
+            // after 1 second signal that the job is done with the result "failed"
+            setTimeout(() => reject(new Error("failed!")), 1000);
+
+            // In case something goes wrong, the executor should call reject. That can be done with any type of argument (just like resolve). But it is recommended to use Error objects.
+        });
+
+        /* We can see two things by running the code above:
+        1. The executor is called automatically and immediately (by new Promise).
+
+        2. The executor receives two arguments: resolve and reject. These functions are pre-defined by the JavaScript engine, so we don’t need to create them. We should only call one of them when ready.
+
+        After one second of “processing”, the executor calls resolve("success") to produce the result. This changes the state of the promise object */
+
+        // NOTE : A promise that is either resolved or rejected is called “settled”, as opposed to an initially “pending” promise.
+    </script>
+
+
+
+    <script>
+        // Consumers: then, catch
+        // A Promise object serves as a link between the executor (the “producing code” or “singer”) and the consuming functions (the “fans”), which will receive the result or error. Consuming functions can be registered (subscribed) using the methods .then and .catch.
+
+        // then
+        // The syntax is:
+        promise.then(
+            function(result) { /* handle a successful result */ },
+            function(error) { /* handle an error */ }
+        );
+        // The first argument of .then is a function that runs when the promise is resolved and receives the result.
+        // The second argument of .then is a function that runs when the promise is rejected and receives the error.
+
+        // For instance, here’s a reaction to a resolved and reject promise:
+        let promise3 = new Promise(function(resolve, reject) {
+            // setTimeout(() => resolve("done!"), 1000);
+            setTimeout(() => reject(new Error("Whoops!")), 1000);
+        });
+
+        // resolve runs the first function in .then
+        promise3.then(
+            result => alert("the promise is resolve : " + result), // shows "done!" after 1 second
+            error => alert("the promise is reject : " + error) // doesn't run
+        );
+
+
+
+        // If we’re interested only in successful completions, then we can provide only one function argument to .then:
+        let promise4 = new Promise(resolve => {
+           setTimeout(() => resolve("done!"), 1000);
+        });
+
+        promise4.then(alert); // shows "done!" after 1 second
+    </script>
+
+
+
+    <script>
+        // catch
+        // If we’re interested only in errors, then we can use null as the first argument: .then(null, errorHandlingFunction). Or we can use .catch(errorHandlingFunction), which is exactly the same:
+
+        let promise5 = new Promise((resolve, reject) => {
+            setTimeout(() => reject(new Error("Whoops!")), 1000);
+        });
+
+        // .catch(f) is the same as promise.then(null, f)
+        promise5.catch(alert); // shows "Error: Whoops!" after 1 second
+
+        // The call .catch(f) is a complete analog of .then(null, f), it’s just a shorthand.
+    </script>
+
+
+
+    <script>
+        // Cleanup: finally
+        /* The call .finally(f) is similar to .then(f, f) in the sense that f runs always, when the promise is settled: be it resolve or reject.
+
+        The idea of finally is to set up a handler for performing cleanup/finalizing after the previous operations are complete.
+
+        E.g. stopping loading indicators, closing no longer needed connections, etc. */
+
+        // The code may look like this:
+        new Promise((resolve, reject) => {
+            /* do something that takes time, and then call resolve or maybe reject */
+        })
+        // runs when the promise is settled, doesn't matter successfully or not
+        .finally(() => /* stop loading indicator code */ alert("finally code"))
+        // so the loading indicator is always stopped before we go on
+        .then(result => alert("show result"), err => alert("show error"));
+
+
+        // A finally handler has no arguments. In finally we don’t know whether the promise is successful or not. That’s all right, as our task is usually to perform “general” finalizing procedures.
+
+        // A finally handler “passes through” the result or error to the next suitable handler.
+
+        // A finally handler also shouldn’t return anything. If it does, the returned value is silently ignored.
+        // The only exception to this rule is when a finally handler throws an error. Then this error goes to the next handler, instead of any previous outcome.
+
+
+
+        /* To summarize:
+        -> A finally handler doesn’t get the outcome of the previous handler (it has no arguments). This outcome is passed through instead, to the next suitable handler.
+
+        -> If a finally handler returns something, it’s ignored.
+
+        -> When finally throws an error, then the execution goes to the nearest error handler.
+        
+        These features are helpful and make things work just the right way if we use finally how it’s supposed to be used: for generic cleanup procedures. */
+    </script>
+
+
+    <script>
+        // SOME EXAMPLE OF Promise
+
+        // Here’s the callback-based variant, just to remind us of it:
+        function loadScript(src, callback) {
+            let script = document.createElement('script');
+            script.src = src;
+
+            script.onload = () => callback(null, script);
+            script.onerror = () => callback(new Error(`Script load error for ${src}`));
+
+            document.head.append(script);
+        }
+
+
+        // Let’s rewrite it using Promises.
+
+        // The new function loadScript will not require a callback. Instead, it will create and return a Promise object that resolves when the loading is complete. The outer code can add handlers (subscribing functions) to it using .then:
+        function loadScript(src) {
+            return new Promise(function(resolve, reject) {
+                let script = document.createElement('script');
+                script.src = src;
+
+                script.onload = () => resolve(script);
+                script.onerror = () => reject(new Error(`Script load error for ${src}`));
+
+                document.head.append(script);
+            });
+        }
+
+        // Usage:
+        let promise6 = loadScript("https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js");
+
+        promise6.then(
+            script => alert(`${script.src} is loaded!`),
+            error => alert(`Error: ${error.message}`)
+        );
+
+        promise6.then(script => alert('Another handler...'));
+    </script>
+
+
+    <script>
+        // We can immediately see a few benefits over the callback-based pattern:
+
+        // Promises
+        // Promises allow us to do things in the natural order. First, we run loadScript(script), and .then we write what to do with the result.
+
+        // We can call .then on a Promise as many times as we want. Each time, we’re adding a new “fan”, a new subscribing function, to the “subscription list”. More about this in the next chapter: Promises chaining.
+        
+        // Callbacks
+        // We must have a callback function at our disposal when calling loadScript(script, callback). In other words, we must know what to do with the result before loadScript is called.      
+        
+        // There can be only one callback.
+    </script>
+
+
+    <script>
+        // IMPORTANT POINT
+        // jo Promise hota hai uska first parameter me resolve function and second parameter me reject function hee hota hai.
+        // chahe ham name kuch bhi de us function ke lekin working same hee rahe ga ki first resolve and second reject
+        // Example 
+        new Promise((a, b) => {
+            a("this is present resolve");
+            // b("this is present reject");
+        })
+        .then((result) => {
+            alert(result);
+        })
+        .catch((result) => {
+            alert(result);
+        })
+    </script>
+
+
+    <script>
+        // MOST IMPORTANT THING
+        /* promise hai wo ek asynchronous object hai. lekin jab hamara code execute hota hai to line by line tab,
+        promise bhi compiled hoti hai or ussme jo synchronous code hota hai wo to execute ho jaata hai.
+        lekin jo asynchronous code hoga like : setTimeout, resolve , reject wo sab jab hamara all synchronous code
+        execute ho jaaye ga uske baad asynchronous code execute hoga. */
+
+        // Example
+        const promise7 = new Promise((resolve) => {
+            console.log('Promise started');
+            setTimeout(() => {
+                resolve('Promise resolved');
+            }, 100);
+        });
+
+        promise7.then((result) => {
+            console.log(result);
+        });
+
+        console.log('End of script');
+
+
+
+        /* yadi hamari koi promise hai wo reject ho jaati hai or ham us rejected promise ko handle nahi karte hai,
+        to uss reject promise ka error hai wo hame console me show hoga.
+        is liye hame promise ki error ko handle karna jaruri hai. */
+        // Example
+        function promiseErrro(){
+            return new Promise((res, rej) => {
+                rej("primise is rejected");
+            })
+        }
+
+        // without handle error
+        promiseErrro();
+        // got error in console -> Uncaught (in promise) primise 2 resolve
+
+        // handle error
+        promiseErrro()
+        .catch((err) => {
+            console.log(err);
+        })
+
+
+
+        /* jab ham new Promise karke kisi promise ko create karte hai or ham us promise me,
+        return keyword ka use karke kuch return karenge to wo return nahi hoga,
+        yani ki new Promise me return keyword work nahi karta hai.
+
+        lekin ham jab new Promise me directly promise ko reject kiye bina throw new Error karke error throw karnege to wo catch se handle ho jaayengi.
+
+        jab ham kisi promise me settimeout ka use karte hai or hame normally koi value return karte hai ya error ko throw karte hai to wo then ya catch se handle nahi hoga.
+
+        lekin jab ham kisi promise me setTimeout ka use karte hai or ham ussme resolve ya reject karnenge,
+        to wo then and catch ke though handle ho jaayenge.
+        */
+
+        // Example
+        new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // throw new Error("this is error though directly without reject");
+                // so this error show in directly console. so catch don't work
+
+                return 10;
+                // if we directly return without resolve promise so then is don't work
+            }, 2000);
+        })
+        .then((result) => {
+            console.log("result without resolve : " , result);
+        })
+        .catch((err) => {
+            // console.log("error without reject : " , err);
+        })
+
+        new Promise((resolve, reject) => {
+            // resolve("1st resolve");
+
+            // setTimeout(() => {
+            //     resolve("1st resolve using settimeout");
+            // }, 2000);
+
+            // reject("1st reject");
+
+            // setTimeout(() => {
+            //     reject("1st reject using settimeout");
+            // }, 2000);
+
+            // return "10"; // this is not work so the then don't run
+
+            throw new Error("this is error"); // this error is handle by catch
+
+            // setTimeout(() => {
+            //     throw new Error("this is error"); // this erro is not handle by catch
+            //     // so this error is show in console
+            // }, 2000);
+        })
+        .then((data) => {
+            console.log(data);
+
+            // setTimeout(() => {
+            //     return 10;
+            // }, 2000);
+
+            return 10;
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((err) => {
+            console.log("this error is handle by catch :" + err);
+        })
+
+
+        // IN SHORT
+        // jab ham new Promise ka use karke promise create karenge to ham resolve ya reject ka use karna padega tabhi hamara then or catch usse handle karega.
+    </script>
+
+</body>
+</html>

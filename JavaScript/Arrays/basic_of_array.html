@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Basic Of Array In JavaScript</title>
+
+    <script>
+        // What is Array?
+        /* Array yani ki jisme ham multiple values ko store kar sakte hai
+        Array is collection of multiple values(items)*/
+
+        // There are two syntaxes for creating an empty array:
+        // let arr = [];
+        // let arr = new Array();
+
+        // 1st way
+        // Syntax To Create Array
+        // let variableName = [value1, value2, value3, ... n];
+
+        // creating array
+        var arr = [10,20,30,"hello",true,null];
+
+        // print array
+        document.write(arr);
+        document.write("<br>");
+        
+        /* array me jo values store hoti hai wo index number pe store hoti hai
+        index number hai wo 0 se start hota hai. */
+
+        // access 0th index array value
+        document.write(arr[0]+"<br>");
+        // access 1th index array value
+        document.write(arr.at(1)+"<br>");
+        // access 2th index array value
+        document.write(arr[2]+"<br>");
+        document.write("<br> <br><br><br>");
+
+        for(var i=0; i<6;i++)
+        {
+            document.write(arr[i] + "<br>");
+        }
+
+
+        // 2nd way
+        // jab hame pata na hoki array me kitni value aane vali he tab ham new array() method ka use karte hai
+        // joki hame ek empty array create karke deta hai       
+        var arr = new Array();
+        // var arr = new Array("Apple", "Pear", "etc");
+        arr[0] = 10;
+        arr[1] = "hello";
+        arr[2] = true;
+
+        document.write(arr);
+        document.write("<br>");
+        for(var a =0 ; a<3; a++)
+        {
+            document.write(arr[a] + "<br>");
+        }
+
+        // var newarr = new Array(3); is array me ham sirf 3 value hi store kar sakte hai
+        var newarr = new Array();
+
+        // get value from user
+        for(var i=0; i<3; i++)
+        {
+            newarr[i] = prompt('enter name');
+        }
+
+        // display the array data
+        for(var i=0; i<3; i++)
+        {
+            document.write(newarr[i]+"<br>");
+        }
+
+        // USE FOR..OF LOOP
+        // we can also use the for..of loop to iterates on array
+        for(let values of newarr){
+            alert(values);
+        }
+
+        // USE FOR..IN LOOP
+        // arrays are objects, it is also possible to use for..in:
+        let fruits = ["Apple", "Orange", "Pear"];
+        for (let key in fruits) {
+            alert( fruits[key] ); // Apple, Orange, Pear
+        }
+        // Generally, we shouldn’t use for..in for arrays.
+
+
+        // Modifiy Array Value
+        var arr = ["ashu", 18, "male", "bom"];
+        document.write(arr+ "<br>");
+
+        // jab hame array ki kisi value ko change karna ho tab ham usske index ka use karke kar sakte hai.
+        arr[0] = "pintu";
+        document.write(arr+ "<br>");
+
+
+        // Delete Array Value
+        /* jab hame array ki kisi value ko delete karna ho tab ham delete keyword ka use karenge,
+        joki javascript ka ek inbuilt functionality hai. */
+
+        delete arr[1];
+        document.write(arr+ "<br>");
+
+        // delete ki gai value hai wo delete ho jaaye gi lekin usski index pe empty value store ho jaaye gi.
+        document.write(arr[1]+ "<br>");
+
+
+
+        // An array can store elements of any type.
+        // mix of values
+        let mix = [ 'Apple', { name: 'John' }, true, function() { alert('hello'); } ];
+
+        // get the object at index 1 and then show its name
+        alert( mix[1].name ); // John
+
+        // get the function at index 3 and run it
+        mix[3](); // hello
+
+        // JUST FOR KNOWLEGDE
+        /* Some programming languages allow the use of negative indexes for the same purpose, like fruits[-1].
+        Although, in JavaScript it won’t work. The result will be undefined, because the index in square brackets is treated literally.
+        We can explicitly calculate the last element index and then access it: fruits[fruits.length - 1].
+        there’s a shorter syntax: fruits.at(-1) */
+
+        
+
+        // Example Of Array of Object
+        // array of object yani ki array ke inside object
+        var student = [
+            {name: 'ram', age: 15},
+            {name: 'karan', age: 19},
+            {name: 'rahul', age: 20},
+        ];
+
+        console.log(student);
+
+        document.write(student[0].name + "<br><br>");
+
+        for(let a=0; a<student.length; a++) {
+            document.write(student[a].name  + " " + student[a].age + "<br>");
+        }
+
+
+
+        // IMPORTANT
+        const ourArray = [50, 40, 30];
+        alert(ourArray);
+        // yadi ham koi const type ka array create karte hai to ham usski kisi index value ko change kar satke hai
+        ourArray[0] = 15;
+        alert(ourArray);
+        // lekin ham pure array ki value ko change nahi kar sakte hai
+        ourArray = [50, 40, 30]; // give error : TypeError: Assignment to constant variable.
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clone Object in JavaScript</title>
+    <title>Clone Object In JavaScript</title>
 
     
     <script>
-
-        // What is Object Cloning?
+        // What is Object Cloning(“real copy”)?
         /* Object Cloning yani ki ham kisi ek object ka same to same clone create karna chahte ho.
     
         jese ki ham Primitive Type me copy karte hai to uska clone create hota hai
-        leking yadi ham object me copy karne jate hai to address copy hota hai
+        lekin yadi ham object me copy karne jate hai to address copy hota hai
         is liye clone create nahi ho pata hai.
     
         lekin ham Object Cloning ka use karke object ka bhi clone create kar sakte hai.
@@ -22,9 +21,12 @@
     
         // Object Cloning Using Iteration
         let src = {
-            a: 10,
-            b: 20,
-            c: 30
+            name: 'Alice',
+            id : 2,
+            address: {
+                city: 'Wonderland',
+                zip: '12345'
+            }
         };
         let dest1 = {};
 
@@ -32,30 +34,37 @@
             dest1[key] = src[key];
         }
 
-        document.write("Object Cloning Using Iteration <br>");
+        console.log("Object Cloning Using Iteration");
         for(let key in dest1){
-            document.write(key + " : " + dest1[key] + "<br>");
+            console.log(key + " : " + dest1[key]);
         }
 
-        /*yaha pe jo dest1 object create huva hai wo clone huva hoga
-        naki src ke address ko point kar raha hoga. */
-        src.a++;
-        document.write(src.a + "<br>");
-        document.write(dest1.a + "<br>");
+        /* yaha pe jo dest1 object hai wo clone huva hai yani ki uska kudh ka kuch address hoga,
+        naki wo src ke address ko point kar raha hoga. */
+        src.id++;
+        dest1.address.city = "ahmedabad";
+        console.log(src);
+        console.log(dest1);
+
+        // yani ki jab ham Object Cloning karte hai to jo nested object hota hai uska to reference hee copy hota hai apne new object me. yani ki yadi ham new object me nested object ki kisi key ko change karenge to main object kee bhi key change ho jaayengi..
+
+
 
 
 
         // Object Cloning Using Assign Function
         let dest2 = Object.assign({}, src);
 
-        document.write("Object Cloning Using Assign Function <br>");
+        console.log("Object Cloning Using Assign Function");
         for(let key in dest2){
-            document.write(key + " : " + dest2[key] + "<br>");
+            console.log(key + " : " + dest2[key]);
         }
 
-        src.a++;
-        document.write(src.a + "<br>");
-        document.write(dest2.a + "<br>");
+        src.id++;
+        dest2.address.city = "rajkot";
+        console.log(src);
+        console.log(dest2);
+        // yani ki jab ham Object Cloning karte hai to jo nested object hota hai uska to reference hee copy hota hai apne new object me. yani ki yadi ham new object me nested object ki kisi key ko change karenge to main object kee bhi key change ho jaayengi..
 
         // ham chahe to multiple object bhi ek saath clone kar sakte hai
         let src2 = { value : 20};
@@ -65,22 +74,86 @@
         jisme first paramter me ham ek empty object dete hai
         second paramter me ham source dete hai ki hame kis object ka clone create karna hai.
         ham chahe to multiple object bhi de sakte hai */
-        
-        
+
+
+
+
 
         // Object Cloning Using Spread Operator
+        console.log("Object Cloning Using Spread Operator");
+        let obj = { a: 1, b: 2, c: 3 };
+        let objCopy = { ...obj }; // spread the object into a list of parameters
+                                // then return the result in a new object
+
+        // do the objects have the same contents?
+        alert(JSON.stringify(obj) === JSON.stringify(objCopy)); // true
+
+        // are the objects equal?
+        alert(obj === objCopy); // false (not same reference)
+
+        // modifying our initial object does not modify the copy:
+        obj.d = 4;
+        alert(JSON.stringify(obj)); // {"a":1,"b":2,"c":3,"d":4}
+        alert(JSON.stringify(objCopy)); // {"a":1,"b":2,"c":3}
+
+        // When Object have nested properties
         let dest4 = {... src};
 
-        document.write("Object Cloning Using Spread Operator <br>");
         for(let key in dest4){
-            document.write(key + " : " + dest4[key] + "<br>");
+            console.log(key + " : " + dest4[key]);
         }
 
-        src.a++;
-        document.write(src.a + "<br>");
-        document.write(dest4.a + "<br>");
-    </script>
+        src.id++;
+        dest4.address.city = "gurgaon";
+        console.log(src);
+        console.log(dest4);
+        // yani ki jab ham Object Cloning karte hai to jo nested object hota hai uska to reference hee copy hota hai apne new object me.
+        // yani ki yadi ham new object me nested object ki kisi key ko change karenge to main object kee bhi key change ho jaayengi..
 
+
+
+        // MOST IMPORTANT
+        /* NOTE : spread operator ka use karke jab ham object ko clone create karte hai to wo shallow copy create hoti hai
+        yani ki yadi hamare object me nested object hoga to jo clone object create huva honga ume jo nested object aaye ga wo main object ke references se store hoga
+        to yadi ham main object me ya clone object me kisi me bhi nested object ki koi bhi
+        value ko change kare ge to wo dono main and clone object dono me change ho jaaye ga.
+
+        yadi esa na hone dena ho to ham deep copy(cloning) kar sakte hai
+        jiske liye 2 method hote hai.*/
+        
+        // 1st using JSON.parse() and JSON.stringify() method
+        let copyObj = JSON.parse(JSON.stringify(src));
+        copyObj.address.city = "bhavnagar";
+        console.log("Object Cloning Using Deep Copy");
+        console.log(src);
+        console.log(copyObj);
+
+        // 2nd using structuredClone
+        /* To fix that and make both object separate, we should use a cloning loop that examines each value of user[key] and,
+        if it’s an object, then replicate its structure as well.
+        That is called a “deep cloning” or “structured cloning”.
+        There’s structuredClone method that implements deep cloning. */
+
+        /* The call structuredClone(object) clones the object with all nested properties.
+        Here’s how we can use it in our example */
+        let user = {
+            name: "John",
+            sizes: {
+                height: 182,
+                width: 50
+            }
+        };
+
+        let clone = structuredClone(user);
+        alert( user.sizes === clone.sizes ); // false, different objects
+        // user and clone are totally unrelated now
+        user.sizes.width = 60;    // change a property from one place
+        alert(clone.sizes.width); // 50, not related
+        // The structuredClone method can clone most data types, such as objects, arrays, primitive values.
+        // It also supports circular references, when an object property references the object itself (directly or via a chain or references).
+
+        // NOTE : In structuredClone Function properties aren’t supported.
+    </script>
 
 </head>
 <body>

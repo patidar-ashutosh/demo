@@ -3,11 +3,12 @@
 <html lang="en">
 
 <head>
+    <title>String Methods In JavaScript</title>
+</head>
 
-    <title>JavaScript</title>
+<body>
 
     <script>
-
         // string ka index 0 se start hota hai 
 
         let str = "JavaScript is a GREAT is Language";
@@ -17,21 +18,28 @@
         stringName.length; */
         // let a = str.length;
 
+        // codePointAt hai wo ek method hai joki hame kisi bhi character ka ASCII value return karta hai.
+        alert(str.codePointAt(1));
+
+        // String.fromCodePoint() hai wo hame kisi bhi ASCII number ka character return karta hai.
+        alert(String.fromCodePoint(97));
+
 
         // toLowerCase metohd ka use string ko lowercase me convert karne ke liye hota hai
         /* Syntax :
         toLowerCase() */
         // let a = str.toLowerCase();
+        // let a = str[0].toLowerCase();
 
 
         // toUpperCase metohd ka use string ko UpperCase me convert karne ke liye hota hai
         /* Syntax :
         toUpperCase() */
         // let a = str.toUpperCase();
-        
+        // let a = str[0].toUpperCase();        
 
         // includes method string me kuch find karne ke liye use hota hai
-        // find kiya huva work hoga to vo true return karega nahi to false
+        // find kiya huva word hoga to vo true return karega nahi to false
         /* Syntax :
         includes(searchString)
         includes(searchString, position (index from where the searching start)) */
@@ -126,16 +134,8 @@
         trimRight() */
         // alert(str1.trimEnd());
         // alert(str1.trimRight());
-
- 
-
-        document.write(a);
- 
+        document.write(a); 
     </script> 
-
-</head>
-
-<body>
     
 </body>
 

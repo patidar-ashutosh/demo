@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multidimensional arrays In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        // What is Multidimensional arrays ?
+        // Multidimensional arrays yani ki array ki inside bhi array
+        // A array that can store array inside array is called Multidimensional arrays
+
+        // Arrays can have items that are also arrays. We can use it for multidimensional arrays, for example to store matrices:
+
+        let matrix = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ];
+
+        alert( matrix[0][1] ); // 2, the second value of the first inner array
+
+        // Another Example
+        let arr = [
+            ["ashu",17,"male","mcom"],
+            ["pintu",20,"female","bcom"],
+            ["vinod",19,"male","ba"],
+            ["raju",18,"female","bca"]
+        ]
+
+        document.write(arr);
+        document.write("<br>");
+        for(let a=0; a<4; a++)
+        {
+            for(let b=0; b<4; b++)
+            {
+                document.write(arr[a][b]);
+            }
+                document.write("<br>");
+        }
+
+
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+        document.write("<br>");
+
+        // --------------------------------------------
+
+
+        let arr2 = [
+            ["ashu",17,"male","mcom"],
+            ["pintu",20,"female","bcom"],
+            ["vinod",19,"male","ba"],
+            ["raju",18,"female","bca"],
+            ["raju",18,"female","bca"]
+        ]
+
+        document.write("<br>");
+
+        document.write(arr2.length); // lenght method che je array ni lenth bata ve che
+        document.write("<table border='1px'>");
+        for(let a=0; a < arr2.length; a++)
+        {
+            document.write("<tr>");
+            for(let b=0; b < arr2[a].length; b++)
+            {
+                document.write("<td>" +arr2[a][b] + "</td>");
+            }
+            document.write("</tr>");
+            
+        }
+        document.write("</table'>");
+    </script>
+    
+</body>
+</html>

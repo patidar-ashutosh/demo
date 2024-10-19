@@ -3,40 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>String</title>
-
-    <script>
-
-    // What is String?
-    /* String yani ki collection of characters
-    A JavaScript string stores a series of characters
-
-    String hai wo ek Primitive Type ka data hai */
-
-    // Example
-    let stringExample = "raju";
-
-    // JavaScript me jo string hoti hai to 2 types ki hoti hai
-
-    /* 1. Primitive Type String
-    Primitive Type String yani ki jo ham normaly string create karte hai. */
-    let firstName = "vikram"
-
-    /* 2. Object Type String
-    Object Type String create karne ke liye ham new keyword and string method ka use karte hai.
-    */
-    let lastName = new String("Devid");
-
-    document.write(typeof firstName + "<br>");
-    // firstName hai wo primitive type string hai to string print hoga
-
-    document.write(typeof lastName);
-    // lastName hai wo object type ka string hai to object print hoga
-
-    </script>
-
+    <title>String In JavaScript</title>
 </head>
 <body>
+
+    <script>
+        // What is String?
+        /* String yani ki collection of characters
+        A JavaScript string stores a series of characters
+
+        String hai wo ek Primitive Type ka data hai */
+
+        // Example
+        let stringExample = "raju";
+
+        // JavaScript me jo string hoti hai to 2 types ki hoti hai
+
+        /* 1. Primitive Type String
+        Primitive Type String yani ki jo ham normaly string create karte hai. */
+        let firstName = "vikram"
+
+        // Strings are immutable
+        // String values are immutable, which means that they cannot be altered once created.
+        // yani ki string hai wo immutable hoti hai to ham unki value ko change nahi kar sakte hai.
+        // lekin ham string ko re-assign kar sakte hai
+        // like 
+        firstName[0] = "a";
+        alert(firstName);
+        // yaha pe firstName ka first character change nahi hogi kyo ki string immutable hai wo ham change nahi kar sakte hai.
+        // lekin ham chahte to firstName ko re-assign kar sakte hai.
+        firstName = "rakesh";
+        alert(firstName);
+
+
+        // Accessing characters
+        let str = `Hello`;
+        // the first character
+        alert( str[0] ); // H
+        alert( str.at(0) ); // H
+
+        // the last character
+        alert( str[str.length - 1] ); // o
+        alert( str.at(-1) );
+
+
+        // Write String Using Template Literal
+        let fname = "rakesh";
+
+        let message = 
+        `Hello ${fname}
+
+        Thanks for the Opportunity
+
+        Your Favorite`;
+
+        console.log(message);
+
+
+        /* 2. Object Type String
+        Object Type String create karne ke liye ham new keyword and string method ka use karte hai.
+        */
+        let lastName = new String("Devid");
+
+        document.write(typeof firstName + "<br>");
+        // firstName hai wo primitive type string hai to string print hoga
+
+        document.write(typeof lastName);
+        // lastName hai wo object type ka string hai to object print hoga
+    </script>
     
 </body>
 </html>

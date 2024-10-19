@@ -4,52 +4,50 @@
 
 <head>
 
-    <title>JavaScript</title>
+    <title>includes And flat In JavaScript</title>
 
     <script>
+        document.write("<b>includes method</b> <br>");
+        // includes method ka use check karne ke liye hota hai ki value array me exist karta hai ya nahi
+        // includes method sirf true ya false hee return karega. yadi value present hogi to true nahi to false
+        /* Syntax :
+        includes(searchElement)
+        includes(searchElement, fromIndex) */
+        
+        let arr = ["sanjay","aman", "rehman","rahul"];
+        document.write("arr array is : " + arr + "<br> <br>");
 
-    // includes method ka use check karne ke liye hota hai ki value array me exist karta hai ya nahi
-    // includes method sirf true ya false hee return karega value hogi to true nahi to false
-    /* Syntax :
-    includes(searchElement)
-    includes(searchElement, fromIndex) */
+        let answerOfFindAman = arr.includes("aman");
+        document.write("-> answer of find aman : " + answerOfFindAman + "<br>");
+
+        let answerOfFindAmanFromSecondIndex = arr.includes("aman", 2); // find from second index
+        document.write("-> answer of find aman from 2nd index : " + answerOfFindAmanFromSecondIndex + "<br>");
+
+        let caseSensitive = arr.includes("Aman");
+        document.write("-> find Aman case sensitive : " + caseSensitive + "<br>");
+        // includes method case-sensitive hota hai
     
-    let a = ["sanjay","aman", "rehman","rahul"];
-    document.write(a+"<br><br>");
 
-    let b = a.includes("aman");
-    document.write(b+"<br><br>");
 
-    let c = a.includes("ashu");
-    document.write(c+"<br><br>");
+        document.write("<br> <b>flat method</b> <br>");
+        // flat method ka use sub arrays mese ek new array create karne ki liye hota hai
+        /* Syntax :
+        flat()
+        flat(depth (means hame kitne sub-arrays ko single array me lana hai)) */
+        // default flat depth value is 1
+        const arr1 = [0, 1, 2, [3, 4]];
+        let x = arr1.flat();
+        document.write(x+"<br><br>");
 
-    let d = a.includes("aman", 2);
-    document.write(d+"<br><br>");
+        const arr2 = [0, 1, [2, [3, [4, 5]]]];
+        let y = arr2.flat(1);
+        console.log(y);
+        
+        let z = arr2.flat(2);
+        console.log(z);
 
-    let e = a.includes("Aman");
-    document.write(e+"<br><br>");
-    // includes method case-sensitive hota hai
-   
-
-    // flat method ka use sub arrays mese ek new array create karne ki liye hota hai
-    /* Syntax :
-    flat()
-    flat(depth (means hame kitne sub-arrays ko single array me lana hai)) */
-    // default flat depth value is 1
-    const arr1 = [0, 1, 2, [3, 4]];
-    let x = arr1.flat();
-    document.write(x+"<br><br>");
-
-    const arr2 = [0, 1, [2, [3, [4, 5]]]];
-    let y = arr2.flat(1);
-    console.log(y);
-    
-    let z = arr2.flat(2);
-    console.log(z);
-
-    let fin = arr2.flat(Infinity);
-    console.log(fin);
-
+        let fin = arr2.flat(Infinity);
+        console.log(fin);
     </script>
 
 </head>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>setTimeout In JavaScript</title>
+</head>
+
+<body>
+
+    <script>
+        // ! setTimeout hai wo ek method hai jiska use function ki scheduling karne ke liye hota hai.
+        // yani ki jab hame kisi function ko kuch certain time ke baad call karna ho to ham setTimeout ka use kar sakte hai.
+
+        // NOTE : setTimeout hai wo function ko only one time run karta hai
+
+        // setTimeout allows us to run a function once after the interval of time.
+
+
+        /* Syntax :
+        setTimeout(functionName, millisecond, Arguments1, Arguments2)
+        1000 millisecond = 1 second */
+
+        // Example
+        function sayHi1() {
+           alert('Hello');
+        }
+
+        setTimeout(sayHi1, 1000);
+        
+
+        // Example With arguments
+        function sayHi2(phrase, who) {
+            alert( phrase + ', ' + who );
+        }
+
+        setTimeout(sayHi2, 1000, "Hello", "John"); // Hello, John
+
+
+        // Canceling with clearTimeout
+        // yadi hame setTimeout ko call hone ke pehle hee stop karna hai tab ham clearTimeout ka use kar sakte hai.
+
+        // A call to setTimeout returns a “timer identifier” timerId that we can use to cancel the execution.
+
+        /* Syntax :
+        let timerId = setTimeout(...);
+        clearTimeout(timerId); */
+
+        // setTimeout ko clear (stop) karne ke liye ham setTimeout ko ek variable me store karva denge, 
+        // or yadi hame setTimeout ko stop karna hoga to ham clearTimeout me us variable ko pass kar denge. us variable ko timer identifier bhi bola jaata hai
+
+        // Example
+        let timerId = setTimeout(() => {
+            alert("never happens");
+        }, 1000);
+            
+        clearTimeout(timerId);
+        // As a result, nothing happens.
+        
+
+        // setTimeout ka use jab javascript ki help se koi Animation ya koi or functionality sirf 1 time run karni ho tab kar sakte hai.
+    </script>
+
+</body>
+
+</html>

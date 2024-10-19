@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest Operator In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        // Rest Operator -> ...
+        /* jab ham ek function create karte hai to usme multiple arguments ham pass karte hai.
+        to ham us arguments ko Rest Operator ka use karke handle kar sakte hai.
+        Rest Operator hai wo arguments ko as a array me store kar ke rakhta hai.
+        */
+
+        function restOperator(...args){ // args is the name for the array
+            document.write(args + "<br>");
+        }
+
+        restOperator(1,2,3,4,5);
+
+        /* yani ki hamari jitni bhi arguments hai to sab args variable me as a array formate me store ho jaaye gi. */
+
+
+        // Another Example
+        function restOperator2(a, b, ...args){
+            document.write(args + "<br>");
+        }
+
+        restOperator2(1,2,3,4,5);
+        /* yaha pe jo first two arguments hai to a and b variable me store hogi.
+        baki ki rest hai wo args variable me store hogi. */
+
+        // NOTE : jab ham Rest Operator ka use karte hai to Rest Operator ke baad ham koi bhi arguments nahi de sakte hai.
+        // yani ki Rest Operator hoga wo hamara last argument hona chahiye.
+
+        // The rest parameters gather all remaining arguments, so the following does not make sense and causes an error:
+    </script>
+    
+</body>
+</html>

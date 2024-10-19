@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Conversions In JavaScript</title>
+</head>
+<body>
+
+    <script>
+        /* what is Type Conversions ?
+        Type Conversions yani ki kisi ek data type ki value ko another data type me convert karna. */
+
+        // String Conversion
+        let value = true;
+        alert(typeof value); // boolean
+
+        value = String(value); // now value is a string "true"
+        alert(typeof value); // string
+
+
+        // Numeric Conversion
+        // Numeric conversion in mathematical functions and expressions happens automatically.
+        alert( "6" / "2" ); // 3, strings are converted to numbers
+
+        // We can use the Number(value) function to explicitly convert a value to a number:
+        let str = "123";
+        alert(typeof str); // string
+
+        let num = Number(str); // becomes a number 123
+
+        alert(typeof num); // number
+        // NOTE : If the string is not a valid number, the result of such a conversion is NaN.
+
+
+        /* Numeric conversion rules:
+        yadi value undefined hai wo Number me convert karne pe NaN mile ga.
+        yadi value null hai wo Number me convert karne pe 0 mile ga.
+        yadi value true & false hai wo Number me convert karne pe 1 & 0 mile ga.
+        yadi value string hai like "vikram" to Number me convert karne pe NaN mile ga.
+        or yadi koi string type number ke like "123" to Number me convert karne pe 123 mile ga. */
+        alert( Number("   123   ") ); // 123
+        alert( Number("123z") );      // NaN (error reading a number at "z")
+        alert( Number(true) );        // 1
+        alert( Number(false) );       // 0
+
+
+        // Boolean Conversion
+        /* jis value ko ham Boolean me convert kar rahe hai wo value Truthy hogi to true me convert ho jaaye gi.
+        or yadi value Falsy hogi to false me convert ho jaaye gi. */
+        alert( Boolean(1) ); // true
+        alert( Boolean(0) ); // false
+        alert( Boolean("hello") ); // true
+        alert( Boolean("") ); // false
+    </script>
+    
+</body>
+</html>

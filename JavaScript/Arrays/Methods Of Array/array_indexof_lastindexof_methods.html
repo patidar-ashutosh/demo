@@ -4,46 +4,49 @@
 
 <head>
 
-    <title>JavaScript</title>
+    <title>indexOf And lastIndexOf In JavaScript</title>
 
     <script>
+        document.write("<b>indexOf method</b> <br>");
+        /* indexOf method hame array me se find ki gai value ka index number find/return karke deta hai
+        indexOf method index ko starting se find karna start karta hai
+        yadi find ki gai value present nahi hogi to hame -1 return kare ga */
+        // NOTE : indexOf uses the strict equality === for comparison.
+        /* Syntax :
+        indexOf(searchElement)
+        indexOf(searchElement, fromIndex) */
 
-    // indexOf method hame array me se find ki gai value ka index number find/return karke deta hai
-    // indexOf method index ko starting se find karna start karta hai
-    // yadi value present nahi hogi to hame -1 return kare ga
-    /* Syntax :
-    indexOf(searchElement)
-    indexOf(searchElement, fromIndex) */
+        let arr = ["sanjay","aman", "rehman","aman","rahul"];
+                   // 0       1        2        3       4 
+        document.write("arr array is : " + arr + "<br>");
 
-    let a = ["sanjay","aman", "rehman","aman","rahul"];
-              // 0       1        2        3       4 
-    document.write(a + "<br><br>");
-    let b = a.indexOf("aman");
-    document.write(b + "<br><br>");
+        let indexOfAman = arr.indexOf("aman");
+        document.write("-> find index of aman : " + indexOfAman + "<br>");
 
-    let c = a.indexOf("aman", 2); // ye patameter optional hai 
-    // jisme ham index value dete hai ki vo kisi index se value ko find karna start kare ga
-    document.write(c + "<br><br>");
+        let findIndexAmanAfterSecondIndex = arr.indexOf("aman", 2); // ye patameter optional hai 
+        // jisme ham index value dete hai ki vo kisi index se value ko find karna start kare ga
+        document.write("-> find index of aman after 2nd index : " + findIndexAmanAfterSecondIndex + "<br>");
 
 
-    // lastIndexOf method hame array me se find ki gai value ka index number find/return karke deta hai
-    // lastIndexOf method index ko last se find karna start karta hai
-    // yadi value present nahi hogi to hame -1 return kare ga
-    /* Syntax :
-    lastIndexOf(searchElement)
-    lastIndexOf(searchElement, fromIndex) */
 
-    let x = ["sanjay","aman", "rehman","aman","rahul"];
-              // 0       1        2        3       4 
-    document.write(x + "<br><br>");
-    let y = x.lastIndexOf("aman");
-    document.write(y + "<br><br>");
+        document.write("<br> <b>lastIndexOf method</b> <br>");
+        // lastIndexOf method hame array me se find ki gai value ka index number find/return karke deta hai
+        // lastIndexOf method index ko last se find karna start karta hai
+        // yadi value present nahi hogi to hame -1 return kare ga
+        /* Syntax :
+        lastIndexOf(searchElement)
+        lastIndexOf(searchElement, fromIndex) */
 
-    let z = x.lastIndexOf("aman", 2); // ye patameter optional hai 
-    // jisme ham index value dete hai ki vo kisi index se value ko find karna start kare ga
-    document.write(z + "<br><br>");
+        let nameArr = ["sanjay","aman", "rehman","aman","rahul"];
+                       // 0       1        2        3       4 
+        document.write("name array is : " + nameArr + "<br>");
 
-     
+        let lastIndexOfAman = nameArr.lastIndexOf("aman");
+        document.write("-> find index of aman using lastIndexOf : " + lastIndexOfAman + "<br>");
+
+        let lastIndexOfAmanFromSecondIndex = nameArr.lastIndexOf("aman", 2); // ye patameter optional hai 
+        // jisme ham index value dete hai ki vo kisi index se value ko find karna start kare ga
+        document.write("-> find index of aman using lastIndexOf from 2nd index : " + lastIndexOfAmanFromSecondIndex + "<br><br>");     
     </script>
 
 </head>

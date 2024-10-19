@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript</title>
+</head>
+
+<body>
+
+    <script>
+        /* Error Handling yani ki jab hamare program me koi error aa jaaye or ham chate ho ki
+        usse error ki wajse hamara program execute hona stop na ho wo run hota hee rahe
+        tab ham Error Handling ka use karte hai */
+
+        /* Error Handling ke liye hamare pass 2 keyword hai
+        try , catch , finally , throw */
+
+
+        // Use of try and catch
+        let a = 10;
+        console.log(a);
+        console.log('printing 1');
+        console.log('printing 2');
+        console.log('printing 3');
+        // console.log(b);
+        console.log('printing 4');
+        console.log('printing 5');
+
+        /* jese ki yaha pe hamara b variable declare nahi hai to pehle jo printing 1,2,3 hai wo pring ho jaaye ge
+        lekin jab console.log(b); execute hone ka try kare ga to error mile ga
+        to hamara program vahi se execute hona stop ho jaaye ga yani ki ab aage ka code run nahi hoga
+
+        lekin ham esa chalte hai ki error milne pe program ka execution stop na ho
+        tab ham try and catch ka use karenge */
+        /* Syntax Of try and catch
+        try{
+          // code...
+        }
+        catch(parameter){
+          // error handling
+        }
+        catch ke parameter me ham koi bhi varaible ka name dete hai
+        jisme hame apna error ka statement store hoke mile ga */
+
+        try{
+            console.log(b);
+        }
+        catch(err){
+            console.log(err);
+            // NOTE : ham chahe to apna custome message bhi print kar sakte hai
+            console.log("the variable is not declear <br>"); 
+        }
+        console.log('printing 6');
+        console.log('printing 7');
+        console.log('printing 8');
+        console.log('printing 9');
+        console.log('printing 10');
+
+        /* yaha pe hamne try and catch ka use kiya hai
+        to yaha pe kya hoga ki pehle wo console.log(b) ko print karne ka try kare ga
+        lekin jese hee usko error mile ga wo direct catch block me chala jaaye ga
+        or Cache block me hamne jo likha hoga wo print hoga
+        fir uske niche ka program execution continue hee rahe ga wo stop nahi hoga */
+
+        // catch hai wo error ko as a console me print kare ga jese ham normal data ko print karte hai
+
+        // IN SHORT
+        // agar ham chahte hai ki hamare error ki vajse script(program) ka execution stop na ho tab ham try and catch ka use karte hai
+
+
+
+        /* Error object
+        When an error occurs, JavaScript generates an object containing the details about it. The object is then passed as an argument to catch:
+
+        try {
+        // ...
+        } catch (err) { // <-- the "error object", could use another word instead of err
+        // ...
+        }
+        For all built-in errors, the error object has two main properties:
+
+        name
+        Error name. For instance, for an undefined variable that’s "ReferenceError".
+        message
+        Textual message about error details. */
+        // Example
+        try {
+           lalala; // error, variable is not defined!
+        } catch (err) {
+            alert(err.name); // ReferenceError
+            alert(err.message); // lalala is not defined
+            alert(err.stack); // ReferenceError: lalala is not defined at (...call stack)
+
+            // Can also show an error as a whole
+            // The error is converted to string as "name: message"
+            alert(err); // ReferenceError: lalala is not defined
+        }
+
+
+
+        /* try...catch only works for runtime errors
+
+        The JavaScript engine first reads the code, and then runs it.
+        The errors that occur on the reading phase are called “parse-time” errors and are unrecoverable, (from inside that code).
+        That’s because the engine can’t understand the code.
+
+        So, try...catch can only handle errors that occur in valid code.
+        Such errors are called “runtime errors” or, sometimes, “exceptions”. */
+
+
+
+        // try...catch works synchronously
+        // If an exception happens in “scheduled” code, like in setTimeout, then try...catch won’t catch it:
+        try {
+            setTimeout(function() {
+                noSuchVariable; // script will die here
+            }, 1000);
+        } catch (err) {
+            alert( "won't work" );
+        }
+        // That’s because the function itself is executed later, when the engine has already left the try...catch construct.
+        // To catch an exception inside a scheduled function, try...catch must be inside that function:
+        setTimeout(function() {
+            try {
+                noSuchVariable; // try...catch handles the error!
+            } catch {
+                alert( "error is caught here!" );
+            }
+        }, 1000);
+
+
+
+
+        // Throwing our own errors
+        /* “Throw” operator
+        The throw operator generates an error.
+        throw operator ka use karke ham apna khud ka ek custom error create kar sakte hai.
+        The throw statement allows you to create a custom error.
+
+        The syntax is:
+        throw <error object> */
+
+        /* Technically, we can use anything as an error object. That may be even a primitive, like a number or a string,
+        but it’s better to use objects, preferably with name and message properties (to stay somewhat compatible with built-in errors).
+
+        JavaScript has many built-in constructors for standard errors: Error, SyntaxError, ReferenceError, TypeError and others.
+        We can use them to create error objects as well. */
+
+        // Their syntax is:
+        /*
+        let error = new Error(message);
+        // or
+        let error = new SyntaxError(message);
+        let error = new ReferenceError(message);
+        // ...
+        For built-in errors (not for any objects, just for errors), the name property is exactly the name of the constructor. And message is taken from the argument. */
+
+        // For instance
+        let error = new Error("Things happen o_O");
+        alert(error.name); // Error
+        alert(error.message); // Things happen o_O
+
+
+        // Example
+        let json = '{ "age": 30 }'; // incomplete data
+        try {
+            let user = JSON.parse(json); // <-- no errors
+
+            if (!user.name) {
+                throw new SyntaxError("Incomplete data: no name"); // (*)
+            }
+
+            alert( user.name );
+        } catch (err) {
+            alert( "JSON Error: " + err.message ); // JSON Error: Incomplete data: no name
+        }
+
+        // Another Example
+        function customError(value){
+            if(value != 0){
+                throw new Error("The value is not a 0 <br>");
+            }
+        }
+
+        try{
+            customError(2);
+        }
+        catch(err){
+            document.write(err);
+        }
+
+
+
+        // we can check the error type using the instanceof operator:
+        try {
+            user = { /*...*/ };
+        } catch (err) {
+            if (err instanceof ReferenceError) {
+                alert('ReferenceError'); // "ReferenceError" for accessing an undefined variable
+            }
+        }
+
+        // The example below demonstrates how such errors can be caught by one more level of try...catch:
+
+        function readData() {
+            let json = '{ "age": 30 }';
+
+            try {
+                // ...
+                blabla(); // error!
+            } catch (err) {
+                // ...
+                if (!(err instanceof SyntaxError)) {
+                throw err; // rethrow (don't know how to deal with it)
+                }
+            }
+        }
+
+        try {
+            readData();
+        } catch (err) {
+            alert( "External catch got: " + err ); // caught it!
+        }
+
+
+
+        // Use of finally
+        /* finally yani ki wo block of code always excute hoga chahe try run ho ya catch
+        syntax looks like this:
+        try {
+            ... try to execute the code ...
+        } catch (err) {
+            ... handle errors ...
+        } finally {
+            ... execute always ...
+        } */
+
+        // Example
+        try {
+            alert( 'try' );
+            if (confirm('Make an error?')) BAD_CODE();
+        } catch (err) {
+            alert( 'catch' );
+        } finally {
+            alert( 'finally' );
+        }
+        // The code has two ways of execution:
+        // If you answer “Yes” to “Make an error?”, then try -> catch -> finally.
+        // If you say “No”, then try -> finally.
+
+        // Another Example
+        try{
+            document.write(z);
+        }
+        catch(err){
+            document.write(err + "<br>");
+        }
+        finally {
+            document.write('Finally will execute every time <br>');
+        }
+
+
+        // READ MORE -> https://javascript.info/try-catch
+    </script>
+    
+</body>
+
+</html>

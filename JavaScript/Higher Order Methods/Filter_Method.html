@@ -3,43 +3,67 @@
 <html lang="en">
 
 <head>
-
-    <title>JavaScript</title>
+    <title>filter In JavaScript</title>
 
     <script>
+        document.write("<b>filter method</b> <br>");
+        /* filter method ka use karne ke liye hame ek function create karna padta hai
+        ham chahe to alg se bhi function create kar sakte hai or chahe to callback-function bhi likh sakte hai
+        filter method array ki sabhi value ko function ki condition ke saath check karta hai
+        jitni bhi value function ki condition se match ho jayegi vo un sabhi value ka ek new array create karke deta hai
+        or yadi koi bhi condition true nahi hoti hai wo empty array return karta hai. */
 
-        // filter method ka use karne ke liye hame ek function create karna padta hai
-        // ham chahe to alg se bhi function create kar sakte hai or chahe to callback-function bhi likh sakte hai
-        // filter method array ki sabhi value ko function ki condition ke saath check karta hai
-        // jitni bhi value function ki condition se match ho jayegi vo un sabhi value ka ek new array create karke deta hai
+        /* NOTE : find and filter same hee hai lekin different itna hai ki find hame first matching value return karta hai.
+        jab ki filter ham matching values ka array return karta hai. */
+
         /* Syntax :
         filter(callbackFn)
         filter(callbackFn, thisArg) */
 
-        let ages = [10,20,33,15,19];
-        document.write(ages+"<br><br>");
+        // Example
+        let age = [10,20,33,15,19];
+        document.write("age array : " + age + "<br><br>");
 
-        let b = ages.filter(checkAge);
+        let findAgeGreaterThan18 = age.filter(checkAge);
         // create a new function
-        function checkAge(age)
-        {
+        function checkAge(age){
             return age >= 18;
         }
-        document.write(b+"<br><br>");
+        document.write("-> all age greater than 18 : " + findAgeGreaterThan18 +"<br>");
+
+        document.write("-> typeof findAgeGreaterThan18 variable : " + typeof findAgeGreaterThan18 + "<br>");
+        console.log("-> all age greater than 18 :");
+        console.log(findAgeGreaterThan18);
 
 
         // use a callback-function
-        let result = ages.filter(function(age){
+        let result = age.filter(function(age){
             return age >= 18;
         });
-        document.write(result + "<br><br>");
+        document.write("-> use a callback functions : " + result + "<br>");
+
 
         // convert callback-function into arrow function
-        let ans = ages.filter( (age) => {
+        let ans = age.filter( (age) => {
             return age >= 18;
         });
-        document.write(ans + "<br><br>");
+        document.write("-> use arrow function : "+ ans + "<br><br>"); 
+
+
+        // Example using array of Object
+        let users = [
+            {id: 1, name: "John"},
+            {id: 2, name: "Pete"},
+            {id: 3, name: "Mary"}
+        ];
+
+        // returns array of the first two users
+        let someUsers = users.filter(item => item.id < 3);
         
+        document.write("-> find data which id smaller than 3 : <br>");
+        document.write("-> Check out put in console");
+        console.log("-> find data which id smaller than 3");
+        console.log(someUsers);
     </script>
 
 </head>

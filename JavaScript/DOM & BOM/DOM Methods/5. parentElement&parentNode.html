@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript</title>
+
+    <script>
+        /* parentElement or parentNode ka use child id,class ya tag ka use karke uska parent tag ko get karne or use parent tag me kuch bhi SET karne ke liye hota hai
+
+        parentElement or parentNode me sirf ek difference hai ki 
+        yadi ham parentElement ka use karta kai or us id,class ya tag ka koi parent na hoto vo hame null return karta hai 
+        but yadi ham parentNode ka use karta kai or us id,class ya tag ka koi parent na hoto vo hame kuch na kuch to return karta hai 
+         
+        */
+
+        document.getElementById("inner-1").parentElement.style.background = "red";
+        var a = document.getElementById("inner-1").parentElement;
+        document.wirte(a);
+
+
+        var a = document.getElementById("inner").parentNode;
+        console.log(a);        
+    </script> 
+
+    <style>
+        #outer{
+            background-color: aqua;
+            height: 300px;
+        }
+        #inner-1{
+            background-color: red;
+            height: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <!-- child or parent example -->
+    <div id="outer">
+        <div id="inner-1"></div>
+        <div id="inner-2"></div>
+        <div id="inner-3"></div>
+    </div>
+    <!-- ya hape jo outer hai to parent hai or jo inner-1, inner-2 or inner-3 hai to outer id ke child hai  -->
+
+</body>
+
+</html>

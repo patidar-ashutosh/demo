@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Variables In JavaScript</title>
+</head>
+<body>
+
+    <!--
+    What is Variable?
+    variable yani ki ek esa memory location jahape ham kuch data ko store karte hai or usi memory location ko kuch name
+    de dete hai or usi name ko variable kaha jaata hai.
+
+    variable yani ki memory location me kis name se data store hoga.
+    
+    A variable is a container for a value. OR A JavaScript variable is simply a name of storage location.
+    -->
+
+    <!-- three type of varible
+    var => var keywork ka use karke ham jo variable create karte hai usse ham redeclare kar sakte hai or
+    uski value ko bhi reassin kar sakte hai.
+    ex = var x = "hello"; || var x = "declare agin variable"; || x = "reassing value";
+
+    let => let keywork ka use karke ham jo variable create karte hai usse ham redeclare nahi kar sakte hai
+    lekin uski value ko reassin kar sakte hai.
+    ex = let x = "hello"; || x = "reassing value";
+
+    difference between var and let
+    var ka scope functions tak hota hai yani ki ham usse pure functions me kahi pe bhi access kar sakte hai.
+    let ka scope sirf uske block me hee hota hai yani ki ham let variable ko uske block ke outside access nahi kar sakte hai.
+    
+    const => const keywork ka use karke ham jo variable create karte hai usse ham redeclare bhi nahi kar sakte hai or
+    uski value ko bhi reassin nahi kar sakte hai.
+    ex = const x = "hello";
+
+    -->
+
+    <!-- What is Keyword ?
+    Keyword yani ki Reserved word jinka meaning pehle se hee define hota hai ki us word ka kya use hoga.
+    Jese ki jo let , var and const hai wo ek keywords hai jinka meaning define hai ki let, var and const ka
+    use karke ham variable create kar sakte hai. -->
+
+    <!-- IMPORTANT -->
+
+    <!-- 
+    Another programming language me kya hota hai ki ham variable ko jis datatype se define karte hai
+    ussi type ki value ko ham us variable me store kar sakte hai.
+
+    Lekin JavaScript me ham chahe variable ko let ya var se create kare or us variable me pehle ham koi interger
+    value store kar fir ussi variable ko reassign karke usme ham string , float ya boolean type ki bhi value store
+    kar sakte hai is liye JavaScript ko dynamic type language kehte hai.
+    
+    JavaScript hai wo dynamic type language hai yani hame yaha pe esa bata na nahi padta hai ki
+    ham is variable me int type ka ya fir string , boolean ya float type ka data store karenge.
+    JavaScript hai wo dynamic type language hai to wo automatically detect kar leta hai ki kis variable me kis type ka data store hai. -->
+
+    <!-- RULES TO CREATE VARIABLE
+    A variable name cannot be a keyword.
+    Can only begin with a letter, underscore(“_”) or “$” symbol
+    Can not start with a number or -
+    It can contain letters, numbers, underscore, or “$” symbol
+    These are case-sensitive (means capital a and small A are different variable)
+    -->
+
+    <!-- variable ke name ham kis-kis type se create kar sakte hai
+    write way           wrong
+    demoname            demo name
+    demo_name           99demoname
+    demo-name
+    demoName
+    demoname99
+    -->
+
+    <!-- What is case sensitive language?
+    case sensitive yani ki jisme capital letter and lower letter ko different mana jaata hai.
+    yani ki ham variables name, function names, or other identifiers ka name capital letter me lete hai
+    or lower letter me dete hai to wo variable and function different mane jaayenge.
+
+    Jese ki 3 variable hai age , Age and AGE to ye three variable different mane jaayenge.
+
+    NOTE: Jo JavaScript hai wo case-sensitive language hai.
+
+    JavaScript is a case-sensitive language. This means that language keywords, variables, function names,
+    and any other identifiers must always be typed with a consistent capitalization of letters.
+    The while keyword, for example, must be typed “while”, not “While” or “WHILE”. -->
+
+
+    <!-- 
+    IMPORTANT POINT FOR ANY PROGRAMMING LANGUAGE
+
+    There are three main steps to using variables in a program:
+    kisi bhi programming language me variable ke 3 steps hote hai:
+
+    Declaration - Declaration yani ki variable ko declare karna yani ki ham sirf variable ko create karenge usme kisi value(data) ko store nahi karenge.
+    Like : var age; let name;
+    Declaration — creating space in memory for a variable or a constant.
+
+    Assignment - Assignment yani ki variable ko value assign karna.
+    Like : age = 20; name = "vikash";
+    Assignment — setting the contents of the memory space to a value.
+
+    Initialisation - Initialisation yani ki variable ko declare or value assign dono saath me hee karna.
+    Like : var age = 20; let name = "vikash";
+    Initialisation — setting the value of a variable before any processing takes place (essentially
+    declaring a value and assigning its value in one statement). 
+
+    Reassign - Reassign yani ki kisi variable ki value ko change yani ki variable ko firse koi new value assign karna.
+
+    Redeclaration - Redeclaration yani ki kisi variable ko re-declare karna. -->
+
+
+    <!-- is semicolon mandatory in javascript ?
+    yadi ham JavaScript ke code ko likhe time kahee pe semicolon ka use nahi karte hai to hame koi error dekhne ko nahi mile ga.
+    kyo ki jo JavaScript hai wo automatically semicolon ko add kar deta hai.
+
+    Lekin BEST practice yahee mani jaati hai ki hame hamesa semicolon ka use karna chahiye.
+
+    lekin jo another programming language hoti hai uske me yadi ham semicolon nahi dete hai to hame error milta hai. -->
+    
+    <script>
+        // variable ka name hai wo hame camalcase me dena chahiye
+        var v = "var v";
+        document.write(v+ "<br>");
+        var v = "again declare";  // var variable ko re-declare kar sakte hai
+        document.write(v+ "<br>");
+        v = "reassin value";
+        document.write(v+ "<br>");
+
+        let l = "let a";
+        document.write(l+ "<br>");
+        l = "again";
+        document.write(l+ "<br>");
+        // let l = 30; // let variable ko re-declare nahi kar sakte hai
+
+
+        // jab ham koi constant variable create kare to uska name hai wo capital letter and underscore ka use karna chahiye.
+        // jise ham ya koi or developer samj jaaye ki ye jo variable hai wo constant variable hai.
+        // Example
+        const LAST_NAME = "you";
+        document.write(LAST_NAME + "<br>");
+
+        /* Being a “constant” just means that a variable’s value never changes.
+        But some constants are known before execution (like a hexadecimal value for red) and some constants are calculated in run-time,
+        during the execution, but do not change after their initial assignment.
+
+        For instance:
+
+        const pageLoadTime = // time taken by a webpage to load ;
+        The value of pageLoadTime is not known before the page load, so it’s named normally.
+        But it’s still a constant because it doesn’t change after the assignment. */
+
+        // capital-named constants are only used as aliases for “hard-coded” values.
+
+        /* We generally use upper case for constants that are “hard-coded”. Or, in other words, 
+        when the value is known prior to execution and directly written into the code.
+
+        In this code, birthday is exactly like that. So we could use the upper case for it.
+
+        In contrast, age is evaluated in run-time. Today we have one age, a year after we’ll have another one. 
+        It is constant in a sense that it does not change through the code execution. But it is a bit “less of a constant” than birthday: 
+        it is calculated, so we should keep the lower case for it. */
+
+
+        /* IMPORTANT
+        yadi ham koi variable ko create karte hai jisme ham let, var ya const keyword ka use nahi karte hai
+        to wo ek global variable create ho jaaye ga.
+
+        myAge = 33;
+
+        ab jo ye myAge variable hai wo ek global variable ho jaaye ga jise ham kahee pe bhi access ka paayenge.
+
+        myVariable = 'abc'; It's possible that you declare a variable in JavaScript without using any keyword var , let , const .
+        It simply means that you have created a global variable. */
+
+
+        // IMPORTANT
+        /* JavaScript hai wo Dynamic Type Language hai
+        yani ki kisi variable me pehle ham number type ki value store karte hai
+        fir ussi variable ko reassign karke ham usme string value ko bhi store kar sakte hai */
+
+        let dt = 55;
+        document.write(dt + "<br>");
+        dt = "change to string"
+        document.write(dt);
+    </script>
+    
+</body>
+</html>

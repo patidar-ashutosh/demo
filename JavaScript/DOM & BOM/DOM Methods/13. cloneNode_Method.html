@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript</title>
+
+    <script>
+        // cloneNode method ka use kisi ek tag ko copy karke dusre tag me paste karne ke liye hota hai
+        var target = document.getElementById("list").children[0];
+        //hamne yaha pe konsi id me se consa tag copy karna hai use target name ke variable me store kar diya hai 
+        var copy = target.cloneNode(true);
+        //yaha pe hame copy name ke variable me hame vo value ckpy karni hai use store kar diya hai
+
+        /* yaha pe ham true of false do value de sakte hai default false hota hai 
+        true yani ki vo tag,attribute or inner value(text,inner tag) ko bhi copy kare ga 
+        false yani ki vo tag or attribute ko hee copy kare ga. */
+
+        document.getElementById("main").appendChild(copy);
+        // yaha pe hamne jis id me data co paste karna hai use leke usme appendChile method ka use karke tag ko paste kar diya
+        // console.log(copy);
+    </script> 
+
+    <style>
+        #main{
+            background-color:rgb(149, 223, 198);
+            height: 250px;
+            margin: 50px;
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+   
+    <ul id="list">
+        <li>Orange</li>
+        <li>Apple</li>
+        <li>Grapes</li>
+        <li>Banana</li>
+    </ul>
+
+    <div id="main"></div>
+
+</body>
+
+</html>

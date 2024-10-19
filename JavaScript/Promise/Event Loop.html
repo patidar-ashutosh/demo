@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JavaScript</title> 
+</head>
+
+<body>
+
+    <script>
+        /* Asynchronous JavaScript is a programming pattern that allows certain tasks to be executed in the background,
+        without blocking the main thread of execution. This is important for building responsive and efficient web applications,
+        especially when dealing with tasks like fetching data from a server, handling user input, or performing time-consuming operations. */
+
+        // javascript is Synchronous single threaded language
+
+        // javascript me sirf ek call stack hota hai to javascript hai vo ek time pe sirf ek hee work kar sakta hai
+        // javascript me jitna bhi code hota hai call stack ke through execute hota hai
+
+        // NOTE : jab bhi koi javascript ka code run hota hai to ek global execution context file create hota hai
+        // jo global execution context file hota hai wo call stack me store hota hai
+
+        // How JavaScript Execute Our Code
+        // Example
+        // NOTE : To execute the function, we need a function call. This is also known as a function invocation.
+        function a(){
+            console.log("a");
+        }
+        a();
+        console.log('end');
+        // first to jo a function declare kiya hai usse memory allocate hogi
+        // ab hamara a() function call hoga
+        // to jab function call hoga to use execute karne ke liye ek environment create hoga
+        // jise ham Execution Context kehte hai.
+        // NOTE : When the JavaScript engine scans a script file, it makes an environment called the Execution Context that handles the entire transformation and execution of the code.
+        // ab jo Execution Context create huva hoga wo push ho jaaye ga call stack me
+        // to ab jo a function ka code hoga wo line by line run hoga to console.log('a') print hoga
+        // ab a function me koi or code nahi hau yani ki vo completly execute ho gya hai
+        // to ab jo uska Execution Context file hai wo call stack se remove ho jaaye ga
+        // fir console.log('end') hoga 
+        // ab koi or code nahi hai yani ki hamari all script run ho gai hai
+        // to ab jo call stack me global execution context file thi vo bhi remove ho jaaye gi
+        // or ab hamara call stack empty ho jaaye ga
+
+
+        // jo call stack hai uska work hai ki hamare code ko execute karna
+        // call stack me jo bhi file jaaye gi wo quickly usi time pe execute ho jaaye ge
+        // call stack kisi ka bhi wait nahi kare ga
+
+
+        // lekin hamare pass koi program ho koi script ho jise hame ek time ke baad call karna ho
+        // jese ki koi script ho usse 5 second ke baad call karna ho to kya ham esa kar sakte hai
+        // To answer hai NO kyo ki jo call stack hai wo kisi bhi code ko ussi time pe execute kar deta hai        
+        // call stack ke pass esa koi timer nahi hota hai ki jise ham kisi code ko kisi timing ke baad call kar sake
+
+        // Lekin ab hame esa karna hee ho ki koi script hai wo kisi time ke baad hee run ho
+        // ya fir hame koi or functionally ko use karna ho tab ham WEB API'S ka use karte hai
+
+
+
+        /* In JavaScript, the event loop is a fundamental concept that enables asynchronous programming.
+        It is part of the JavaScript runtime environment and is responsible for handling and managing events,
+        such as user input, network requests, and timers. The event loop allows JavaScript to be non-blocking,
+        meaning that it can execute multiple operations concurrently without waiting for each one to finish before moving on to the next. */
+    </script>
+    
+</body>
+
+</html>
